@@ -12,7 +12,7 @@ nmOne(x, items)
 \item{items}{The number of items you have to generate.}
 }
 \description{
-Item Model 1
+This uses item model 1 to create number series items.
 }
 \details{
 counting the alphabets representation.
