@@ -1,0 +1,11 @@
+Package: numGen
+Type: Package
+Title: Number Series Generator
+Version: 0.1
+Date: 2016-09-09
+Author: Aiden Loe
+Maintainer: Aiden <aidenloe@gmail.com>
+Description: Creating a number series generator that creates items based on cognitive models.
+License: GPL-3
+LazyData: TRUE
+RoxygenNote: 5.0.1
