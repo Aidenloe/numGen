@@ -2,6 +2,7 @@
 #' @import "stats"
 #' @param x To get the length value
 #' @param items The number of items you have to generate.
+#' @description This uses item model 1 to create number series items.
 #' @details counting the alphabets representation.
 #' @author Aiden Loe and Filip Simonfy, \email{bsl28@@cam.ac.uk}
 #' @title Item Model 1
