@@ -16,10 +16,10 @@ nmNeighbour(cat, n, items, arith)
 \item{arith}{The arithmetic operator of your choice ("add","substr","multi","div").}
 }
 \description{
-Neighbouring pairs or triads of objects are related, includes arithmetic operations.
+This uses item model 9 to create number series items.
 }
 \details{
-This is based on the categorical / pattern recognition rule
+This is based on the categorical / pattern recognition rule. Neighbouring pairs or triads of objects are related, includes arithmetic operations.
 }
 \examples{
 \dontrun{

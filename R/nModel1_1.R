@@ -3,7 +3,7 @@
 #' @param x To get the length value
 #' @param items The number of items you have to generate.
 #' @details counting the alphabets representation.
-#' @author Aiden Loe and Filip Simonfy
+#' @author Aiden Loe and Filip Simonfy, \email{bsl28@@cam.ac.uk}
 #' @title Item Model 1
 #' @examples \dontrun{
 #'
@@ -36,8 +36,6 @@ nmOne <- function(x,items) {
 
   return(bank_11)
 }
-
-
 
 
 # bank of items of 4, 5, 6 characters

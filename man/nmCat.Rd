@@ -14,10 +14,10 @@ nmCat(cat, items, random = FALSE)
 \item{random}{To randomise the position of the numeric values.}
 }
 \description{
-Group Categorisation
+This is based on the categorical / pattern recognition rule.
 }
 \details{
-This is based on the categorical / pattern recognition rule
+Identification of the number series follows a group pattern recognition rule.
 }
 \examples{
 \dontrun{

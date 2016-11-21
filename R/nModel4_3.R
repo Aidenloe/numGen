@@ -1,7 +1,7 @@
 #' @export
 #' @param items Generate a random mix of items.
-#' @details # # Irregular combination of sequences a b b a b b a ...
-#' @description  This function creates number series that is a irregular combination of sequences a b b a b b a ... The values are big because the limits of the div and multiplication are allowed high. Also, we can limit the values of add and str by changing the value 99 to something smaller in the code.
+#' @details This function creates number series that is a irregular combination of sequences a b b a b b a ... Only the addition and substraction arithmetic operators are used to create the number series items.
+#' @description This uses item model 13 to create number series items.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 13
 #' @examples \dontrun{
@@ -34,6 +34,8 @@ for(i in 1:25){
 }
 sub <- do.call("rbind", sub)
 
+#Also, we can limit the values of add and str by changing the value 99 to something smaller in the code.
+# This was commented out because the numbers in the series become too big.
 #multi
 # multi<- NULL
 # for(i in 2:99){

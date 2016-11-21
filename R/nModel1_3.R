@@ -3,7 +3,8 @@
 #' @param cat Length of categorical groups per question.
 #' @param items The number of items you want to generate.
 #' @param random To randomise the position of the numeric values.
-#' @details This is based on the categorical / pattern recognition rule
+#' @details Identification of the number series follows a group pattern recognition rule.
+#' @description This is based on the categorical / pattern recognition rule.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Group Categorisation
 #' @examples \dontrun{

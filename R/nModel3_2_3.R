@@ -5,10 +5,10 @@
 #' @param seed To get the same random sampling of items
 #' @param logic "one" or "two"
 #' @param random If random=FALSE, the items will follow in sequential order.
-#' @details Arithmetic + Linear + Complex coefficient.
-#' First logic of complex coefficient = i*x+y.
+#' @description This uses item model 8 to create number series items.
+#' @details  This function creates number series that is a combination of Arithmetic, Linear and Complex coefficient. \cr
+#' First logic of complex coefficient = i*x+y.\cr
 #' Second logic of complex coefficient = (i+x)*y.
-#' @description  This function creates number series that is a combination of Arithmetic + Linear + Complex coefficient. The minimum number that will be generated is 10, given multi and add are both 1.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 8
 #' @examples \dontrun{

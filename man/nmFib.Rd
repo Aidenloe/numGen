@@ -10,10 +10,10 @@ nmFib(items)
 \item{items}{Number of items to generate.}
 }
 \description{
-This function creates Fibonacci sequences. The maximum number to be generated is 15 items.
+This uses item model 10 to create number series items.
 }
 \details{
-Fibonacci sequence
+This function creates Fibonacci sequences. The maximum number to be generated is 15 items.
 }
 \examples{
 \dontrun{

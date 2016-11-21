@@ -14,10 +14,10 @@ nmThree(items, n, arithmetic)
 \item{arithmetic}{Use either 'add', 'substr', 'multi', 'div'.}
 }
 \description{
-Item Model 3 (Arithmetic)
+This uses item model 3 to create number series items.
 }
 \details{
-This is based on linearity rule / pattern recognition rule and also arimetic abilty. Currently it only displays up to a series of 9.
+This is based on linearity rule / pattern recognition rule and also arithmetic operators. Currently it only displays up to a series of 9.
 }
 \examples{
 \dontrun{

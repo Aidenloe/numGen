@@ -1,11 +1,7 @@
 #' @export
 #' @param items Number of items to generate.
-#' @details This function creates number series items a hypothesized cognitive model.
-#' @description  Arithmetic + Linear + Progressive coefficient (i.e. coefficient = sequence)
-#' 2 4 7 11 16 ?
-#' define starting point - e.g. each number 1:100
-#' define coefficient sequence - first element and progression
-#' element = first element + sum of the sequence at the position of the element
+#' @description This uses item model 7 to create number series items.
+#' @details  This model uses the addition and substraction (Arithmetic) operator, Linear pattern and Progressive coefficient to create the number series.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 7
 #' @examples \dontrun{
@@ -14,8 +10,10 @@
 #'
 #' }
 #
-
-# RUN MODEL 2_1 FIRST + linear (below)
+#Arithmetic + Linear + Progressive coefficient (i.e. coefficient = sequence)
+# Define starting point - e.g. each number 1:100
+# define coefficient sequence - first element and progression
+# element = first element + sum of the sequence at the position of the element
 nmSeven <- function(items){
 bank_lin <- matrix(ncol=6)
 colnames(bank_lin) <- colnames(bank_lin, do.NULL = FALSE, prefix = "Q")
@@ -28,7 +26,6 @@ for (i in 1:95) {
 }
 
 #Model 2_1
-
 model2_1 <- function(value){
   bank_lin <- nmAdd(9,95)
   bank_lin <- as.matrix(bank_lin)

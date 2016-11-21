@@ -14,10 +14,10 @@ nmTwelve(items = 1, fun1 = "add", fun2 = "add")
 \item{fun2}{The argument decides the arithmetic to be employed for the two values between the grouped objects.  There are two arithmetic: add, substr.}
 }
 \description{
-This function creates number series that is a combination of Neighbouring objects + 2-sequence coefficient. Multiplication and Division is removed since the calculated value is too big.
+This uses item model 12 to create number series items.
 }
 \details{
-# # Neighbouring objects + 2-sequence coefficient.
+Neighbouring objects + 2-sequence coefficient.  This function creates number series that is a combination of Neighbouring objects + 2-sequence coefficient. Multiplication and Division are removed since the calculated value is too big.
 }
 \examples{
 \dontrun{

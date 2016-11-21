@@ -1,7 +1,7 @@
 #' @export
 #' @param items Number of items to generate.
-#' @details Fibonacci sequence
-#' @description  This function creates Fibonacci sequences. The maximum number to be generated is 15 items.
+#' @details This function creates Fibonacci sequences. The maximum number to be generated is 15 items.
+#' @description  This uses item model 10 to create number series items.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 10
 #' @examples \dontrun{

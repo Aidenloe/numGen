@@ -4,7 +4,7 @@ Title: Number Series Generator
 Version: 0.1
 Date: 2016-09-09
 Author: Aiden Loe
-Maintainer: Aiden <aidenloe@gmail.com>
+Maintainer: Aiden <bsl28@cam.ac.uk>
 Description: Creates a number series generator that creates number series items based on cognitive models.
 License: GPL-3
 LazyData: TRUE

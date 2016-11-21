@@ -2,11 +2,11 @@
 #' @param x To get the length value
 #' @param items The number of items you have to generate.
 #' @param random The alphabets are not in order.
-#' @details counting the alphabets representation.
+#' @details This function will return two letter groups of different length within a letter sequence.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 2
-#' @description
-#' This function will only return two letter groups of different length.
+#' @description This uses item model 2 to create number series items.
+#'
 #'
 #' @examples \dontrun{
 #'

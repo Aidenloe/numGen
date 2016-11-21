@@ -2,9 +2,10 @@
 #' @param arith Select the arithmetric operator of choice ("add","multi", "sub", "div").
 #' @param n Value you want use the arithmetic operator on.
 #' @param items Generate a random mix of items.
-#' @details 2 linear sequences (With use of the same arithmetic operator)
-#' @description  i.e combination of: sequences x y x y x y x y.
+#' @details 2 linear sequences (With use of the same arithmetic operator).
+#' Combination of: sequences x y x y x y x y.
 #' The selected arithmetic and the operator will remind the same between the combined sequences.
+#' @description This uses item model 6 to create number series items.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 6
 #'

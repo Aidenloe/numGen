@@ -1,7 +1,8 @@
 #' @export
 #' @param length This is the length of each item
 #' @param items The number of items you want to generate
-#' @details This is based on linearity rule / pattern recognition rule
+#' @details This is based on linearity rule / pattern recognition rule.
+#' @description This uses item model 3 to create number series items.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 3 (Addition)
 #' @examples \dontrun{
@@ -43,6 +44,7 @@ for (i in 1:items) {
 #' @param items The number of items you want to generate
 #' @param reverse Changing reverse to TRUE will flip to direction of the progressive alphabets
 #' @details This is based on linearity rule / pattern recognition rule
+#' @description This uses item model 3 to create letter series items.
 #' This is for alphabets and is restricted to 21 items.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 3 (Alpha)
@@ -91,7 +93,8 @@ nmAlpha <- function(items, reverse=FALSE){
 #' @param items The number of items you want to generate
 #' @param n Value you want use the arithmetic operator on
 #' @param arithmetic Use either 'add', 'substr', 'multi', 'div'.
-#' @details This is based on linearity rule / pattern recognition rule and also arimetic abilty. Currently it only displays up to a series of 9.
+#' @details This is based on linearity rule / pattern recognition rule and also arithmetic operators. Currently it only displays up to a series of 9.
+#' @description This uses item model 3 to create number series items.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 3 (Arithmetic)
 #' @examples \dontrun{

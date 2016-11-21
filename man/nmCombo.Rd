@@ -7,15 +7,17 @@
 nmCombo(items, seed)
 }
 \arguments{
-\item{items}{Number of items you want to generate.}
+\item{items}{Number of items to generate.}
 
 \item{seed}{This gives you the same result again.}
 }
 \description{
-i.e combination of:
+This uses item model 4 and 5 to create number series items.
 }
 \details{
-2 linear sequences (without use of arithmetic)
+Comprehension of abstract object representation
+i.e combination of:same number / same letter
+2 simple linear (without arithmetic) 1 2 3 / a b c / 10 20 30 combine to form a number series item.
 }
 \examples{
 \dontrun{

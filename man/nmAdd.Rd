@@ -12,10 +12,10 @@ nmAdd(length, items)
 \item{items}{The number of items you want to generate}
 }
 \description{
-Item Model 3 (Addition)
+This uses item model 3 to create number series items.
 }
 \details{
-This is based on linearity rule / pattern recognition rule
+This is based on linearity rule / pattern recognition rule.
 }
 \examples{
 \dontrun{

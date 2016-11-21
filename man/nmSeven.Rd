@@ -10,14 +10,10 @@ nmSeven(items)
 \item{items}{Number of items to generate.}
 }
 \description{
-Arithmetic + Linear + Progressive coefficient (i.e. coefficient = sequence)
-2 4 7 11 16 ?
-define starting point - e.g. each number 1:100
-define coefficient sequence - first element and progression
-element = first element + sum of the sequence at the position of the element
+This uses item model 7 to create number series items.
 }
 \details{
-This function creates number series items a hypothesized cognitive model.
+This model uses the addition and substraction (Arithmetic) operator, Linear pattern and Progressive coefficient to create the number series.
 }
 \examples{
 \dontrun{

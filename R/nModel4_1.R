@@ -3,10 +3,11 @@
 #' @param logic The combination of sequences follow two logic.
 #' @param n The value that the arithmetic operator uses to calculate the next value
 #' @param arith The arithmetic operator of your choice ("add","substr","multi","div").
-#' @details # Arithmetic + Linear + Progressive coefficient
+#' @details The number series items are a combination of Arithmetic, linear sequence and progressive coefficient.
 #' First logic is combining sequences x y x y x y x y = one simple, one progressive.
-#' Second logic is combining sequences x y x y x y x y = two progressive.
-#' @description  This function creates number series that is a combination of Arithmetic + Linear + Progressive coefficient. The minimum number of items that will be generated is 2.
+#' Second logic is combining sequences x y x y x y x y = two progressive. The minimum number of items that will be generated is 2.
+#' @description This uses item model 11 to create number series items.
+#'
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 11
 #' @examples \dontrun{
@@ -76,8 +77,6 @@ for(i in 1:10){
   bank_arith  <- rbind(bank_arith,nmProgress(vOne=1,vTwo=i,items=ceiling(items/10),seed=NULL,logic="one",random=FALSE))
 }
 
-# bank of sequences with linear (arithmetic & geometric) trend
-#head(bank_arith, 30)
 
 # combining sequences x y x y x y x y = one simple, one progressive
 # creating combinations of whole banks is too lengthy >> randomize 100 items

@@ -12,10 +12,10 @@ nmSeqRatio(items = 10, seed = 1)
 \item{seed}{Generate a fixed ratio set but not final item set.}
 }
 \description{
-This function creates number series creates a combination of sequences and ratios. The seed generates a fixed ration set to be combined with sequence but does not provide the final item set.
+This uses item model 14 to create number series items.
 }
 \details{
-# # # Combination of sequences and ratios (combo one and combo two: nmRatios())
+Combination of sequences and ratios. This function creates number series creates a combination of sequences and ratios. The seed generates a fixed ratio set to be combined with sequence but does not fix the final item set. Only the addition and substraction arimethic operators are used to generate the number series items.
 }
 \examples{
 \dontrun{

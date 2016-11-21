@@ -14,11 +14,12 @@ nmParaSeq(arith = "add", n = 1, items = 2)
 \item{items}{Generate a random mix of items.}
 }
 \description{
-i.e combination of: sequences x y x y x y x y.
-The selected arithmetic and the operator will remind the same between the combined sequences.
+This uses item model 6 to create number series items.
 }
 \details{
-2 linear sequences (With use of the same arithmetic operator)
+2 linear sequences (With use of the same arithmetic operator).
+Combination of: sequences x y x y x y x y.
+The selected arithmetic and the operator will remind the same between the combined sequences.
 }
 \examples{
 \dontrun{

@@ -14,10 +14,10 @@ nmTwo(x, items, random = FALSE)
 \item{random}{The alphabets are not in order.}
 }
 \description{
-This function will only return two letter groups of different length.
+This uses item model 2 to create number series items.
 }
 \details{
-counting the alphabets representation.
+This function will return two letter groups of different length within a letter sequence.
 }
 \examples{
 \dontrun{

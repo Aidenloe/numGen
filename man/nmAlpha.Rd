@@ -12,11 +12,11 @@ nmAlpha(items, reverse = FALSE)
 \item{reverse}{Changing reverse to TRUE will flip to direction of the progressive alphabets}
 }
 \description{
-Item Model 3 (Alpha)
+This uses item model 3 to create letter series items.
+This is for alphabets and is restricted to 21 items.
 }
 \details{
 This is based on linearity rule / pattern recognition rule
-This is for alphabets and is restricted to 21 items.
 }
 \examples{
 \dontrun{

@@ -1,8 +1,8 @@
 #' @export
 #' @param items Generate a random mix of items.
 #' @param seed Generate a fixed ratio set but not final item set.
-#' @details # # # Combination of sequences and ratios (combo one and combo two: nmRatios())
-#' @description  This function creates number series creates a combination of sequences and ratios. The seed generates a fixed ration set to be combined with sequence but does not provide the final item set.
+#' @details Combination of sequences and ratios. This function creates number series creates a combination of sequences and ratios. The seed generates a fixed ratio set to be combined with sequence but does not fix the final item set. Only the addition and substraction arimethic operators are used to generate the number series items.
+#' @description   This uses item model 14 to create number series items.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 14
 #' @examples \dontrun{

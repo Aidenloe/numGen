@@ -16,12 +16,12 @@ nmEleven(items, logic = "one", n = 2, arith = "add")
 \item{arith}{The arithmetic operator of your choice ("add","substr","multi","div").}
 }
 \description{
-This function creates number series that is a combination of Arithmetic + Linear + Progressive coefficient. The minimum number of items that will be generated is 2.
+This uses item model 11 to create number series items.
 }
 \details{
-# Arithmetic + Linear + Progressive coefficient
+The number series items are a combination of Arithmetic, linear sequence and progressive coefficient.
 First logic is combining sequences x y x y x y x y = one simple, one progressive.
-Second logic is combining sequences x y x y x y x y = two progressive.
+Second logic is combining sequences x y x y x y x y = two progressive. The minimum number of items that will be generated is 2.
 }
 \examples{
 \dontrun{

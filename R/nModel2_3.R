@@ -1,10 +1,10 @@
 #' @export
-#' @param items Number of items you want to generate.
+#' @param items Number of items to generate.
 #' @param seed This gives you the same result again.
-#' @details 2 linear sequences (without use of arithmetic)
-#' @description  i.e combination of:
-# same number / same letter
-# simple linear (without arithmetic) 1 2 3 / a b c / 10 20 30
+#' @description This uses item model 4 and 5 to create number series items.
+#' @details  Comprehension of abstract object representation
+#' i.e combination of:same number / same letter
+#' 2 simple linear (without arithmetic) 1 2 3 / a b c / 10 20 30 combine to form a number series item.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 4 and 5
 #' @examples \dontrun{

@@ -20,11 +20,11 @@ nmProgress(vOne, vTwo, items, seed, logic = "one", random = FALSE)
 \item{random}{If random=FALSE, the items will follow in sequential order.}
 }
 \description{
-This function creates number series that is a combination of Arithmetic + Linear + Complex coefficient. The minimum number that will be generated is 10, given multi and add are both 1.
+This uses item model 8 to create number series items.
 }
 \details{
-Arithmetic + Linear + Complex coefficient.
-First logic of complex coefficient = i*x+y.
+This function creates number series that is a combination of Arithmetic, Linear and Complex coefficient. \cr
+First logic of complex coefficient = i*x+y.\cr
 Second logic of complex coefficient = (i+x)*y.
 }
 \examples{

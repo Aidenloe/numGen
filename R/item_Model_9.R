@@ -4,8 +4,8 @@
 #' @param n The differences between the pair of objects
 #' @param items The number of items you want to generate.
 #' @param arith The arithmetic operator of your choice ("add","substr","multi","div").
-#' @description Neighbouring pairs or triads of objects are related, includes arithmetic operations.
-#' @details This is based on the categorical / pattern recognition rule
+#' @description This uses item model 9 to create number series items.
+#' @details This is based on the categorical / pattern recognition rule. Neighbouring pairs or triads of objects are related, includes arithmetic operations.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 9
 #' @examples \dontrun{

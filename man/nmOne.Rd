@@ -25,6 +25,6 @@ nmOne(3,26)
 }
 }
 \author{
-Aiden Loe and Filip Simonfy
+Aiden Loe and Filip Simonfy, \email{bsl28@cam.ac.uk}
 }
 
