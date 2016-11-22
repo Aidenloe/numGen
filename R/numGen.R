@@ -13,9 +13,9 @@
 #'
 #' @section Item model 3:
 #' There are three functions to this item model. \cr
-#' \code{\link{nmAdd}} nmAdd follows a sequence succession rule (numbers). \cr
+#' \code{\link{nmAdd}} follows a sequence succession rule (numbers). \cr
 #' \code{\link{nmAlpha}} follows a sequence succession rule (alphabets) \cr
-#' \code{\link{nmThree}}  allows you to select one of the four arithmetic of choice following a sequence succession rule.
+#' \code{\link{nmThree}}  allows you to select one of the four arithmetic operators following a sequence succession rule.
 #'
 #' @section Item model 4 and 5:
 #' This create items that relates to comprehension of abstract object representation (Item model 5) and Identification of co-occurring relationships between elements (Item model 4).\cr
