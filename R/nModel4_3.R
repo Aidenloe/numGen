@@ -7,7 +7,7 @@
 #' @examples \dontrun{
 #'
 #' #Draws 5 items randomly.
-#' nmIrregular(5)
+#' nmThirteen(5)
 #'
 #' }
 
@@ -16,7 +16,10 @@
 # same/different operator
 
 # RUN MODEL 2_1 FIRST + linear (below)
-nmIrregular <- function(items){
+nmThirteen <- function(items){
+  if(missing(items)){
+    stop("Please include x number of items to generate")
+  }
 bank_lin <- nmAdd(9,95)
 bank_lin <- as.matrix(bank_lin)
 

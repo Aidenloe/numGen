@@ -8,7 +8,7 @@
 #' @examples \dontrun{
 #'
 #' #Draws 10 items randomly.
-#' nmSeqRatio(10,5)
+#' nmFourteen(10,5)
 #'
 #' }
 
@@ -19,8 +19,10 @@
 # RUN MODEL 3_4 a, b, & d FIRST
 # + linear (below)
 
-nmSeqRatio<- function(items=10, seed=1){
-
+nmFourteen<- function(items, seed=1){
+  if(missing(items)){
+    stop("Please include x number of items to generate")
+  }
 #Model 2_1
 model2_1 <- function(value){
 bank_lin <- nmAdd(9,95)

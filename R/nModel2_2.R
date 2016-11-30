@@ -3,19 +3,21 @@
 #' @param value Value + numLetter gives you back the total number of letters.
 #' @param items Number of items to generate.
 #' @param random If random=FALSE, the items will follow in sequential order.
-#' @details Returns the number representation which is the count of the specific letters.
+#' @details The core feature of sequences is the numeric representation of the object count.  The sequences consist of homogeneous groups of letters followed by a number representing the amount of the group elements.
 #' @description This function tells you the count of a specific letter.
 #' @author Aiden Loe
-#' @title Letter Representation
+#' @title Item Model 4
 #' @examples \dontrun{
 #'
-#' nmRepresent(numLetter= 2 ,value=3, items=10, random=FALSE)
+#' nmFour(numLetter= 2 ,value=3, items=10, random=FALSE)
 #'
 #' }
 
 # number representation + relationship between objects
 # with order a 1 b b b 3 c c
-nmRepresent <- function(numLetter,value, items, random=FALSE){
+nmFour <- function(numLetter=2,value=3, items=3, random=FALSE){
+
+
   bank_rep <- matrix(ncol = value+numLetter*2)
   bank_rep
   colnames(bank_rep) <- colnames(bank_rep, do.NULL = FALSE, prefix = "Q")

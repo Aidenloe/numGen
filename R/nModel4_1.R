@@ -30,6 +30,9 @@
 
 # RUN MODEL 2_1 FIRST + linear (below)
 nmEleven <- function(items, logic="one" , n=2,arith = "add" ){
+  if(missing(items)){
+    stop("Please include x number of items to generate")
+  }
   if(items==1) stop("Please put a value greater than 1")
 
 # create matrix
@@ -74,7 +77,7 @@ for (k in 1:20) {
 bank_arith<- NULL
 
 for(i in 1:10){
-  bank_arith  <- rbind(bank_arith,nmProgress(vOne=1,vTwo=i,items=ceiling(items/10),seed=NULL,logic="one",random=FALSE))
+  bank_arith  <- rbind(bank_arith,nmEight(vOne=1,vTwo=i,items=ceiling(items/10),seed=NULL,logic="one",random=FALSE))
 }
 
 

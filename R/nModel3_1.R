@@ -12,7 +12,7 @@
 #' @examples \dontrun{
 #'
 #' set.seed(1)
-#' nmParaSeq(arithmetic="add",n=2,5)
+#' nmSix(arithmetic="add",n=2,5)
 #'
 #' }
 
@@ -22,7 +22,7 @@
 # combining sequences x y x y x y x y
 
 # random selection >> creating 1000 items
-nmParaSeq<- function(arith="add",n=1,items=2){
+nmSix<- function(arith="add",n=1,items=2){
   if(arith == "add"){
     bank_list <- nmThree(items,n,arithmetic="add")
   }else if(arith == "substr"){

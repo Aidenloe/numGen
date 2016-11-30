@@ -19,7 +19,9 @@
 #' }
 
 nmRatios <- function(items,combo = "one", seed){
-
+  if(missing(items)){
+    stop("Please include x number of items to generate")
+  }
 if(combo == "one" || combo == "two" || combo == "three" || combo == "four" ){
   if (items >80){
   stop("Please select item value less than 80.")

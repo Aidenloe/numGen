@@ -18,7 +18,9 @@
 # 1	7	14 20	40 46 ? ?
 # (92, 98)
 nmTwelve <- function(items=1, fun1 = "add", fun2="add"){
-
+  if(missing(items)){
+    stop("Please include x number of items to generate")
+  }
   stopifnot(fun1=="add" | fun1=="substr")
   stopifnot(fun2=="add" | fun2=="substr")
 

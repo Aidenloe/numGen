@@ -4,20 +4,24 @@
 #' @description This uses item model 4 and 5 to create number series items.
 #' @details  Comprehension of abstract object representation
 #' i.e combination of:same number / same letter
-#' 2 simple linear (without arithmetic) 1 2 3 / a b c / 10 20 30 combine to form a number series item.
+#' 2 simple linear (without arithmetic) 1 2 3 / 10 20 30 combine to form a number series item.
 #' @author Aiden Loe and Filip Simonfy
-#' @title Item Model 4 and 5
+#' @title Item Model 5
 #' @examples \dontrun{
 #'
-#' nmCombo(items=5, seed=5)
+#' nmFive(items=5, seed=5)
 #'
 #' }
 
 # same letter sequence bank = bank_1
-nmCombo<- function(items,seed){
-  column <- matrix(LETTERS, nrow = 26, ncol = 1)
-  bank_1 <- matrix(nrow = 26, ncol = 5)
-  bank_1[ ,c(1:5)] <- column
+nmFive<- function(items,seed=1){
+  if(missing(items)){
+    stop("Please include x number of items to generate")
+  }
+
+#   column <- matrix(LETTERS, nrow = 26, ncol = 1)
+#   bank_1 <- matrix(nrow = 26, ncol = 5)
+#   bank_1[ ,c(1:5)] <- column
 
   # same number sequence bank = bank_2
   bank_2 <- matrix(rep(1:99, 5), byrow = FALSE, ncol = 5)
@@ -38,23 +42,24 @@ nmCombo<- function(items,seed){
   }
 
   # simple linear 'alphabet' = bank_5
-  bank_5 <- matrix(ncol=5)
-  alphabet <- LETTERS[seq(1:26)]
-  for (i in 1:(length(alphabet) - 4)) {
-    item <- c(alphabet[i], alphabet[i+1], alphabet[i+2], alphabet[i+3], alphabet[i+4])
-    bank_5 <- rbind(bank_5, item)
-  }
+#   bank_5 <- matrix(ncol=5)
+#   alphabet <- LETTERS[seq(1:26)]
+#   for (i in 1:(length(alphabet) - 4)) {
+#     item <- c(alphabet[i], alphabet[i+1], alphabet[i+2], alphabet[i+3], alphabet[i+4])
+#     bank_5 <- rbind(bank_5, item)
+# }
 
   # combining sequences x y x y x y x y
-  bank_list <- list(bank_1, bank_2, bank_3, bank_4, bank_5)
+  bank_list <- list(bank_2, bank_3, bank_4)
 
-  a <- c(rep(1:5, 5))
+  a <- c(rep(1:3, 5))
   b <- c(a[order(a)])
 
   combinations <- matrix(ncol=2, nrow=length(a))
   combinations[ ,1] <- b
   combinations[ ,2] <- a
 
+ # matrix creation
   sub_bank <- matrix(ncol = 10)
   bank_23 <- matrix(ncol = 10)
   colnames(bank_23) <- colnames(bank_23, do.NULL = FALSE, prefix = "Q")
@@ -76,7 +81,7 @@ nmCombo<- function(items,seed){
     return(sub_bank)
   }
 
-  for (l in 1:nrow(combinations)) {
+    for (l in 1:nrow(combinations)) {
     h <- generate(combinations[l,1], combinations[l,2])
     bank_23 <- rbind(bank_23, h)
     bank_23 <- na.omit(bank_23)

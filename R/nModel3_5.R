@@ -6,15 +6,17 @@
 #' @title Item Model 10
 #' @examples \dontrun{
 #'
-#' nmFib(items=3)
+#' nmTen(items=3)
 #'
 #' }
 
 
 # generates first 20 numbers of the sequence
 
-nmFib <- function(items){
-
+nmTen <- function(items){
+  if(missing(items)){
+    stop("Please include x number of items to generate")
+  }
   if(items > 15){
     stop("Please select less than 16 items.")
   }

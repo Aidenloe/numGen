@@ -14,11 +14,11 @@
 #' @examples \dontrun{
 #'
 #' #Draws 5 items randomly.
-#' nmProgress(vOne=1,vTwo=3,items=5,seed=2,logic="one",random=TRUE)
+#' nmEight(vOne=1,vTwo=3,items=5,seed=2,logic="one",random=TRUE)
 #'
 #' # Calculates all combinations
 #' # Items and seed arg is ignored.
-#' nmProgress(vOne=1:2,vTwo=1:3,items=5,seed=2,logic="one",random=FALSE)
+#' nmEight(vOne=1:2,vTwo=1:3,items=5,seed=2,logic="one",random=FALSE)
 #'
 #' }
 
@@ -26,7 +26,10 @@
 # 2 5 11 23 ?
 # complex coefficient = i*x+y
 # complex coefficient = (i+x)*y
-nmProgress<- function(vOne, vTwo, items,seed, logic = "one", random = FALSE){
+nmEight<- function(vOne=1, vTwo=3, items ,seed=1, logic = "one", random = FALSE){
+  if(missing(items)){
+    stop("Please include x number of items to generate")
+  }
 
 if(logic == "one"){
 generate_sequence <- function(i,x,y) {

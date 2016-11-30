@@ -23,21 +23,27 @@ This number series counts the alphabets representation, but contains 2 letter gr
 \section{Item model 3}{
 
 There are three functions to this item model. \cr
-\code{\link{nmAdd}} nmAdd follows a sequence succession rule (numbers). \cr
+\code{\link{nmAdd}} follows a sequence succession rule (numbers). \cr
 \code{\link{nmAlpha}} follows a sequence succession rule (alphabets) \cr
-\code{\link{nmThree}}  allows you to select one of the four arithmetic of choice following a sequence succession rule.
+\code{\link{nmThree}}  allows you to select one of the four arithmetic operators following a sequence succession rule.
 }
 
-\section{Item model 4 and 5}{
+\section{Item model 4}{
+
+The core feature of sequences is the numeric representation of the object count.  The sequences consist of homogeneous groups of letters followed by a number representing the amount of the group elements.\cr
+\code{\link{nmFour}}
+}
+
+\section{Item model 5}{
 
 This create items that relates to comprehension of abstract object representation (Item model 5) and Identification of co-occurring relationships between elements (Item model 4).\cr
-\code{\link{nmCombo}}
+\code{\link{nmFive}}
 }
 
 \section{Item model 6}{
 
 Generate items with two sequences combined into one number series.\cr
-\code{\link{nmParaSeq}}
+\code{\link{nmSix}}
 }
 
 \section{Item model 7}{
@@ -51,19 +57,19 @@ This model uses the addition and substraction (Arithmetic) operator, Linear patt
 This function creates number series that is a combination of Arithmetic, Linear and Complex coefficient. \cr
 First logic of complex coefficient = i*x+y.\cr
 Second logic of complex coefficient = (i+x)*y.\cr
- \code{\link{nmProgress}}
+ \code{\link{nmEight}}
 }
 
 \section{Item model 9}{
 
 This is based on the categorical / pattern recognition rule. Neighbouring pairs or triads of objects are related, includes arithmetic operations. \cr
-\code{\link{nmNeighbour}}
+\code{\link{nmNine}}
 }
 
 \section{Item model 10}{
 
 This function creates Fibonacci sequences. The maximum number to be generated is 15 items.\cr
-\code{\link{nmFib}}
+\code{\link{nmTen}}
 }
 
 \section{Item model 11}{
@@ -86,12 +92,12 @@ Multiplication and Division is removed since the calculated value is too big. \c
 
 This function creates number series that is a irregular combination of sequences a b b a b b a ... \cr
 Only the addition and substraction arithmetic operators are used to create the number series items. \cr
- \code{\link{nmIrregular}}
+ \code{\link{nmThirteen}}
 }
 
 \section{Item model 14}{
 
 Combination of sequences and ratios. \cr
-\code{\link{nmSeqRatio}}
+\code{\link{nmFourteen}}
 }
 

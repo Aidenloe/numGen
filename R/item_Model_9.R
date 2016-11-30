@@ -10,11 +10,11 @@
 #' @title Item Model 9
 #' @examples \dontrun{
 #'
-#' nmNeighbour(2,4,2, "add")
+#' nmNine(2,4,2, "add")
 #'
 #' }
 
-nmNeighbour <- function(cat ,n, items, arith){
+nmNine <- function(cat ,n, items, arith){
 if(cat==1) stop("Please select at least 2 items")
 
   #create columns
