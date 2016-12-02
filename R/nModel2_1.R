@@ -104,13 +104,13 @@ nmAlpha <- function(items, reverse=FALSE){
 #' }
 
 
-nmThree <- function(items,n, arithmetic){
+nmThree <- function(items,n, arithmetic="add"){
   stopifnot(arithmetic =="add" || arithmetic =="multi" || arithmetic =="substr"  || arithmetic =="div")
-
 
   bank <- matrix(ncol=9)
   colnames(bank) <- colnames(bank, do.NULL = FALSE, prefix = "Q")
   colnames(bank)[9] <- "A"
+
   if(arithmetic== "add") {
     for(i in 1:items) {
       item <- c(i, i+n, i+2*n, i+3*n, i+4*n, i+5*n, i+6*n, i+7*n, i+8*n)
@@ -124,8 +124,7 @@ nmThree <- function(items,n, arithmetic){
       bank <- rbind(bank, item)
       bank <- na.omit(bank)
       }
-    }else
-      if(arithmetic== "substr") {
+    }else if(arithmetic== "substr") {
     for(i in 1:items) {
       item <- c(i, i+n, i+2*n, i+3*n, i+4*n, i+5*n, i+6*n, i+7*n, i+8*n)
       bank <- rbind(bank, item)
@@ -133,7 +132,7 @@ nmThree <- function(items,n, arithmetic){
     }
     bank <- bank[,ncol(bank):1]
     bank <- na.omit(bank)
-    colnames(bank) <- c("Q1", "Q2", "Q3", "Q4", "Q5","6","7","8", "A")
+    colnames(bank) <- c("Q1", "Q2", "Q3", "Q4", "Q5","Q6","Q7","Q8", "A")
   }else{
     for(i in 1:items) {
       item <- c(i, i*n, i*n^2, i*n^3, i*n^4, i*n^5, i*n^6, i*n^7, i*n^8)
@@ -142,7 +141,7 @@ nmThree <- function(items,n, arithmetic){
     }
     bank <- bank[,ncol(bank):1]
     bank <- na.omit(bank)
-    colnames(bank) <- c("Q1", "Q2", "Q3", "Q4", "Q5","6","7","8", "A")
+    colnames(bank) <- c("Q1", "Q2", "Q3", "Q4", "Q5","Q6","Q7","Q8", "A")
   }
 
   return(bank)

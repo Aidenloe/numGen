@@ -4,7 +4,7 @@
 \alias{nmThree}
 \title{Item Model 3 (Arithmetic)}
 \usage{
-nmThree(items, n, arithmetic)
+nmThree(items, n, arithmetic = "add")
 }
 \arguments{
 \item{items}{The number of items you want to generate}
