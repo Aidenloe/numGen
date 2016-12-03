@@ -1,4 +1,3 @@
-
 #' @export
 #' @param R This is the Rank of the maze.
 #' @details The Genmaze function generates the list of edges

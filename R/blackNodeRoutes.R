@@ -1,5 +1,4 @@
 #' @export
-#' @importFrom igraph
 #' @param R This is the Rank of the maze.
 #' @param nodePosition tells you all the position of the black dots
 #' @details This function returns the frequently of paths going through a sequence of black dots
@@ -9,7 +8,6 @@
 blackNodeRoutes <- function(rank,nodePosition){
 
   ##COMPUTE THE PATHS
-
   #all of them
   #allPaths
   G <- graph(genMaze(rank), directed = TRUE )

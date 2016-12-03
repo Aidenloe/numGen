@@ -7,5 +7,5 @@
 #' This number series counts the alphabets representation.\cr
 #' \code{\link{nmOne}}
 #'
-#' @name genMaze
+#' @name mazeGen
 NULL
