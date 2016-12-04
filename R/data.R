@@ -24,7 +24,7 @@
 
 #' Grid Three Down
 #'
-#' This returns a three grid downwards maze. This are standardized coordinates.
+#' This returns a three grid downwards maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -48,7 +48,7 @@
 
 #' Grid Three Left
 #'
-#' This returns a three grid left maze. This are standardized coordinates.
+#' This returns a three grid left maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -72,7 +72,7 @@
 
 #' Grid Three Right
 #'
-#' This returns a three grid left maze. This are standardized coordinates.
+#' This returns a three grid left maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -95,7 +95,7 @@
 
 #' Grid Four Up
 #'
-#' This returns a four grid upwards maze. This are standardized coordinates.
+#' This returns a four grid upwards maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -119,7 +119,7 @@
 
 #' Grid Four Down
 #'
-#' This returns a four grid downwards maze. This are standardized coordinates.
+#' This returns a four grid downwards maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -142,7 +142,7 @@
 
 #' Grid Four Left
 #'
-#' This returns a four grid left maze. This are standardized coordinates.
+#' This returns a four grid left maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -165,7 +165,7 @@
 
 #' Grid Four Right
 #'
-#' This returns a four grid right maze. This are standardized coordinates.
+#' This returns a four grid right maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -189,7 +189,7 @@
 
 #' Grid Five Up
 #'
-#' This returns a five grid upwards maze. This are standardized coordinates.
+#' This returns a five grid upwards maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -212,7 +212,7 @@
 
 #' Grid Five Down
 #'
-#' This returns a five grid downwards maze. This are standardized coordinates.
+#' This returns a five grid downwards maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -235,7 +235,7 @@
 
 #' Grid Five Left
 #'
-#' This returns a five grid left maze. This are standardized coordinates.
+#' This returns a five grid left maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -258,7 +258,7 @@
 
 #' Grid Five Right
 #'
-#' This returns a five grid right maze. This are standardized coordinates.
+#' This returns a five grid right maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -281,7 +281,7 @@
 
 #' Grid Six Up
 #'
-#' This returns a six grid upwards maze. This are standardized coordinates.
+#' This returns a six grid upwards maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -304,7 +304,7 @@
 
 #' Grid Six Down
 #'
-#' This returns a six grid downwards maze. This are standardized coordinates.
+#' This returns a six grid downwards maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -327,7 +327,7 @@
 
 #' Grid Six Left
 #'
-#' This returns a six grid left maze. This are standardized coordinates.
+#' This returns a six grid left maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -350,7 +350,7 @@
 
 #' Grid Six Right
 #'
-#' This returns a six grid right maze. This are standardized coordinates.
+#' This returns a six grid right maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -373,7 +373,7 @@
 
 #' Grid Seven Up
 #'
-#' This returns a seven grid upwards maze. This are standardized coordinates.
+#' This returns a seven grid upwards maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -397,7 +397,7 @@
 
 #' Grid Seven Down
 #'
-#' This returns a seven grid downwards maze. This are standardized coordinates.
+#' This returns a seven grid downwards maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -420,7 +420,7 @@
 
 #' Grid Seven Left
 #'
-#' This returns a seven grid left maze. This are standardized coordinates.
+#' This returns a seven grid left maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -443,7 +443,7 @@
 
 #' Grid Seven Right
 #'
-#' This returns a seven grid right maze. This are standardized coordinates.
+#' This returns a seven grid right maze. These are standardized coordinates.
 #'
 #' @docType data
 #' @keywords datasets
@@ -463,3 +463,465 @@
 #' }
 #'
 "gridSevenRight"
+
+#' Grid Eight Up
+#'
+#' This returns a eight grid upwards maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridEightUp
+#' @usage data(gridEightUp)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 8
+#' data(gridEightUp)
+#' coordinates <- gridEightUp
+#'
+#' }
+#'
+"gridEightUp"
+
+#' Grid Eight Down
+#'
+#' This returns a eight grid downwards maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridEightDown
+#' @usage data(gridEightDown)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 8
+#' data(gridEightDown)
+#' coordinates <- gridEightDown
+#'
+#' }
+#'
+"gridEightDown"
+
+#' Grid Eight Left
+#'
+#' This returns a eight grid left maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridEightLeft
+#' @usage data(gridEightLeft)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 8
+#' data(gridEightLeft)
+#' coordinates <- gridEightLeft
+#'
+#' }
+#'
+"gridEightLeft"
+
+#' Grid Eight Right
+#'
+#' This returns a eight grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridEightRight
+#' @usage data(gridEightRight)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 8
+#' data(gridEightRight)
+#' coordinates <- gridEightRight
+#'
+#' }
+#'
+"gridEightRight"
+
+#' Grid Nine Up
+#'
+#' This returns a nine grid upwards maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridNineUp
+#' @usage data(gridNineUp)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 9
+#' data(gridNineUp)
+#' coordinates <- gridNineUp
+#'
+#' }
+#'
+"gridNineUp"
+
+
+#' Grid Nine Down
+#'
+#' This returns a nine grid downwards maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridNineDown
+#' @usage data(gridNineDown)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 9
+#' data(gridNineDown)
+#' coordinates <- gridNineDown
+#'
+#' }
+#'
+"gridNineDown"
+
+#' Grid Nine Left
+#'
+#' This returns a nine grid left maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridNineLeft
+#' @usage data(gridNineLeft)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 9
+#' data(gridNineLeft)
+#' coordinates <- gridNineLeft
+#'
+#' }
+#'
+"gridNineLeft"
+
+#' Grid Nine Right
+#'
+#' This returns a nine grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridNineRight
+#' @usage data(gridNineRight)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 9
+#' data(gridNineRight)
+#' coordinates <- gridNineRight
+#'
+#' }
+#'
+"gridNineRight"
+
+
+#' Grid Ten Up
+#'
+#' This returns a ten grid upwards maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridTenUp
+#' @usage data(gridTenUp)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 10
+#' data(gridTenUp)
+#' coordinates <- gridTenUp
+#'
+#' }
+#'
+"gridTenUp"
+
+#' Grid Ten Down
+#'
+#' This returns a ten grid downards maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridTenDown
+#' @usage data(gridTenDown)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 10
+#' data(gridTenDown)
+#' coordinates <- gridTenDown
+#'
+#' }
+#'
+"gridTenDown"
+
+#' Grid Ten Left
+#'
+#' This returns a ten grid left maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridTenLeft
+#' @usage data(gridTenLeft)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 10
+#' data(gridTenLeft)
+#' coordinates <- gridTenLeft
+#'
+#' }
+#'
+"gridTenLeft"
+
+#' Grid Ten Right
+#'
+#' This returns a ten grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridTenRight
+#' @usage data(gridTenRight)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 10
+#' data(gridTenRight)
+#' coordinates <- gridTenRight
+#'
+#' }
+#'
+"gridTenRight"
+
+#' Grid Eleven Up
+#'
+#' This returns a eleven grid upwards maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridElevenUp
+#' @usage data(gridElevenUp)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 11
+#' data(gridElevenUp)
+#' coordinates <- gridElevenUp
+#'
+#' }
+#'
+"gridElevenUp"
+
+#' Grid Eleven Down
+#'
+#' This returns a eleven grid downards maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridElevenDown
+#' @usage data(gridElevenDown)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 11
+#' data(gridElevenDown)
+#' coordinates <- gridElevenDown
+#'
+#' }
+#'
+"gridElevenDown"
+
+#' Grid Eleven Left
+#'
+#' This returns a eleven grid left maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridElevenLeft
+#' @usage data(gridElevenLeft)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 11
+#' data(gridElevenLeft)
+#' coordinates <- gridElevenLeft
+#'
+#' }
+#'
+"gridElevenLeft"
+
+#' Grid Eleven Right
+#'
+#' This returns a eleven grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridElevenRight
+#' @usage data(gridElevenRight)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 11
+#' data(gridElevenRight)
+#' coordinates <- gridElevenRight
+#'
+#' }
+#'
+"gridElevenRight"
+
+#' Grid Twelve Up
+#'
+#' This returns a twelve grid upwards maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridTwelveUp
+#' @usage data(gridTwelveUp)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 12
+#' data(gridTwelveUp)
+#' coordinates <- gridTwelveUp
+#'
+#' }
+#'
+"gridTwelveUp"
+
+#' Grid Twelve Down
+#'
+#' This returns a twelve grid downards maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridTwelveDown
+#' @usage data(gridTwelveDown)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 12
+#' data(gridTwelveDown)
+#' coordinates <- gridTwelveDown
+#'
+#' }
+#'
+"gridTwelveDown"
+
+#' Grid Twelve Left
+#'
+#' This returns a twelve grid left maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridTwelveLeft
+#' @usage data(gridTwelveLeft)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 12
+#' data(gridTwelveLeft)
+#' coordinates <- gridTwelveLeft
+#'
+#' }
+#'
+"gridTwelveLeft"
+
+#' Grid Twelve Right
+#'
+#' This returns a twelve grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridTwelveRight
+#' @usage data(gridTwelveRight)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 12
+#' data(gridTwelveRight)
+#' coordinates <- gridTwelveRight
+#'
+#' }
+#'
+"gridTwelveRight"
