@@ -13,7 +13,7 @@
 data(gridFiveLeft)
 }
 \description{
-This returns a five grid left maze. This are standardized coordinates.
+This returns a five grid left maze. These are standardized coordinates.
 }
 \examples{
 \dontrun{

@@ -13,7 +13,7 @@
 data(gridThreeDown)
 }
 \description{
-This returns a three grid downwards maze. This are standardized coordinates.
+This returns a three grid downwards maze. These are standardized coordinates.
 }
 \examples{
 \dontrun{

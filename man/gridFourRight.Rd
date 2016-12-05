@@ -13,7 +13,7 @@
 data(gridFourRight)
 }
 \description{
-This returns a four grid right maze. This are standardized coordinates.
+This returns a four grid right maze. These are standardized coordinates.
 }
 \examples{
 \dontrun{
