@@ -91,7 +91,6 @@ if(logic=="one"){
     # did not set seed
     f <- bank_arith[sample(nrow(bank_arith), 1), ]
     g <- bank_prog[sample(nrow(bank_prog), 1), ]
-    head(bank_prog)
     item <- c(f[1], g[1], f[2], g[2], f[3], g[3], f[4], g[4], f[5], g[5])
     bank_41 <- rbind(bank_41, item)
     bank_41 <- na.omit(bank_41)
