@@ -1,13 +1,14 @@
 #' @export
+#' @importFrom stats na.omit
 #' @param items Generate a random mix of items.
+#' @description This uses item model 13 to create number series items - Identification of unevenly ordered sub-sequences
 #' @details This function creates number series that is a irregular combination of sequences a b b a b b a ... Only the addition and substraction arithmetic operators are used to create the number series items.
-#' @description This uses item model 13 to create number series items.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 13
 #' @examples \dontrun{
 #'
 #' #Draws 5 items randomly.
-#' nmThirteen(5)
+#' nmThirteen(100)
 #'
 #' }
 
@@ -26,14 +27,14 @@ bank_lin <- as.matrix(bank_lin)
 #add
 add<- NULL
 for(i in 1:50){
-add[[i]] <- nmThree(items=19,n=i,arithmetic="add")
+add[[i]] <- nmThree(items=19,n=i,arith="add")
 }
 add <- do.call("rbind", add)
 
 #substract
 sub<- NULL
 for(i in 1:25){
-  sub[[i]] <- nmThree(items=19,n=i,arithmetic="substr")
+  sub[[i]] <- nmThree(items=19,n=i,arith="substr")
 }
 sub <- do.call("rbind", sub)
 

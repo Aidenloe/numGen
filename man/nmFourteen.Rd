@@ -4,24 +4,22 @@
 \alias{nmFourteen}
 \title{Item Model 14}
 \usage{
-nmFourteen(items, seed = 1)
+nmFourteen(items)
 }
 \arguments{
 \item{items}{Generate a random mix of items.}
-
-\item{seed}{Generate a fixed ratio set but not final item set.}
 }
 \description{
-This uses item model 14 to create number series items.
+This uses item model 14 to create number series items - Combined identification of unevenly ordered sub-sequences and non-successive relationships between elements.
 }
 \details{
-Combination of sequences and ratios. This function creates number series creates a combination of sequences and ratios. The seed generates a fixed ratio set to be combined with sequence but does not fix the final item set. Only the addition and substraction arimethic operators are used to generate the number series items.
+This function creates number series creates a combination of sequences and ratios. TLogic analogous to the Item Model 13, but the second sequence belongs to the Item Model 9. As a result, pairs of elements following certain rule are embedded into a progressive sequence. Example: Sequence with coefficient of (+ 1) is interposed with pairs of elements which differ by 3. 1 5 8 2 209 212 3 41 (44) (4). Only the addition and substraction arimethic operators are used to generate the number series items.
 }
 \examples{
 \dontrun{
 
 #Draws 10 items randomly.
-nmFourteen(10,5)
+nmFourteen(10)
 
 }
 }

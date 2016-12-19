@@ -4,7 +4,7 @@
 \alias{nmFive}
 \title{Item Model 5}
 \usage{
-nmFive(items, seed = 1)
+nmFive(items = 5, seed = 1)
 }
 \arguments{
 \item{items}{Number of items to generate.}
@@ -12,11 +12,10 @@ nmFive(items, seed = 1)
 \item{seed}{This gives you the same result again.}
 }
 \description{
-This uses item model 4 and 5 to create number series items.
+This uses item model 5 to create number series items - Identification of co-occurring relationships between elements (without use of arithmetic skills)
 }
 \details{
-Comprehension of abstract object representation
-i.e combination of:same number / same letter
+Sequences which consist of regularly alternating parallel sub-sequences. Understanding of succession does not require use of algebraic skill. Sub-sequences involve items from Item Model 1. Example: Odd elements of the sequence are multiples of 1 and even elements of the sequence are multiples of 10. (1 10 2 20 3 30 (4) (40))
 2 simple linear (without arithmetic) 1 2 3 / 10 20 30 combine to form a number series item.
 }
 \examples{

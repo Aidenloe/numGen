@@ -1,22 +1,22 @@
-#' @export
-#' @param items Generate a random mix of items.
-#' @param combo There are four different type of combination.
-#' @param seed To get the same random sampling of items
-#' @details Relationships between objects + arithmetic (ratios).
-#' @description  This function creates number series that is a combination between relationships of objects and arithmetic (ratios). The maximum number to be generated is 80. There are four different types of model combination.
-#' @author Aiden Loe and Filip Simonfy
-#' @title Ratios
-#' @examples \dontrun{
-#'
-#' # Combo 1. a : b ; c : d ; e : f
-#' # Combo 2. a*x = b; c*x = d; e*x = f
-#' # Combo 3. a : b : c = d : e : f = g : h : i
-#' # Combo 4. a+b = x, c+d = x, e+f = x
-#'
-#' # Draws 5 items
-#' nmRatios(items = 5,combo ="one", 1)
-#'
-#' }
+# ' @export
+# ' @param items Generate a random mix of items.
+# ' @param combo There are four different type of combination.
+# ' @param seed To get the same random sampling of items
+# ' @details Relationships between objects + arithmetic (ratios).
+# ' @description  This function creates number series that is a combination between relationships of objects and arithmetic (ratios). The maximum number to be generated is 80. There are four different types of ?na. combination.
+# ' @author Aiden Loe and Filip Simonfy
+# ' @title Ratios
+# ' @examples \dontrun{
+# '
+# ' # Combo 1. a : b ; c : d ; e : f
+# ' # Combo 2. a*x = b; c*x = d; e*x = f
+# ' # Combo 3. a : b : c = d : e : f = g : h : i
+# ' # Combo 4. a+b = x, c+d = x, e+f = x
+# '
+# ' # Draws 5 items
+# ' nmRatios(items = 5,combo ="one", 1)
+# '
+# ' }
 
 nmRatios <- function(items,combo = "one", seed){
   if(missing(items)){

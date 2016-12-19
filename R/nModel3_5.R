@@ -1,7 +1,7 @@
 #' @export
 #' @param items Number of items to generate.
-#' @details This function creates Fibonacci sequences. The maximum number to be generated is 15 items.
-#' @description  This uses item model 10 to create number series items.
+#' @details Progressive sequences which involve relationships between multiple preceding objects (e.g. Fibonacci sequence). Example: Each element of the sequence is a result of addition of its two preceding elements (1 1 2 3 5 8 (13)). The maximum number to be generated is 15 items.
+#' @description  This uses item model 10 to create number series items - Identification of relationships within a chain of elements.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 10
 #' @examples \dontrun{
@@ -9,7 +9,6 @@
 #' nmTen(items=3)
 #'
 #' }
-
 
 # generates first 20 numbers of the sequence
 

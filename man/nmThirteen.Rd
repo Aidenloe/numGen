@@ -10,7 +10,7 @@ nmThirteen(items)
 \item{items}{Generate a random mix of items.}
 }
 \description{
-This uses item model 13 to create number series items.
+This uses item model 13 to create number series items - Identification of unevenly ordered sub-sequences
 }
 \details{
 This function creates number series that is a irregular combination of sequences a b b a b b a ... Only the addition and substraction arithmetic operators are used to create the number series items.
@@ -19,7 +19,7 @@ This function creates number series that is a irregular combination of sequences
 \dontrun{
 
 #Draws 5 items randomly.
-nmThirteen(5)
+nmThirteen(100)
 
 }
 }

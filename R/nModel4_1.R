@@ -1,13 +1,16 @@
 #' @export
+#' @importFrom stats na.omit
 #' @param items Generate a random mix of items.
 #' @param logic The combination of sequences follow two logic.
 #' @param n The value that the arithmetic operator uses to calculate the next value
 #' @param arith The arithmetic operator of your choice ("add","substr","multi","div").
-#' @details The number series items are a combination of Arithmetic, linear sequence and progressive coefficient.
-#' First logic is combining sequences x y x y x y x y = one simple, one progressive.
-#' Second logic is combining sequences x y x y x y x y = two progressive. The minimum number of items that will be generated is 2.
-#' @description This uses item model 11 to create number series items.
+#' @description This uses item model 11 to create number series items - Combined identification of parallel sub-sequences and progressively evolving coefficients of change.
+#' @details The number series items are a combination of Arithmetic, linear sequence and progressive coefficient. \cr
+#' First logic is combining sequences x y x y x y x y = one simple (cannot be controlled), one progressive . \cr
+#' Second logic is combining sequences x y x y x y x y = two progressive. The minimum number of items that will be generated is 2. \cr
+#' Logic analogous to the Item Model 5, but at least one sub-sequence involves a progressively evolving coefficient. Sub-sequences involve items from Item Families 1, 3, and 7. Example: The coefficient of change between odd elements in the sequence increases by 1. The coefficient of change between even elements increases by -1. (2 8 4 7 7 5 11 2 16 (-2) (22)).
 #'
+#' When using the first logic, n corresponds to the change in the progressive pattern. However, the simple pattern is fixed and hence drawn randomly.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 11
 #' @examples \dontrun{
@@ -42,16 +45,16 @@ colnames(bank_lin)[9] <- "A"
 
 # Decides on the arithmetic value of the progressive matrix
 if(arith == "add"){
-  bank_seq <- nmThree(items=items,n,arithmetic="add")
+  bank_seq <- nmThree(items=items,n,arith="add")
 }
 if(arith == "substr"){
-  bank_seq <- nmThree(items=items,n,arithmetic="substr")
+  bank_seq <- nmThree(items=items,n,arith="substr")
 }
 if(arith == "multi"){
-  bank_seq <- nmThree(items=items,n,arithmetic="multi")
+  bank_seq <- nmThree(items=items,n,arith="multi")
 }
 if(arith=="div"){
-  bank_seq <- nmThree(items=items,n,arithmetic="div")
+  bank_seq <- nmThree(items=items,n,arith="div")
 }
 
 bank_list <- rbind(bank_lin, bank_seq)

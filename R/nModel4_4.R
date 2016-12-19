@@ -1,14 +1,14 @@
 #' @export
+#' @importFrom stats na.omit
 #' @param items Generate a random mix of items.
-#' @param seed Generate a fixed ratio set but not final item set.
-#' @details Combination of sequences and ratios. This function creates number series creates a combination of sequences and ratios. The seed generates a fixed ratio set to be combined with sequence but does not fix the final item set. Only the addition and substraction arimethic operators are used to generate the number series items.
-#' @description   This uses item model 14 to create number series items.
+#' @description This uses item model 14 to create number series items - Combined identification of unevenly ordered sub-sequences and non-successive relationships between elements.
+#' @details This function creates number series creates a combination of sequences and ratios. TLogic analogous to the Item Model 13, but the second sequence belongs to the Item Model 9. As a result, pairs of elements following certain rule are embedded into a progressive sequence. Example: Sequence with coefficient of (+ 1) is interposed with pairs of elements which differ by 3. 1 5 8 2 209 212 3 41 (44) (4). Only the addition and substraction arimethic operators are used to generate the number series items.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 14
 #' @examples \dontrun{
 #'
 #' #Draws 10 items randomly.
-#' nmFourteen(10,5)
+#' nmFourteen(10)
 #'
 #' }
 
@@ -19,10 +19,13 @@
 # RUN MODEL 3_4 a, b, & d FIRST
 # + linear (below)
 
-nmFourteen<- function(items, seed=1){
+nmFourteen<- function(items){
   if(missing(items)){
     stop("Please include x number of items to generate")
   }
+
+seed <- sample(1:1000, 1)
+
 #Model 2_1
 model2_1 <- function(value){
 bank_lin <- nmAdd(9,95)
@@ -31,21 +34,21 @@ bank_lin <- as.matrix(bank_lin)
 #add
 add<- NULL
 for(i in 1:50){
-  add[[i]] <- nmThree(items=19,n=i,arithmetic="add")
+  add[[i]] <- nmThree(items=19,n=i,arith="add")
 }
 add <- do.call("rbind", add)
 
 #substruct
 sub<- NULL
 for(i in 1:25){
-  sub[[i]] <- nmThree(items=19,n=i,arithmetic="substr")
+  sub[[i]] <- nmThree(items=19,n=i,arith="substr")
 }
 sub <- do.call("rbind", sub)
 
 #multi
 # multi<- NULL
 # for(i in 2:50){
-#   multi[[i]] <- nmThree(items=19,n=i,arithmetic="multi")
+#   multi[[i]] <- nmThree(items=19,n=i,arith="multi")
 # }
 # multi <- do.call("rbind", multi)
 # multi <- subset(multi, multi[,6] < 500)
@@ -53,7 +56,7 @@ sub <- do.call("rbind", sub)
 #division
 # div<- NULL
 # for(i in 2:50){
-#   div[[i]] <- nmThree(items=100,n=i,arithmetic="div")
+#   div[[i]] <- nmThree(items=100,n=i,arith="div")
 # }
 # div <- do.call("rbind", div)
 # div <- subset(div, div[,1] < 500)

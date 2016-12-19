@@ -1,17 +1,19 @@
-#' @export
-#' @import "stats"
-#' @param x To get the length value
-#' @param items The number of items you have to generate.
-#' @description This uses item model 1 to create number series items.
-#' @details counting the alphabets representation.
-#' @author Aiden Loe and Filip Simonfy, \email{bsl28@@cam.ac.uk}
-#' @title Item Model 1
-#' @examples \dontrun{
-#'
-#' nmOne(3,26)
-#'
-#' }
+# ' @export
+# ' @import "stats"
+# ' @param x Generate the length of the items
+# ' @param items The number of items to generate.
+# ' @description This creates number series items by Counting object categorisation.
+# ' @details Sequences consist of elements belonging to one letter group with x number of elements. For example, single object: x x x x ?. The answer will be 4, where 4 = the total count of x.
+# ' @author Aiden Loe and Filip Simonfy
+# ' @title Item Model
+# ' @examples \dontrun{
+# '
+# ' nmCountA(3,26)
+# '
+# ' }
 
+# Is not the same as model 1 in the paper
+# This should be a separate one.
 # count (number representation)
 # 1.1 single object: x x x x ?
 
@@ -21,7 +23,7 @@
 # create bank of items
 # each item contains x characters
 
-nmOne <- function(x,items) {
+nmCountA <- function(x,items) {
   if(items>26){
     stop("Number of items must less than 27.")
   }
@@ -38,13 +40,4 @@ nmOne <- function(x,items) {
   return(bank_11)
 }
 
-
-# bank of items of 4, 5, 6 characters
-
-# bank_11_4 <- model_11(4)
-# bank_11_5 <- model_11(5)
-# bank_11_6 <- model_11(6)
-
-# multiple choice answer
-# NOT YET DONE
 

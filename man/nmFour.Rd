@@ -9,17 +9,17 @@ nmFour(numLetter = 2, value = 3, items = 3, random = FALSE)
 \arguments{
 \item{numLetter}{Number of Letters you want.}
 
-\item{value}{Value + numLetter gives you back the total number of letters.}
+\item{value}{Adding the value and the number of letters return the total count of the numeric value.}
 
 \item{items}{Number of items to generate.}
 
 \item{random}{If random=FALSE, the items will follow in sequential order.}
 }
 \description{
-This function tells you the count of a specific letter.
+This uses item model 4 to create number series items - Comprehension of object representation
 }
 \details{
-The core feature of sequences is the numeric representation of the object count.  The sequences consist of homogeneous groups of letters followed by a number representing the amount of the group elements.
+The core feature of sequences is the numeric representation of the object count.  The sequences consist of homogeneous groups of letters followed by a number representing the amount of the group elements. For example (a 1 b b b 3 c c (2))
 }
 \examples{
 \dontrun{
@@ -29,6 +29,6 @@ nmFour(numLetter= 2 ,value=3, items=10, random=FALSE)
 }
 }
 \author{
-Aiden Loe
+Aiden Loe and Filip Simonfy
 }
 

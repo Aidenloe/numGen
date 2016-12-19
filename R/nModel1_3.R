@@ -1,20 +1,20 @@
-
 #' @export
+#' @importFrom stats na.omit
 #' @param cat Length of categorical groups per question.
 #' @param items The number of items you want to generate.
 #' @param random To randomise the position of the numeric values.
-#' @details Identification of the number series follows a group pattern recognition rule.
-#' @description This is based on the categorical / pattern recognition rule.
+#' @description This uses item model 2 to create number series items - Understanding of object categorisation.
+#' @details Sequences consist of elements belonging to two homogeneous groups with equal number of elements. Missing element belongs to the group with fewer elements present in the sequence. For example, 1 1 1 5 5 (5).
 #' @author Aiden Loe and Filip Simonfy
-#' @title Group Categorisation
+#' @title Item Model 2
 #' @examples \dontrun{
 #'
-#' nmCat(cat=2,items=4,random=FALSE)
+#' nmTwo(cat=2,items=4,random=FALSE)
 #'
 #' }
 
 # categorization (1	1	1	5	5	?)
-nmCat <- function(cat, items ,random=FALSE ){
+nmTwo <- function(cat=2, items=4 ,random=FALSE ){
   if(cat==1)
   stop("Please choose a 'cat' value greater than 1")
 

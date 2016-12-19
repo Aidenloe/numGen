@@ -9,15 +9,13 @@ nmTwelve(items = 1, fun1 = "add", fun2 = "add")
 \arguments{
 \item{items}{Generate a random mix of items.}
 
-\item{fun1}{The argument decides the arithmetic to be employed for Neighbouring objects. There are two arithmetic: add, substr.}
+\item{fun1}{The argument decides the arithmetic to be employed for Neighbouring objects. There are only two arithmetic: add, substr.}
 
 \item{fun2}{The argument decides the arithmetic to be employed for the two values between the grouped objects.  There are two arithmetic: add, substr.}
 }
 \description{
-This uses item model 12 to create number series items.
-}
-\details{
-Neighbouring objects + 2-sequence coefficient.  This function creates number series that is a combination of Neighbouring objects + 2-sequence coefficient. Multiplication and Division are removed since the calculated value is too big.
+This uses item model 12 to create number series items - Identification of alternating coefficients of change.
+#' @details This function creates number series that is a combination of Neighbouring objects and 2-sequence coefficient. Multiplication and Division are removed since the calculated value is too big. Example: A sequence whose coefficient of change alternates between (add 6) and (multiply by 2). 1 7 14 20 40 46 (92) (98).
 }
 \examples{
 \dontrun{

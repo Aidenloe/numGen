@@ -1,11 +1,12 @@
 #' @export
+#' @importFrom stats na.omit
 #' @param numLetter Number of Letters you want.
-#' @param value Value + numLetter gives you back the total number of letters.
+#' @param value Adding the value and the number of letters return the total count of the numeric value.
 #' @param items Number of items to generate.
 #' @param random If random=FALSE, the items will follow in sequential order.
-#' @details The core feature of sequences is the numeric representation of the object count.  The sequences consist of homogeneous groups of letters followed by a number representing the amount of the group elements.
-#' @description This function tells you the count of a specific letter.
-#' @author Aiden Loe
+#' @description This uses item model 4 to create number series items - Comprehension of object representation
+#' @details The core feature of sequences is the numeric representation of the object count.  The sequences consist of homogeneous groups of letters followed by a number representing the amount of the group elements. For example (a 1 b b b 3 c c (2))
+#' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 4
 #' @examples \dontrun{
 #'

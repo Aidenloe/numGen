@@ -1,9 +1,10 @@
 #' @export
+#' @importFrom stats na.omit
 #' @param items Generate a random mix of items.
-#' @param fun1 The argument decides the arithmetic to be employed for Neighbouring objects. There are two arithmetic: add, substr.
+#' @param fun1 The argument decides the arithmetic to be employed for Neighbouring objects. There are only two arithmetic: add, substr.
 #' @param fun2 The argument decides the arithmetic to be employed for the two values between the grouped objects.  There are two arithmetic: add, substr.
-#' @details Neighbouring objects + 2-sequence coefficient.  This function creates number series that is a combination of Neighbouring objects + 2-sequence coefficient. Multiplication and Division are removed since the calculated value is too big.
-#' @description  This uses item model 12 to create number series items.
+#' @description  This uses item model 12 to create number series items - Identification of alternating coefficients of change.
+#' #' @details This function creates number series that is a combination of Neighbouring objects and 2-sequence coefficient. Multiplication and Division are removed since the calculated value is too big. Example: A sequence whose coefficient of change alternates between (add 6) and (multiply by 2). 1 7 14 20 40 46 (92) (98).
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 12
 #' @examples \dontrun{
@@ -96,7 +97,7 @@ sub <- function(x, y) {
     item <- c(m1, m2, m3, m4, m5, m6, m7, m8)
     item
     bank_42 <- na.omit(bank_42)
-    bank_42 <- subset(bank_42, bank_42[ ,8] < 1000)
+    bank_42 <- subset(bank_42, bank_42[ ,8] < 500)
     bank_42 <- subset(bank_42, bank_42[ ,8] > -300)
 
     if (all(item == floor(item))) {

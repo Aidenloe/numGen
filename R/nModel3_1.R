@@ -1,37 +1,49 @@
 #' @export
-#' @param arith Select the arithmetric operator of choice ("add","multi", "sub", "div").
+#' @importFrom stats na.omit
+#' @param arithOne Select the arithmetric operator of choice ("add","multi", "sub", "div").
+#' @param arithTwo Select the arithmetric operator of choice ("add","multi", "sub", "div").
 #' @param n Value you want use the arithmetic operator on.
 #' @param items Generate a random mix of items.
-#' @details 2 linear sequences (With use of the same arithmetic operator).
-#' Combination of: sequences x y x y x y x y.
-#' The selected arithmetic and the operator will remind the same between the combined sequences.
-#' @description This uses item model 6 to create number series items.
+#' @description This uses item model 6 to create number series items - Identification of co-occurring relationships between elements (with use of arithmetic skills)
+#' @details Logic analogous to the Item Model 5, but at least one sub-sequence involves the basic arithmetic operations. Sequences combine items from Item Families 1 and 3. The arithmetic operations change but the differences in value remains the name. Example: Odd elements of the sequence increase by 2 and even elements of the sequence are multiplied by 2. (2 12 4 24 6 48 8 (96) (10))
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 6
 #'
 #' @examples \dontrun{
 #'
 #' set.seed(1)
-#' nmSix(arithmetic="add",n=2,5)
+#' nmSix(arithOne="add",arithTwo="add",n=2,items=5)
 #'
 #' }
 
-## 2+ linear sequences (with use of arithmetic)
-# + - x / 2
-# same/different operator
-# combining sequences x y x y x y x y
 
-# random selection >> creating 1000 items
-nmSix<- function(arith="add",n=1,items=2){
-  if(arith == "add"){
-    bank_list <- nmThree(items,n,arithmetic="add")
-  }else if(arith == "substr"){
-    bank_list <- nmThree(items,n,arithmetic="substr")
-  }else if(arith == "multi"){
-    bank_list <- nmThree(items,n,arithmetic="multi")
+nmSix<- function(arithOne="add",arithTwo="substr",n=2,items=4){
+
+  stopifnot(arithOne =="add" || arithOne =="multi" || arithOne =="substr"  || arithOne =="div")
+  stopifnot(arithTwo =="add" || arithTwo =="multi" || arithTwo =="substr"  || arithTwo =="div")
+
+  if(arithOne == "add"){
+    bank_listA <- nmThree(items,n,arith="add")
+  }else if(arithOne == "substr"){
+    bank_listA <- nmThree(items,n,arith="substr")
+  }else if(arithOne == "multi"){
+    bank_listA <- nmThree(items,n,arith="multi")
   }else {
-    bank_list <- nmThree(items,n,arithmetic="div")
+    bank_listA <- nmThree(items,n,arith="div")
   }
+
+
+  if(arithTwo == "add"){
+    bank_listB <- nmThree(items,n,arith="add")
+  }else if(arithTwo == "substr"){
+    bank_listB <- nmThree(items,n,arith="substr")
+  }else if(arithTwo == "multi"){
+    bank_listB <- nmThree(items,n,arith="multi")
+  }else {
+    bank_listB <- nmThree(items,n,arith="div")
+  }
+
+
 
   #bank_list <- rbind(bank_21add, bank_21multi, bank_21sub, bank_21div)
 
@@ -40,9 +52,10 @@ nmSix<- function(arith="add",n=1,items=2){
   colnames(bank_31)[9:10] <- "A"
 
   for (i in 1:items) {
-    a <- sample(nrow(bank_list), 2, replace = FALSE)
-    f <- bank_list[a[1], ]
-    g <- bank_list[a[2], ]
+    a <- sample(nrow(bank_listA), 1, replace = FALSE)
+    b <- sample(nrow(bank_listB), 1, replace = FALSE)
+    f <- bank_listA[a[1], ]
+    g <- bank_listB[b[1], ]
     item <- c(f[1], g[1], f[2], g[2], f[3], g[3], f[4], g[4], f[5], g[5])
     bank_31 <- rbind(bank_31, item)
     bank_31 <- na.omit(bank_31)

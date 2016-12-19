@@ -1,35 +1,32 @@
-#' @export
-#' @param x To get the length value
-#' @param items The number of items you have to generate.
-#' @param random The alphabets are not in order.
-#' @details This function will return two letter groups of different length within a letter sequence.
-#' @author Aiden Loe and Filip Simonfy
-#' @title Item Model 2
-#' @description This uses item model 2 to create number series items.
-#'
-#'
-#' @examples \dontrun{
-#'
-#' nmTwo(3,6, random=FALSE)
-#' }
+# ' @export
+# ' @param length Generate the length of the items.
+# ' @param items The number of items to generate.
+# ' @param random The same alphabets grouped together is random = FALSE.
+# ' @author Aiden Loe and Filip Simonfy
+# ' @title Item Model
+# ' @description This creates number series items by Counting object categorisation.
+# ' @details Sequences consist of elements belonging to two letter groups with equal or unequal number of elements. For example, two objects: y y x x x ?? The answer is (2,3), where 2 = total count of y, and 3 = total count of x.
+# '
+# ' @examples \dontrun{
+# '
+# ' nmCountB(3,6, random=FALSE)
+# ' }
 
-# 1.2 two objects: y y x x x ? (2,3)
-# creates 100 items with 2 objects of length x
 
-nmTwo <- function(x,items, random=FALSE) {
+nmCountB <- function(length=3,items=6, random=FALSE) {
  # alphabet <- LETTERS[seq(1:26)]
-  bank_11b <- matrix(ncol = (x+2))
+  bank_11b <- matrix(ncol = (length+2))
   colnames(bank_11b) <- colnames(bank_11b, do.NULL = FALSE, prefix = "Q")
 
   for (i in 1:items) {
     a <- sample(LETTERS, 2, replace = FALSE)
 
     # might sample all the same letters. We want to have at least sample 1 each letter,     if not reject the sampling.
-    b <- sample(a, x, replace=TRUE)
+    b <- sample(a, length, replace=TRUE)
 
     # always draw at least one
     if(sort(unique(b %in% b[duplicated(b)]))[1] == TRUE){
-      b <- sample(a, x, replace=TRUE);
+      b <- sample(a, length, replace=TRUE);
     }
 
     if(random==FALSE){
@@ -39,7 +36,7 @@ nmTwo <- function(x,items, random=FALSE) {
     table <- as.data.frame(table(b))
     answer <- c(table[1:2,2])
 
-colnames(bank_11b)[c(x+1, x+2)] <- "A"
+colnames(bank_11b)[c(length+1, length+2)] <- "A"
     item <- c(b, answer)
     item
 
@@ -51,7 +48,7 @@ colnames(bank_11b)[c(x+1, x+2)] <- "A"
   return(bank_11b)
 }
 
-
+nmTwo(3,6, random=FALSE)
 
 # bank of items of 6, 7, 8 characters
 

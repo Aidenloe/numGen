@@ -1,18 +1,18 @@
-#' @export
-#' @param length This is the length of each item
-#' @param items The number of items you want to generate
-#' @details This is based on linearity rule / pattern recognition rule.
-#' @description This uses item model 3 to create number series items.
-#' @author Aiden Loe and Filip Simonfy
-#' @title Item Model 3 (Addition)
-#' @examples \dontrun{
-#'
-#' nmAdd(4,5)
-#'
-#' }
+# ' @export
+# ' @param length This is the length of each item
+# ' @param items The number of items you want to generate
+# ' @details This is based on linearity rule / pattern recognition rule.
+# ' @description This uses item model 3 to create number series items.
+# ' @author Aiden Loe and Filip Simonfy
+# ' @title Item Model 3 (Addition)
+# ' @examples \dontrun{
+# '
+# ' nmAdd(4,5)
+# '
+# ' }
 
 
-nmAdd <- function(length, items){
+nmAdd <- function(length=4, items=5){
   bank_lin <- matrix(ncol=length)
   colnames(bank_lin) <- colnames(bank_lin, do.NULL = FALSE, prefix = "Q")
   colnames(bank_lin)[length] <- "A"
@@ -40,22 +40,22 @@ for (i in 1:items) {
 
 
 
-#' @export
-#' @param items The number of items you want to generate
-#' @param reverse Changing reverse to TRUE will flip to direction of the progressive alphabets
-#' @details This is based on linearity rule / pattern recognition rule
-#' @description This uses item model 3 to create letter series items.
-#' This is for alphabets and is restricted to 21 items.
-#' @author Aiden Loe and Filip Simonfy
-#' @title Item Model 3 (Alpha)
-#' @examples \dontrun{
-#'
-#' nmAlpha(3,reverse=TRUE)
-#'
-#' }
+# ' @export
+# ' @param items The number of items you want to generate
+# ' @param reverse Changing reverse to TRUE will flip to direction of the progressive alphabets.
+# ' @description This uses item model 3 to create letter series items.
+# ' @details This is based on linearity rule / pattern recognition rule. Coefficient of change is invariant across the sequence.
+# ' This is for alphabets and is restricted to 21 items.
+# ' @author Aiden Loe and Filip Simonfy
+# ' @title Item Model 3 (Alpha)
+# ' @examples \dontrun{
+# '
+# ' nmAlpha(3,reverse=TRUE)
+# '
+# ' }
 
 
-# linearity using alphabet
+#linearity using alphabet
 nmAlpha <- function(items, reverse=FALSE){
   #   if(length > 26){
   #     print("please choose a smaller length value")
@@ -90,41 +90,42 @@ nmAlpha <- function(items, reverse=FALSE){
 
 
 #' @export
-#' @param items The number of items you want to generate
-#' @param n Value you want use the arithmetic operator on
-#' @param arithmetic Use either 'add', 'substr', 'multi', 'div'.
-#' @details This is based on linearity rule / pattern recognition rule and also arithmetic operators. Currently it only displays up to a series of 9.
-#' @description This uses item model 3 to create number series items.
+#' @importFrom stats na.omit
+#' @param items The number of items to generate
+#' @param n Value to use the arithmetic operator on
+#' @param arith Use either 'add', 'substr', 'multi', 'div'.
+#' @description This uses item model 3 to create number series items - Use of basic algebraic skills.
+#' @details  Each element in the sequence is derived from the preceding by applying one of four basic arithmetic operations - addition,  subtraction, multiplication, or division. Coefficient of change is invariant across the sequence. 20 18 16 14 (12). Currently it only displays up to a series of 9.
 #' @author Aiden Loe and Filip Simonfy
-#' @title Item Model 3 (Arithmetic)
-#' @examples \dontrun{
+#' @title Item Model 3
+#' @examples
 #'
-#' nmThree(items=4,n=2,arithmetic="add")
+#' nmThree(items=4,n=2,arith="add")
 #'
-#' }
+#'
 
 
-nmThree <- function(items,n, arithmetic="add"){
-  stopifnot(arithmetic =="add" || arithmetic =="multi" || arithmetic =="substr"  || arithmetic =="div")
+nmThree <- function(items,n, arith="add"){
+  stopifnot(arith =="add" || arith =="multi" || arith =="substr"  || arith =="div")
 
   bank <- matrix(ncol=9)
   colnames(bank) <- colnames(bank, do.NULL = FALSE, prefix = "Q")
   colnames(bank)[9] <- "A"
 
-  if(arithmetic== "add") {
+  if(arith== "add") {
     for(i in 1:items) {
       item <- c(i, i+n, i+2*n, i+3*n, i+4*n, i+5*n, i+6*n, i+7*n, i+8*n)
       bank <- rbind(bank, item)
       bank <- na.omit(bank)
     }
 
-  }else if(arithmetic== "multi") {
+  }else if(arith== "multi") {
     for(i in 1:items) {
       item <- c(i, i*n, i*n^2, i*n^3, i*n^4, i*n^5, i*n^6, i*n^7, i*n^8)
       bank <- rbind(bank, item)
       bank <- na.omit(bank)
       }
-    }else if(arithmetic== "substr") {
+    }else if(arith== "substr") {
     for(i in 1:items) {
       item <- c(i, i+n, i+2*n, i+3*n, i+4*n, i+5*n, i+6*n, i+7*n, i+8*n)
       bank <- rbind(bank, item)

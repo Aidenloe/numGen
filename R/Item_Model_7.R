@@ -1,7 +1,8 @@
 #' @export
+#' @importFrom stats na.omit
 #' @param items Number of items to generate.
-#' @description This uses item model 7 to create number series items.
-#' @details  This model uses the addition and substraction (Arithmetic) operator, Linear pattern and Progressive coefficient to create the number series.
+#' @description This uses item model 7 to create number series items - Identification of progressively evolving coefficients of change.
+#' @details Non-linear progressive sequences which require a higher level of abstraction; the coefficient of change between two neighbouring elements is not invariable and its elements form a sequence. The coefficient sequences correspond to items from Item Families 1 and 3. Example: The coefficient of change between each pair of neighbouring elements in the sequence increases by 1. (2 4 7 11 16 (22))
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 7
 #' @examples \dontrun{
@@ -34,14 +35,14 @@ model2_1 <- function(value){
   #add
   add<- NULL
   for(i in 1:50){
-    add[[i]] <- nmThree(items=10,n=i,arithmetic="add")
+    add[[i]] <- nmThree(items=10,n=i,arith="add")
   }
   add <- do.call("rbind", add)
 
   #substruct
   sub<- NULL
   for(i in 1:25){
-    sub[[i]] <- nmThree(items=10,n=i,arithmetic="substr")
+    sub[[i]] <- nmThree(items=10,n=i,arith="substr")
   }
   sub <- do.call("rbind", sub)
 
@@ -49,7 +50,7 @@ model2_1 <- function(value){
 #multi
 #   multi<- NULL
 #   for(i in 2:50){
-#     multi[[i]] <- nmThree(items=10,n=i,arithmetic="multi")
+#     multi[[i]] <- nmThree(items=10,n=i,arith="multi")
 #   }
 #   multi <- do.call("rbind", multi)
 #   multi <- subset(multi, multi[,6] < 200)
@@ -57,7 +58,7 @@ model2_1 <- function(value){
   #division
 #   div<- NULL
 #   for(i in 2:50){
-#     div[[i]] <- nmThree(items=10,n=i,arithmetic="div")
+#     div[[i]] <- nmThree(items=10,n=i,arith="div")
 #   }
 #   div <- do.call("rbind", div)
 #   div <- subset(div, div[,1] < 500)
@@ -80,8 +81,6 @@ colnames(bank_32)[6] <- "A"
 
 # all combinations would be too lenghty >> random selection
 # generate random 1000 items
-
-
 for (i in 1:items) {
   # random item = coefficient sequence
   a <- sample(nrow(bank_list), 1)
@@ -94,10 +93,12 @@ for (i in 1:items) {
   item <- c(sample(1:30, 1) + d)
 
   bank_32 <- rbind(bank_32, item)
+ # bank_32 <- subset(bank_32, bank_32[,6]<200)
   bank_32 <- na.omit(bank_32)
-  bank_32
-}
-return(bank_32)
+  nrow(bank_32)
+  }
+
+ return(bank_32)
 }
 
 

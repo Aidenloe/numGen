@@ -1,14 +1,17 @@
 #' @export
+#' @importFrom stats na.omit
 #' @param vOne The first value in the complex coefficient (x). Can be a sequence of values or a specific value.
 #' @param vTwo The second value in the complex coefficient (y). Can be a sequence of values or a specific value.
 #' @param items Generate a random mix of items.
 #' @param seed To get the same random sampling of items
 #' @param logic "one" or "two"
 #' @param random If random=FALSE, the items will follow in sequential order.
-#' @description This uses item model 8 to create number series items.
-#' @details  This function creates number series that is a combination of Arithmetic, Linear and Complex coefficient. \cr
+#' @description This uses item model 8 to create number series items - Identification of complex coefficients of change
+#' @details  This function creates number series that is a combination of Arithmetic, Linear and Complex coefficient. Ability to identify complex coefficients; the coefficient of change involves a combination of arithmetic operations (e.g. addition and multiplication) applied serially.\cr
+#' There are two logic to calculate the number series.
 #' First logic of complex coefficient = i*x+y.\cr
-#' Second logic of complex coefficient = (i+x)*y.
+#' Second logic of complex coefficient = (i+x)*y. \cr.
+#' Example: Each element in the sequence is derived from the preceding by adding two and multiplying the result by two. (2 8 20 44 92 (188)).
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 8
 #' @examples \dontrun{
@@ -30,6 +33,8 @@ nmEight<- function(vOne=1, vTwo=3, items ,seed=1, logic = "one", random = FALSE)
   if(missing(items)){
     stop("Please include x number of items to generate")
   }
+
+  stopifnot(logic=="one" || logic=="two")
 
 if(logic == "one"){
 generate_sequence <- function(i,x,y) {
@@ -58,8 +63,7 @@ generate_sequence <- function(i,x,y) {
 }
 
 
-
-# generate i*x+y; i[1] = 1:10, x = 2:10, y = 1:99
+# generate i,x,y; i[1] = 1:10, x = 2:10, y = 1:99
 # all items < 2000
 bank_33 <- matrix(ncol=9)
 colnames(bank_33) <- colnames(bank_33, do.NULL = FALSE, prefix = "Q")

@@ -2,29 +2,28 @@
 % Please edit documentation in R/nModel2_1.R
 \name{nmThree}
 \alias{nmThree}
-\title{Item Model 3 (Arithmetic)}
+\title{Item Model 3}
 \usage{
-nmThree(items, n, arithmetic = "add")
+nmThree(items, n, arith = "add")
 }
 \arguments{
-\item{items}{The number of items you want to generate}
+\item{items}{The number of items to generate}
 
-\item{n}{Value you want use the arithmetic operator on}
+\item{n}{Value to use the arithmetic operator on}
 
-\item{arithmetic}{Use either 'add', 'substr', 'multi', 'div'.}
+\item{arith}{Use either 'add', 'substr', 'multi', 'div'.}
 }
 \description{
-This uses item model 3 to create number series items.
+This uses item model 3 to create number series items - Use of basic algebraic skills.
 }
 \details{
-This is based on linearity rule / pattern recognition rule and also arithmetic operators. Currently it only displays up to a series of 9.
+Each element in the sequence is derived from the preceding by applying one of four basic arithmetic operations - addition,  subtraction, multiplication, or division. Coefficient of change is invariant across the sequence. 20 18 16 14 (12). Currently it only displays up to a series of 9.
 }
 \examples{
-\dontrun{
 
-nmThree(items=4,n=2,arithmetic="add")
+nmThree(items=4,n=2,arith="add")
 
-}
+
 }
 \author{
 Aiden Loe and Filip Simonfy

@@ -21,12 +21,14 @@ nmEight(vOne = 1, vTwo = 3, items, seed = 1, logic = "one",
 \item{random}{If random=FALSE, the items will follow in sequential order.}
 }
 \description{
-This uses item model 8 to create number series items.
+This uses item model 8 to create number series items - Identification of complex coefficients of change
 }
 \details{
-This function creates number series that is a combination of Arithmetic, Linear and Complex coefficient. \cr
+This function creates number series that is a combination of Arithmetic, Linear and Complex coefficient. Ability to identify complex coefficients; the coefficient of change involves a combination of arithmetic operations (e.g. addition and multiplication) applied serially.\cr
+There are two logic to calculate the number series.
 First logic of complex coefficient = i*x+y.\cr
-Second logic of complex coefficient = (i+x)*y.
+Second logic of complex coefficient = (i+x)*y. \cr.
+Example: Each element in the sequence is derived from the preceding by adding two and multiplying the result by two. (2 8 20 44 92 (188)).
 }
 \examples{
 \dontrun{

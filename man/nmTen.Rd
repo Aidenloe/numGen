@@ -10,10 +10,10 @@ nmTen(items)
 \item{items}{Number of items to generate.}
 }
 \description{
-This uses item model 10 to create number series items.
+This uses item model 10 to create number series items - Identification of relationships within a chain of elements.
 }
 \details{
-This function creates Fibonacci sequences. The maximum number to be generated is 15 items.
+Progressive sequences which involve relationships between multiple preceding objects (e.g. Fibonacci sequence). Example: Each element of the sequence is a result of addition of its two preceding elements (1 1 2 3 5 8 (13)). The maximum number to be generated is 15 items.
 }
 \examples{
 \dontrun{

@@ -4,28 +4,28 @@
 \alias{nmSix}
 \title{Item Model 6}
 \usage{
-nmSix(arith = "add", n = 1, items = 2)
+nmSix(arithOne = "add", arithTwo = "substr", n = 2, items = 4)
 }
 \arguments{
-\item{arith}{Select the arithmetric operator of choice ("add","multi", "sub", "div").}
+\item{arithOne}{Select the arithmetric operator of choice ("add","multi", "sub", "div").}
+
+\item{arithTwo}{Select the arithmetric operator of choice ("add","multi", "sub", "div").}
 
 \item{n}{Value you want use the arithmetic operator on.}
 
 \item{items}{Generate a random mix of items.}
 }
 \description{
-This uses item model 6 to create number series items.
+This uses item model 6 to create number series items - Identification of co-occurring relationships between elements (with use of arithmetic skills)
 }
 \details{
-2 linear sequences (With use of the same arithmetic operator).
-Combination of: sequences x y x y x y x y.
-The selected arithmetic and the operator will remind the same between the combined sequences.
+Logic analogous to the Item Model 5, but at least one sub-sequence involves the basic arithmetic operations. Sequences combine items from Item Families 1 and 3. The arithmetic operations change but the differences in value remains the name. Example: Odd elements of the sequence increase by 2 and even elements of the sequence are multiplied by 2. (2 12 4 24 6 48 8 (96) (10))
 }
 \examples{
 \dontrun{
 
 set.seed(1)
-nmSix(arithmetic="add",n=2,5)
+nmSix(arithOne="add",arithTwo="add",n=2,items=5)
 
 }
 }
