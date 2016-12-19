@@ -4,7 +4,11 @@
 #' @param seed To make sure that the randomness of the created black dots is captured and not repeated.
 #' @param saturation The number of black dots created for a given grid.
 #' @param Grid is the grid of the maze
-#' @param html is the folder to save the source code in
+#' @param html is the folder to save the source code in. If not given, the file will be saved to working directory.
+#' @param background The background colour of the page.
+#' @param boxBackground The background colour of the box.
+#' @param fontColour The font colour of the instructions.
+#' @param Timer If True, a time limit of 4 mintues is given per question.
 #' @details This function creates a maze into your folder.
 #' A grid object needs to be called out first before runing the maze function.
 #' The grid object needs to be the same as the rank given.
@@ -20,38 +24,27 @@
 #' data(gridThreeUp)
 #' grid <- gridThreeUp
 #'
-#' # Folder to save html/css/java script
-#' filePath = getwd()
-#' maze(rank,i,saturation,grid = gridThree,filePath)
+#'  # Folder to save html/
+#'  filePath = getwd()
+#'  setwd("~/desktop")
+#'  filePath<- getwd()
+#'
+#'  #Generate item
+#' maze(rank= 3,seed=5,saturation,grid = gridThreeUp,html=filePath,background="#7abcff",boxBackground="#66CDAA", fontColour="white ",Timer=TRUE)
 #'
 #'
 #'
 
-require(mazeGen)
-require(igraph)
-
- rank <- 3
- seed <- 2
- saturation <- 0.5
-
- # Grid same as rank
- data(gridThreeUp)
- grid <- gridEightDown
-grid <- gridThreeUp
-
- # Folder to save html/css/java script
- filePath = getwd()
-filePath <- setwd("~/desktop")
- maze(rank= 18,seed=4,saturation,grid = gridEightDown,html=filePath)
-
-getwd()
 maze <- function(rank = 3,
                  seed = 1,
                  saturation = 0.5,
                  grid = gridThreeUp,
                  html = filePath,
-                 background="#7abcff"){
-  R <- rank
+                 background="#7abcff",
+                 boxBackground = "#66CDAA",
+                 fontColour="white",
+                 Timer=TRUE){
+
   G <- graph(genMaze(rank), directed = TRUE )
 
   set.seed<- seed
@@ -94,11 +87,11 @@ maze <- function(rank = 3,
   }
 
 ##### From Here (HTML) ####
-  htmlfile = file.path(paste0(html, "/seed",i,".html"))
+  htmlfile = file.path(paste0(html, "/seed",seed,".html"))
 ##### From Here (HTML) ####
 cat("\n<html><head>",file=htmlfile)
 # CSS
-cat("
+cat(paste0("
     <style>
     html {height: 100%}
 
@@ -109,7 +102,7 @@ cat("
 }
 body, td {
 font-family: serif;
-background: background; /* Old browsers */
+background:", background, ";/* Old browsers */
 /* background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%);  FF3.6-15 */
 /* background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%);  Chrome10-25,Safari5.1-6 */
 /* background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%);*/
@@ -187,7 +180,7 @@ padding:20px;
 border-radius: 20px;
 -webkit-border-radius: 15px;
 -moz-border-radius: 15px;
-background: #66CDAA;
+background:", boxBackground,";
 color:white;
 font-weight:bold;
 margin:50px auto;
@@ -197,26 +190,21 @@ height:850px;
 width: 920px;
 }
 </style>
-", append= TRUE, file = htmlfile)
+"), append= TRUE, file = htmlfile)
 cat("\n</head>", append=TRUE, file = htmlfile)
 cat("\n<br>", append=TRUE, file = htmlfile)
-cat("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;\"><span style=\"color: white;font-size:25px\">Level {{level}} out of {{t_question}}.</span></p>",append=TRUE, file = htmlfile)
+cat(paste0("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;\"><span style=\"color: ",fontColour,";font-size:25px\">Level {{level}} out of {{t_question}}.</span></p>"),append=TRUE, file = htmlfile)
 cat("\n<body>", append = TRUE, file = htmlfile)
 
-cat("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"white\">The goal is to collect as many gold coins as possible as you plan your route up to the top.</font></p>", append=TRUE, file=htmlfile)
-cat("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"white\">To start, click on the first node at the bottom of the maze.</font></p>", append=TRUE, file=htmlfile)
+cat(paste0("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"",fontColour,"\">The goal is to collect as many gold coins as possible as you plan your route up to the top.</font></p>"), append=TRUE, file=htmlfile)
+cat(paste0("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"",fontColour,"\">To start, click on the first node at the bottom of the maze.</font></p>"), append=TRUE, file=htmlfile)
+if(Timer==TRUE){
 cat("\n<input id=\"countdown\" name=\"timeLeft\" type=\"hidden\" />", append=TRUE, file=htmlfile)
-cat("\n<div style=\"text-align: center; font-size:35px\"><font color=\"white\">Timer: <span id=\"countdown2\">&nbsp;</span></font></div>", append=TRUE, file=htmlfile)
-#cat("<script src='script.js'></script>",append=TRUE, file=htmlfile)
-####### Create Node coordinates
-#countries <- c("Albania","Andorra","Armenia","Austria","Azerbajian","Belarus","Belgium","Bulgaria","Croatia","Cyprus","Denmark","Estonia","Finland","France","Georgia","Germany","Greece","Hungary","Iceland","Ireland","Italy","Kazakhstan","Kosovo","Latvia","Malta","Moldova","Monaco","Norway","Poland","Portugal","Romania","Russia","Serbia","Slovakia","Solvenia","Spain","Sweden","Turkey","Ukraine","UK","US")
-#countries<- as.data.frame(countries)
-#o <- closedMaps(E.trail ,base.colour=3, start.colour=9,end.colour= 9,z=countries,newValue=9,default.colour=FALSE, edge.value=0, no.label=FALSE)
+cat(paste0("\n<div style=\"text-align: center; font-size:35px\"><font color=\"",fontColour,"\">Timer: <span id=\"countdown2\">&nbsp;</span></font></div>"), append=TRUE, file=htmlfile)
+}
 
 #Must normalise coordinates
 #grconvertX and gconvertY create the right pixel coordinates.
-#p <- tkplot(G)
-#coordinates <- tkplot.getcoords(p)
 
 coordinates.1 <- grid
 plot(coordinates.1)
@@ -230,7 +218,7 @@ png(file="map.png", height=1000, width=1000)
 #plot graph, png must always be forced.
 #AIG:::plot.logic.map(G, png=FALSE, layout = coordinates.2, height=1000, width=1000, v.size=10, vertex.label.cex=0.5,vertex.shape="square", xlab=".", ylab='.',cex.lab=0.1) # plot using desired coordinates)
 #AIG:::plot.logic.map(G, layout=coordinates.1,height=1000, width=1000)
-plot(G, layout=coordinates.1)#
+plot(G, layout=coordinates.1)
 # combind vector of coordinates
 #coord. <- cbind(grconvertX(coordinates.2[, 1], "user", "device"), cbind(grconvertY(coordinates.2[, 2], "user", "device")))
 coord.node <- cbind(grconvertX(coordinates.1[, 1], "user", "device"), cbind(grconvertY(coordinates.1[, 2], "user", "device")))
@@ -411,7 +399,7 @@ finalRow <- paste0(v,e,paste0("(nodeclicked.id == edgeArray[",lastRow$index[nrow
 finalRow
 
 ##### javaScript1 ####
-
+if(Timer==TRUE){
 javaScript<- paste0("
                     ///////////// Count Down Timer Begin ////////////
                     function countdown( elementName, minutes, seconds )
@@ -935,6 +923,483 @@ javaScript<- paste0("
                     // check stopping rules
                     var completedGame = true;
                     if(sum == ",maxScore,"){ ")
+}
+
+if(Timer==FALSE){
+  javaScript<- paste0("
+
+                      var isFirstNodeClicked=true;
+                      var prevNodeId=null;
+                      var nodeArray = [];
+                      var timerArray = [];
+                      var responseArray =[];
+                      var node = [];
+                      var clickedNodes=[];
+                      function captureActionData(node, nodeArray, response, timeStamp){
+                      var captureObject = {}; // Create empty JSON array
+                      captureObject.node = node
+                      captureObject.nodeArray = nodeArray;
+                      captureObject.time = timeStamp;
+                      captureObject.response = response;
+                      responseArray.push(captureObject);
+                      console.log(JSON.stringify(responseArray));
+                      }
+
+
+
+                      function nodeClick(nodeclicked) {
+                      console.log('clickedNode = ' + nodeclicked.id + '; previous node = ' + prevNodeId);
+                      //console.log(nodeclicked.id)
+                      //console.log(edgeArray[0][1]);
+
+                      var response ; // Recorded as right or wrong.
+
+                      // Record first node ///////////
+                      if (isFirstNodeClicked == true){
+                      if(nodeclicked.id == edgeArray[1][0] && edgeArray[2][0]){
+                      node = nodeclicked.id
+                      response = \"correct\";
+                      timerArray.push(timeStamp);
+                      console.log(timerArray);
+                      var nodeArray ;
+
+                      captureActionData(node, 'NULL' ,response, timeStamp);
+
+                      // create hidden layer (Dynamic)
+                      var form = document.getElementById('hidden');
+                      var div = document.createElement('div');
+                      var inputElements1 = document.createElement('input');
+                      inputElements1.setAttribute(\"type\", \"hidden\");
+                      inputElements1.setAttribute(\"name\", \"node\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements1.setAttribute(\"value\", node);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements1);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic) 'timestamp'
+                      var inputElements2 = document.createElement('input');
+                      inputElements2.setAttribute(\"type\", \"hidden\");
+                      inputElements2.setAttribute(\"name\", \"timeStamp\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements2.setAttribute(\"value\", timeStamp);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements2);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic) 'responses'
+                      var inputElements3 = document.createElement('input');
+                      inputElements3.setAttribute(\"type\", \"hidden\");
+                      inputElements3.setAttribute(\"name\", \"response\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements3.setAttribute(\"value\", response);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements3);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic)
+                      var inputElements4 = document.createElement('input');
+                      inputElements4.setAttribute(\"type\", \"hidden\");
+                      inputElements4.setAttribute(\"name\", \"nodePosition\");
+                      inputElements4.setAttribute(\"value\", node);
+
+                      div.appendChild(inputElements4);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+
+                      }else{
+                      alert(\"Please start from the first node at the bottom\");
+                      node = nodeclicked.id
+                      response = \"notBottom\";
+                      timerArray.push(timeStamp);
+                      console.log(timerArray);
+                      var nodeArray ;
+
+                      captureActionData(node, 'NULL' ,response, timeStamp);
+
+                      // create hidden layer (Dynamic)
+                      var form = document.getElementById('hidden');
+                      var div = document.createElement('div');
+                      var inputElements1 = document.createElement('input');
+                      inputElements1.setAttribute(\"type\", \"hidden\");
+                      inputElements1.setAttribute(\"name\", \"node\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements1.setAttribute(\"value\", node);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements1);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic) 'timestamp'
+                      var inputElements2 = document.createElement('input');
+                      inputElements2.setAttribute(\"type\", \"hidden\");
+                      inputElements2.setAttribute(\"name\", \"timeStamp\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements2.setAttribute(\"value\", timeStamp);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements2);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic) 'responses'
+                      var inputElements3 = document.createElement('input');
+                      inputElements3.setAttribute(\"type\", \"hidden\");
+                      inputElements3.setAttribute(\"name\", \"response\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements3.setAttribute(\"value\", response);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements3);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic)
+                      var inputElements4 = document.createElement('input');
+                      inputElements4.setAttribute(\"type\", \"hidden\");
+                      inputElements4.setAttribute(\"name\", \"nodePosition\");
+                      inputElements4.setAttribute(\"value\", node);
+
+                      div.appendChild(inputElements4);
+                      form.appendChild(div);
+                      return;
+                      }
+
+                      }
+
+
+                      /// Second node onwards ////////
+                      if (isFirstNodeClicked == false) {
+                      var pathExists = false;
+                      for(var i=0; i<edgeArray.length; i++) {
+                      //alert(edgeArray[i][0]);
+                      //alert(edgeArray[i][1]);
+                      if((edgeArray[i][0] == nodeclicked.id && edgeArray[i][1] == prevNodeId) || (edgeArray[i][0] == prevNodeId && edgeArray[i][1] == nodeclicked.id)) {
+                      if ((edgeArray[i][2] == 0)) {
+                      edgeArray[i][2] = 1;",
+                      colourNodePosition, "{
+                      edgeArray[i][3] = 1;  // count total score
+                      console.log(edgeArray[i]);
+                      }
+
+                      // JSON array
+                      node = nodeclicked.id
+                      response = \"correct\";
+                      timerArray.push(timeStamp);
+                      console.log(timerArray);
+                      captureActionData(node, edgeArray[i], response, timeStamp);
+
+                      // create hidden layer (Dynamic)
+                      var form = document.getElementById('hidden');
+                      var div = document.createElement('div');
+                      var inputElements1 = document.createElement('input');
+                      inputElements1.setAttribute(\"type\", \"hidden\");
+                      inputElements1.setAttribute(\"name\", \"node\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements1.setAttribute(\"value\", edgeArray[i]);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements1);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic) 'time stamp'
+                      var inputElements2 = document.createElement('input');
+                      inputElements2.setAttribute(\"type\", \"hidden\");
+                      inputElements2.setAttribute(\"name\", \"timeStamp\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements2.setAttribute(\"value\", timeStamp);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements2);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic) 'responses'
+                      var inputElements3 = document.createElement('input');
+                      inputElements3.setAttribute(\"type\", \"hidden\");
+                      inputElements3.setAttribute(\"name\", \"response\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements3.setAttribute(\"value\", response);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements3);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic)
+                      var inputElements4 = document.createElement('input');
+                      inputElements4.setAttribute(\"type\", \"hidden\");
+                      inputElements4.setAttribute(\"name\", \"nodePosition\");
+                      inputElements4.setAttribute(\"value\", node);
+
+                      div.appendChild(inputElements4);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      pathExists = true; //hooray path exists :P
+                      // prevMyNode = document.getElementById(prevNodeId); // Put into new variable
+                      //prevMyNode.style.backgroundColor = '#FFCF75';  // changes the color of the element of previous node ID
+
+                      }
+
+                      //unidirection
+                      if(edgeArray[i][4] == 2 && Number(nodeclicked.id) < prevNodeId){
+                      edgeArray[i][2] = 0;
+                      node = nodeclicked.id
+                      timerArray.push(timeStamp);
+                      console.log(timerArray);
+                      alert(\"Wrong direction\");
+                      response = \"wrongDirection\";
+                      captureActionData(node, edgeArray[i], response, timeStamp);
+                      // create hidden layer (Dynamic)
+                      var form = document.getElementById('hidden');
+                      var div = document.createElement('div');
+                      var inputElements1 = document.createElement('input');
+                      inputElements1.setAttribute(\"type\", \"hidden\");
+                      inputElements1.setAttribute(\"name\", \"node\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements1.setAttribute(\"value\", edgeArray[i]);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements1);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic) \"time stamp\"
+                      var inputElements2 = document.createElement('input');
+                      inputElements2.setAttribute(\"type\", \"hidden\");
+                      inputElements2.setAttribute(\"name\", \"timeStamp\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements2.setAttribute(\"value\", timeStamp);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements2);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic) 'responses'
+                      var inputElements3 = document.createElement('input');
+                      inputElements3.setAttribute(\"type\", \"hidden\");
+                      inputElements3.setAttribute(\"name\", \"response\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements3.setAttribute(\"value\", response);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements3);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic)
+                      var inputElements4 = document.createElement('input');
+                      inputElements4.setAttribute(\"type\", \"hidden\");
+                      inputElements4.setAttribute(\"name\", \"nodePosition\");
+                      inputElements4.setAttribute(\"value\", node);
+
+                      div.appendChild(inputElements4);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+
+                      //prevMyNode.style.backgroundColor = '#218868';
+                      return false;
+                      }
+
+                      }
+
+                      }
+
+
+
+                      //check if the person tried to take a path that don't exists or repeated
+                      if (pathExists == false) {
+                      for(var i=0; i<edgeArray.length; i++) {
+                      if((edgeArray[i][0] !== nodeclicked.id && edgeArray[i][1] !== prevNodeId) || (edgeArray[i][0] !== prevNodeId && edgeArray[i][1] !== nodeclicked.id)) {
+                      if ((edgeArray[i][2] == 0)) { //checks that the user hasn't taken this path already
+                      edgeArray[i][2] = 0; //makes it so that they can't take that path again
+                      console.log(edgeArray[i]);
+                      console.log(clickedNodes.length);
+
+
+                      // Repeated nodes
+                      if(nodeclicked.id == prevNodeId) {
+                      timerArray.push(timeStamp);
+                      console.log(timerArray);
+                      alert(\"This is repeated\");
+                      response = \"repeated\";
+                      captureActionData(clickedNodes[i], clickedNodes[i] ,response, timeStamp);
+
+                      // create hidden layer (Dynamic)
+                      var form = document.getElementById('hidden');
+                      var div = document.createElement('div');
+                      var inputElements1 = document.createElement('input');
+                      inputElements1.setAttribute(\"type\", \"hidden\");
+                      inputElements1.setAttribute(\"name\", \"node\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements1.setAttribute(\"value\", nodeclicked.id);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements1);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic) \"time stamp\"
+                      var inputElements2 = document.createElement('input');
+                      inputElements2.setAttribute(\"type\", \"hidden\");
+                      inputElements2.setAttribute(\"name\", \"timeStamp\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements2.setAttribute(\"value\", timeStamp);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements2);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic) 'responses'
+                      var inputElements3 = document.createElement('input');
+                      inputElements3.setAttribute(\"type\", \"hidden\");
+                      inputElements3.setAttribute(\"name\", \"response\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements3.setAttribute(\"value\", response);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements3);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic)
+                      var inputElements4 = document.createElement('input');
+                      inputElements4.setAttribute(\"type\", \"hidden\");
+                      inputElements4.setAttribute(\"name\", \"nodePosition\");
+                      inputElements4.setAttribute(\"value\", node);
+
+                      div.appendChild(inputElements4);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+                      return false;
+
+                      }
+
+                      // JSON array
+                      node = nodeclicked.id
+                      timerArray.push(timeStamp);
+                      console.log(timerArray);
+                      alert('You cant go here!');
+                      response = \"incorrect\";
+                      captureActionData(node, edgeArray[i], response, timeStamp);
+
+                      // create hidden layer (Dynamic)
+                      var form = document.getElementById('hidden');
+                      var div = document.createElement('div');
+                      var inputElements1 = document.createElement('input');
+                      inputElements1.setAttribute(\"type\", \"hidden\");
+                      inputElements1.setAttribute(\"name\", \"node\");
+                      //inputElements1.setAttribute(\"name\",\"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements1.setAttribute(\"value\", edgeArray[i]);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements1);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic) \"time stamp\"
+                      var inputElements2 = document.createElement('input');
+                      inputElements2.setAttribute(\"type\", \"hidden\");
+                      inputElements2.setAttribute(\"name\", \"timeStamp\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements2.setAttribute(\"value\", timeStamp);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements2);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic) 'responses'
+                      var inputElements3 = document.createElement('input');
+                      inputElements3.setAttribute(\"type\", \"hidden\");
+                      inputElements3.setAttribute(\"name\", \"response\");
+                      //inputElements1.setAttribute(\"name\", \"nodeArray[\" + edgeArray[i][0] + \"][\" + edgeArray[i][1] + \"]\");
+                      inputElements3.setAttribute(\"value\", response);
+                      // inputElements1.innerHTML =  '<input type=\"hidden\" name=\"nodeArray[' + edgeArray[i][0] + '][' + edgeArray[i][1] + ']\" value=\"' + edgeArray[i] + '\"/>'
+                      div.appendChild(inputElements3);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      // create hidden layer (Dynamic)
+                      var inputElements4 = document.createElement('input');
+                      inputElements4.setAttribute(\"type\", \"hidden\");
+                      inputElements4.setAttribute(\"name\", \"nodePosition\");
+                      inputElements4.setAttribute(\"value\", node);
+
+                      div.appendChild(inputElements4);
+                      form.appendChild(div);
+                      // create hidden layer (Dynamic) [End] //
+
+                      return false;
+
+
+
+
+                      }
+                      }
+                      }
+                      }
+
+                      }
+
+                      // we successfully clicked on something, so change colour of stuff (line and node)
+                      if (isFirstNodeClicked == true){
+                      nodeclicked.style.backgroundColor = 'red';
+                      }
+
+                      // Create getChildren(gets all the nodes including the node you click)
+                      // changes the colour of everything except the node you click on
+                      function getChildren(n, skipMe){
+                      var r = [];
+                      for ( ; n; n = n.nextSibling )
+                      if ( n.nodeType == 1 && n != skipMe)
+                      r.push( n );
+                      return r;
+                      };
+                      // Create getsiblings(gets all the nodes except the node you click)
+                      function getSiblings(n) {
+                      return getChildren(n.parentNode.firstChild, n);
+                      }
+
+
+                      if (isFirstNodeClicked == false) { // the line doesnt change colour the first time
+
+                      if (Number(nodeclicked.id) > Number(prevNodeId)) {
+                      var elementname = prevNodeId+'_'+nodeclicked.id;
+                      } else {
+                      var elementname = nodeclicked.id+'_'+prevNodeId;
+                      }
+
+                      console.log('element_name = ' + elementname + 'clicked node = ' + nodeclicked.id + '; previous node = ' + prevNodeId);
+
+                      // this breaks if there is no if-statement on line 302. Because it doesn't continue onwards and reset nodeclicked into prevNode.
+                    // So you need the if statement. Once that is true, then it continues on with the code.
+                    myelement = document.getElementById(elementname);
+                    myelement.style.stroke = '#FF0000';
+
+
+                      }
+
+                      // set things up for next time
+                      prevNodeId = nodeclicked.id;
+                      isFirstNodeClicked=false;
+
+                      if (isFirstNodeClicked == false){
+                      nodeclicked.style.borderColor = 'red';
+                      }
+
+
+                      // suming up the score of the person based on the black dotes crossed
+                      var sum = 0;
+                      for(i =0; i < edgeArray.length; i++){
+                      //console.log(edgeArray[i][3]);
+                      sum  += edgeArray[i][3];
+                      }
+                      console.log(sum); // 6
+
+
+                      // check stopping rules
+                      var completedGame = true;
+                      if(sum == ",maxScore,"){ ")
+
+}
+
 ##### javascript 2 #####
 javaScript2<- paste0(
   finalRow,"{
