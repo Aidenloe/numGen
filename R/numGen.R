@@ -12,7 +12,7 @@
 #' \code{\link{nmTwo}}
 #'
 #' @section Item model 3:
-#' This function allows you to select one of the four arithmetic operators following a sequence succession rule.
+#' This function allows you to select one of the four arithmetic operators following a sequence succession rule.\cr
 #' \code{\link{nmThree}}
 #'
 #' @section Item model 4:
