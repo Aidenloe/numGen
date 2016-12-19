@@ -26,6 +26,10 @@
 #'
 #'
 #'
+
+require(mazeGen)
+require(igraph)
+
  rank <- 3
  seed <- 2
  saturation <- 0.5
@@ -37,12 +41,16 @@ grid <- gridThreeUp
 
  # Folder to save html/css/java script
  filePath = getwd()
-
+filePath <- setwd("~/desktop")
  maze(rank= 18,seed=4,saturation,grid = gridEightDown,html=filePath)
-require(mazeGen)
- require(igraph)
 
-maze <- function(rank = 3, seed = 1,saturation = 0.5, grid = gridThreeUp, html){
+getwd()
+maze <- function(rank = 3,
+                 seed = 1,
+                 saturation = 0.5,
+                 grid = gridThreeUp,
+                 html = filePath,
+                 background="#7abcff"){
   R <- rank
   G <- graph(genMaze(rank), directed = TRUE )
 
@@ -101,7 +109,7 @@ cat("
 }
 body, td {
 font-family: serif;
-background: #7abcff; /* Old browsers */
+background: background; /* Old browsers */
 /* background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%);  FF3.6-15 */
 /* background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%);  Chrome10-25,Safari5.1-6 */
 /* background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%);*/
