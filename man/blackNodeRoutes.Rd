@@ -7,9 +7,12 @@
 blackNodeRoutes(rank, nodePosition)
 }
 \arguments{
-\item{nodePosition}{tells you all the position of the black dots}
+\item{rank}{This is the Rank of the maze.}
 
-\item{R}{This is the Rank of the maze.}
+\item{nodePosition}{tells you all the position of the black dots}
+}
+\description{
+This function returns the frequently of paths going through a sequence of black dots
 }
 \details{
 This function returns the frequently of paths going through a sequence of black dots

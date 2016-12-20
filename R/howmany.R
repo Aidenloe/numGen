@@ -1,8 +1,9 @@
 #' @export
 #' @param rank This is the Rank of the maze.
 #' @param satPercent Percentage of saturation.
+#' @description Calculates how many possible variation of black dotes for a given saturation.
 #' @details Calculates how many possible variation of black dotes for a given saturation.
-#' Does not account for the first node being a black dot.
+#' Does not account for the first node being a black dot. The first node will not be a black dot.
 #' @author Aiden Loe
 #' @title howMany
 

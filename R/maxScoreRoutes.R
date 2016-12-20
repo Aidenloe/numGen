@@ -1,7 +1,9 @@
 #' @export
 #' @import igraph
-#' @param R This is the Rank of the maze.
-#' @details The maxScoreRoutes function tells you the possible routes to achieve a maximum score based on the colourNode position.
+#' @param rank This is the Rank of the maze.
+#' @param nodePosition tells you all the position of the black dots
+#' @description This tells you all the possible routes to achieve a maximum score based on the colourNode position and a given rank.
+#' @details The maxScoreRoutes function tells you the possible routes to achieve a maximum score.
 #' You need to use the nodePosition function first prior to using this.
 #' @author Aiden Loe and Maria
 #' @title maxScoreRoutes

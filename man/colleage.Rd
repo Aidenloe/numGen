@@ -4,12 +4,15 @@
 \alias{colleage}
 \title{colleage}
 \usage{
-colleage(n, R)
+colleage(n, rank)
 }
 \arguments{
 \item{n}{This is the node number.}
 
-\item{R}{This is the Rank of the maze.}
+\item{rank}{This is the Rank of the maze.}
+}
+\description{
+This function tells us which nodes are connected to the nodes.
 }
 \details{
 This function tells us which nodes are connected to the node you are interested in based on a given Grid.

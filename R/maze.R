@@ -1,14 +1,20 @@
 #' @export
 #' @import igraph
+#' @importFrom grDevices dev.off
+#' @importFrom grDevices png
+#' @importFrom graphics grconvertX
+#' @importFrom graphics grconvertY
+#' @importFrom graphics plot
 #' @param rank This is the Rank of the maze.
 #' @param seed To make sure that the randomness of the created black dots is captured and not repeated.
 #' @param saturation The number of black dots created for a given grid.
-#' @param Grid is the grid of the maze
-#' @param html is the folder to save the source code in. If not given, the file will be saved to working directory.
+#' @param grid is the grid of the maze
+#' @param wd is the working directory to save the HTML source code in. If not given, the file will be saved in the default working directory.
 #' @param background The background colour of the page.
 #' @param boxBackground The background colour of the box.
 #' @param fontColour The font colour of the instructions.
 #' @param Timer If True, a time limit of 4 mintues is given per question.
+#' @description This function generates an Elithorn Maze
 #' @details This function creates a maze into your folder.
 #' A grid object needs to be called out first before runing the maze function.
 #' The grid object needs to be the same as the rank given.
@@ -20,17 +26,17 @@
 #' i <- 2
 #' saturation <- 0.5
 #'
-#' # Grid same as rank
-#' data(gridThreeUp)
+#' #Grid must be same as rank
 #' grid <- gridThreeUp
 #'
-#'  # Folder to save html/
-#'  filePath = getwd()
-#'  setwd("~/desktop")
-#'  filePath<- getwd()
+#' #Folder to save html/
+#' setwd("~/desktop")
+#' filePath<- getwd()
 #'
-#'  #Generate item
-#' maze(rank= 3,seed=5,saturation,grid = gridThreeUp,html=filePath,background="#7abcff",boxBackground="#66CDAA", fontColour="white ",Timer=TRUE)
+#' #Generate item
+#' maze(rank= 3,seed=5,saturation,grid = gridThreeUp,wd=filePath,
+#' background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
+#' Timer=TRUE)
 #'
 #'
 #'
@@ -38,27 +44,35 @@
 maze <- function(rank = 3,
                  seed = 1,
                  saturation = 0.5,
-                 grid = gridThreeUp,
-                 html = filePath,
+                 grid = NULL,
+                 wd = NULL,
                  background="#7abcff",
                  boxBackground = "#66CDAA",
                  fontColour="white",
                  Timer=TRUE){
 
+  if(is.null(grid)){
+    stop("Please select a grid of a specific rank to construct the maze.")
+  }
+
+  if(is.null(wd)){
+    warning("HTML file is saved in default working directory.")
+  }
   G <- graph(genMaze(rank), directed = TRUE )
 
   set.seed<- seed
   saturation <- saturation
 
   #Node length
-  nodeLength <- nodeLength(rank)
-  nodeLength
+  topNodes <- topNodes(rank)
+  topNodes
 
   #lowerGrid
   lowerGridCombind<- lowerGrid(rank)
 
+
   #### Calculate Path to node length ####
-  allPaths <- all_simple_paths(G, 1,nodeLength)
+  allPaths <- all_simple_paths(G, 1,topNodes)
   allPaths
 
   #saturation and node Position
@@ -71,7 +85,7 @@ maze <- function(rank = 3,
   maxscore
 
   #minimum steps to achieve maximum score
-  #minStep(rank, nodeLength)
+  #minStep(rank, topNodes)
 
   # number of optimised Routes
   #maxScoreRoutes(rank, nodePosition)
@@ -80,14 +94,12 @@ maze <- function(rank = 3,
   #solution(rank, saturation,set.seed)
 
   ##### From Here (HTML) ####
-  if(!exists("html")){
-    html = getwd()
-  }else{
-    html = html
+  if(is.null(wd)){
+    wd = getwd()
   }
 
 ##### From Here (HTML) ####
-  htmlfile = file.path(paste0(html, "/seed",seed,".html"))
+htmlfile = file.path(paste0(wd, "/seed",seed,".html"))
 ##### From Here (HTML) ####
 cat("\n<html><head>",file=htmlfile)
 # CSS
@@ -214,7 +226,7 @@ plot(coordinates.2)
 
 # Plot Graph
 #save empty .png
-png(file="map.png", height=1000, width=1000)
+png(filename="map.png", height=1000, width=1000)
 #plot graph, png must always be forced.
 #AIG:::plot.logic.map(G, png=FALSE, layout = coordinates.2, height=1000, width=1000, v.size=10, vertex.label.cex=0.5,vertex.shape="square", xlab=".", ylab='.',cex.lab=0.1) # plot using desired coordinates)
 #AIG:::plot.logic.map(G, layout=coordinates.1,height=1000, width=1000)
@@ -380,12 +392,12 @@ colourNodePosition <- paste0(v,e,paste0("(nodeclicked.id == ",nodePosition[lengt
 end.index.df<- as.data.frame(end.index)
 index <- 1:nrow(end.index.df)
 end.index.df <- cbind.data.frame(index,end.index.df)
-nodeLength
-which(end.index.df$end.index == nodeLength)
+topNodes
+which(end.index.df$end.index == topNodes)
 
 test1 <- NULL
-for(i in 1:length(nodeLength)){
-  test1[[i]] <- end.index.df[which(end.index.df$end.index == nodeLength[i]),]
+for(i in 1:length(topNodes)){
+  test1[[i]] <- end.index.df[which(end.index.df$end.index == topNodes[i]),]
 }
 lastRow <- do.call("rbind",test1)
 

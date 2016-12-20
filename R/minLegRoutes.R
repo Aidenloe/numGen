@@ -1,10 +1,16 @@
 #' @export
 #' @import igraph
 #' @param rank This is the Rank of the maze.
+#' @param nodePosition Tells you all the position of the black dots
+#' @description The minLegRoutes function tells you the possible routes to achieve a maximum score based on the colourNode position with a minimum number legs.
 #' @details The minLegRoutes function tells you the possible routes to achieve a maximum score based on the colourNode position with a minimum number legs.
 #' You need to use the nodePosition function first prior to using this.
 #' @author Aiden Loe and Maria
 #' @title minLegRoutes
+#' @examples
+#' rank <- 3
+#' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+#' minLegRoutes(rank,a)
 
 minLegRoutes <- function(rank,nodePosition){
   nodePosition <- nodePosition
@@ -56,4 +62,6 @@ minLegRoutes <- function(rank,nodePosition){
 #     return(findAllRoutes)
 }
 
+
+minLegRoutes(rank,a)
 

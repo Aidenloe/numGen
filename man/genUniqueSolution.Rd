@@ -7,10 +7,17 @@
 genUniqueSolution(rank, satPercent, seed)
 }
 \arguments{
-\item{R}{This is the Rank of the maze.}
+\item{rank}{This is the Rank of the maze.}
+
+\item{satPercent}{Percentage of saturation.}
+
+\item{seed}{Returns the seed that only gives one unique solution for a given rank and saturation.}
+}
+\description{
+The generate unique solution function searches for the SEED that returns only one unique solution for a given rank and saturation.
 }
 \details{
-The generate unique solution function searches for the SEED that returns only one unique solution for a given rank and saturation.
+The generate unique solution function searches for the SEED that returns only one unique solution for a given rank and saturation. This might be computationally intensive as the maze size increases.
 }
 \examples{
 \dontrun{

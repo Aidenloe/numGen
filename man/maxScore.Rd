@@ -8,9 +8,14 @@ maxScore(rank, nodePosition)
 }
 \arguments{
 \item{rank}{This is the Rank of the maze.}
+
+\item{nodePosition}{tells you all the position of the black dots}
+}
+\description{
+This tells you the maximum score for a given rank and a given colour node positions.
 }
 \details{
-The maxScore function returns the maximum score for a given rank and a given node Position. You need to use the colour node position function first.
+The maxScore function returns the maximum score for a given rank and a given colour node positions. You need to use the colour node position function first.
 }
 \author{
 Aiden Loe

@@ -2,16 +2,16 @@
 % Please edit documentation in R/mazeGen.R
 \name{mazeGen}
 \alias{mazeGen}
-\title{mazeGen: A package for generating number series items.}
+\title{mazeGen: A package for generating Elithorn Maze}
 \description{
-The mazeGen package provides 14 item models for generating number series items
+The mazeGen package provides a function to generate the Perceptual Elithorn Maze as well as the methods for calculating task difficulty without incorporating reponses.
 }
 \details{
-Still need to make changes here.
+The \code{\link{maze}} function will allow you to generate the mazes according to certain specification. Currently the maximum number of row is 18.  \cr
 }
-\section{Item model 1}{
+\references{
+Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. British Journal of Psychology, 56(2-3), 295-302. \cr
 
-This number series counts the alphabets representation.\cr
-\code{\link{nmOne}}
+Davies, M. G., & Davies, D. M. (1965). Some analytical properties of Elithorn\verb{'s} perceptual maze. Journal of Mathematical Psychology, 2(2), 371-380.
 }
 

@@ -1,6 +1,7 @@
 #' @export
-#' @param Rank This is the Rank of the maze.
-#' @param minStep This returns the minimum step achievable for a given max score
+#' @param rank This is the Rank of the maze.
+#' @param nodePosition  Tells you all the position of the black dots.
+#' @description This function tells us the minimum steps to achieve the maximums core given the colour node positions.
 #' @details This function tells us the minimum steps to achieve the maximums core given the colour node positions.
 #' @author Aiden Loe
 #' @title minStep

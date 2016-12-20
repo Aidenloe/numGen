@@ -1,9 +1,17 @@
 #' @export
-#' @param R This is the Rank of the maze.
+#' @import igraph
+#' @param rank This is the Rank of the maze.
 #' @param nodePosition tells you all the position of the black dots
-#' @details This function returns the frequently of paths going through a sequence of black dots
+#' @description This function returns the frequently of paths going through at least one black dots
+#' @details This function returns the frequently of paths going through at least one of black dots
 #' @author Aiden Loe and Maria
 #' @title blackNodeRoutes
+#' @examples
+#' rank <- 5
+#' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+#' blackNodeRoutes(rank,a)
+
+
 
 blackNodeRoutes <- function(rank,nodePosition){
 
@@ -20,8 +28,6 @@ blackNodeRoutes <- function(rank,nodePosition){
     maxColour[[i]] <- ifelse(as.numeric(allPaths[[i]]) %in% nodePosition,1,0)
   }
 
-
-
   ##allPaths
   #### summing up the total score ####
   totalScore <- NULL
@@ -29,9 +35,8 @@ blackNodeRoutes <- function(rank,nodePosition){
     totalScore[i]<- sum(maxColour[[i]])
   }
 
-  maxColour
+
 totalScore.df <- as.data.frame(totalScore)
-totalScore.df
 index <- 1:nrow(totalScore.df)
 totalScore.df.1<- cbind.data.frame(index,totalScore.df)
 n<-nrow(totalScore.df.1)

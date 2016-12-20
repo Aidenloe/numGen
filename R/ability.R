@@ -1,18 +1,22 @@
 #' @export
 #' @import igraph
 #' @param rank This is the Rank of the maze.
-#' @param satPercent
-#' @param score This is the series of connected paths via the black dots
+#' @param satPercent This is the saturation of the coloured nodes.
+#' @param score This is the series of connected paths via the black dots.
 #' @param nodePosition You need to calculate the nodePosition.
 #' @description The ability function returns the weighted score of the individual given his raw score (i.e. the number of black dotes collected).
 #' @details The ability function is calculated following the paper in XXXX.
 #' @author Aiden Loe and Maria Sanchez
-#' @title Ability
+#' @title ability
 #'
-#' @example \dontrun{
-#' nodePosition <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
-#'   ability()
-#' }
+#' @examples
+#'  rank <-10
+#'  satPercent <- 0.5
+#'  seed<- 4
+#'  score<- 8
+#'  nodePosition <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+#'  ability(rank,satPercent,score,nodePosition)
+#'
 
 
 ability <- function(rank,satPercent,score,nodePosition){

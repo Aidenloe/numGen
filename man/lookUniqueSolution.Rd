@@ -7,7 +7,14 @@
 lookUniqueSolution(rank, satPercent, seed)
 }
 \arguments{
-\item{R}{This is the Rank of the maze.}
+\item{rank}{This is the Rank of the maze.}
+
+\item{satPercent}{Percentage of saturation.}
+
+\item{seed}{Returns a unique node distribution specific to the local computer.}
+}
+\description{
+The unique solution function returns the number of unique series of black dots for a given rank, saturation and seed.
 }
 \details{
 The unique solution function returns the number of unique series of black dots for a given rank, saturation and seed.

@@ -4,18 +4,31 @@
 \alias{maze}
 \title{maze}
 \usage{
-maze(rank, i, saturation, grid, html)
+maze(rank = 3, seed = 1, saturation = 0.5, grid = NULL, wd = NULL,
+  background = "#7abcff", boxBackground = "#66CDAA", fontColour = "white",
+  Timer = TRUE)
 }
 \arguments{
 \item{rank}{This is the Rank of the maze.}
 
-\item{i}{To make sure that the randomness of the created black dots is captured and not repeated.}
+\item{seed}{To make sure that the randomness of the created black dots is captured and not repeated.}
 
 \item{saturation}{The number of black dots created for a given grid.}
 
-\item{html}{is the folder to save the source code in}
+\item{grid}{is the grid of the maze}
 
-\item{Grid}{is the grid of the maze}
+\item{wd}{is the working directory to save the HTML source code in. If not given, the file will be saved in the default working directory.}
+
+\item{background}{The background colour of the page.}
+
+\item{boxBackground}{The background colour of the box.}
+
+\item{fontColour}{The font colour of the instructions.}
+
+\item{Timer}{If True, a time limit of 4 mintues is given per question.}
+}
+\description{
+This function generates an Elithorn Maze
 }
 \details{
 This function creates a maze into your folder.
@@ -23,20 +36,25 @@ A grid object needs to be called out first before runing the maze function.
 The grid object needs to be the same as the rank given.
 }
 \examples{
-\dontrun{
 
 rank <- 3
 i <- 2
 saturation <- 0.5
 
-# Grid same as rank
-data(gridThree)
+#Grid must be same as rank
+grid <- gridThreeUp
 
-# Folder to save html/css/java script
-filePath = getwd()
-maze(rank,i,saturation,gridThree,filePath)
+#Folder to save html/
+setwd("~/desktop")
+filePath<- getwd()
 
-}
+#Generate item
+maze(rank= 3,seed=5,saturation,grid = gridThreeUp,wd=filePath,
+background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
+Timer=TRUE)
+
+
+
 }
 \author{
 Aiden Loe

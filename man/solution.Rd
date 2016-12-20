@@ -7,11 +7,12 @@
 solution(rank, nodePosition)
 }
 \arguments{
-\item{nodePosition}{tells you all the position of the black dots}
+\item{rank}{This is the Rank of the maze}
 
-\item{R}{This is the Rank of the maze}
-
-\item{set.seed}{so that the same random selected black dots will ables be the same.}
+\item{nodePosition}{Tells you all the position of the black dots.}
+}
+\description{
+This function tells us the solution for all series of routes including both black and non black dots.
 }
 \details{
 This function tells us the solution for all series of routes including both black and non black dots.

@@ -4,13 +4,16 @@
 \alias{genMaze}
 \title{genMaze}
 \usage{
-genMaze(R)
+genMaze(rank)
 }
 \arguments{
-\item{R}{This is the Rank of the maze.}
+\item{rank}{This is the Rank of the maze.}
+}
+\description{
+This function generates the list of edges.
 }
 \details{
-The Genmaze function generates the list of edges
+The Genmaze function generates the list of edges. The edges will be used to construct the maze.
 }
 \author{
 Aiden Loe

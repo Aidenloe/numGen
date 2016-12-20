@@ -8,6 +8,11 @@ minLegRoutes(rank, nodePosition)
 }
 \arguments{
 \item{rank}{This is the Rank of the maze.}
+
+\item{nodePosition}{Tells you all the position of the black dots}
+}
+\description{
+The minLegRoutes function tells you the possible routes to achieve a maximum score based on the colourNode position with a minimum number legs.
 }
 \details{
 The minLegRoutes function tells you the possible routes to achieve a maximum score based on the colourNode position with a minimum number legs.

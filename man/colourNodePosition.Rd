@@ -7,11 +7,11 @@
 colourNodePosition(rank, satPercent, seed)
 }
 \arguments{
+\item{rank}{This is the Rank of the maze.}
+
 \item{satPercent}{Percentage of saturation.}
 
-\item{Rank}{This is the Rank of the maze.}
-
-\item{setseed.}{To always get the same position.}
+\item{seed}{To always get the same position for a local computer.}
 }
 \description{
 This function will not sample from the first node position. If you consider sampling from the first node, then in javascript, the summing of the black dotes need to begin from 1 rather than 0. To keep it simple, always ensure that the first node is not sampled as a black dot.

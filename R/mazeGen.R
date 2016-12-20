@@ -1,11 +1,13 @@
-#' mazeGen: A package for generating number series items.
+#' mazeGen: A package for generating Elithorn Maze
+#' @description The mazeGen package provides a function to generate the Perceptual Elithorn Maze as well as the methods for calculating task difficulty without incorporating reponses.
 #'
-#' The mazeGen package provides 14 item models for generating number series items
+#' @details The \code{\link{maze}} function will allow you to generate the mazes according to certain specification. Currently the maximum number of row is 18.  \cr
 #'
-#' Still need to make changes here.
-#' @section Maze
-#' The function will allow you to generate the mazes you want.
-#' \code{\link{maze}}
+#' @references
+#' Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. British Journal of Psychology, 56(2-3), 295-302. \cr
 #'
+#' Davies, M. G., & Davies, D. M. (1965). Some analytical properties of Elithorn\verb{'s} perceptual maze. Journal of Mathematical Psychology, 2(2), 371-380.
 #' @name mazeGen
 NULL
+
+

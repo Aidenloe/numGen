@@ -1,18 +1,19 @@
 #' @export
-#' @param R This is the Rank of the maze.
-#' @details The Genmaze function generates the list of edges
+#' @param rank This is the Rank of the maze.
+#' @description This function generates the list of edges.
+#' @details The Genmaze function generates the list of edges. The edges will be used to construct the maze.
 #' @author Aiden Loe
 #' @title genMaze
 
 
-genMaze<- function(R){
+genMaze<- function(rank){
   lista<-c()
-  RR<-as.numeric(R)^2
+  RR<-as.numeric(rank)^2
   for (i in 1:RR){
-    col<-colleage(i,R)
-    k<-length(colleage(i,R))
+    col<-colleage(i,rank)
+    k<-length(colleage(i,rank))
     for (j in 1:k){
-      t<-c(i,colleage(i,R)[j])
+      t<-c(i,colleage(i,rank)[j])
       lista<-c(lista,t)
       }
   }

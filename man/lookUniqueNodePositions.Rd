@@ -7,10 +7,17 @@
 lookUniqueNodePositions(rank, satPercent, seed)
 }
 \arguments{
-\item{Seed}{Returns a unique node distribution specific to the local computer.}
+\item{rank}{This is the Rank of the maze.}
+
+\item{satPercent}{Percentage of saturation.}
+
+\item{seed}{Returns a unique node distribution specific to the local computer.}
+}
+\description{
+The function returns a black nodes distribution with a single unique solution and seed number
 }
 \details{
-The function returns a black nodes distribution with a single unique solution + seed number
+The function returns a black nodes distribution with a single unique solution and seed number
 }
 \examples{
 \dontrun{

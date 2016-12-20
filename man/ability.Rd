@@ -2,17 +2,33 @@
 % Please edit documentation in R/ability.R
 \name{ability}
 \alias{ability}
-\title{Ability}
+\title{ability}
 \usage{
 ability(rank, satPercent, score, nodePosition)
 }
 \arguments{
-\item{R}{This is the Rank of the maze.}
+\item{rank}{This is the Rank of the maze.}
 
-\item{Score}{This is the series of connected paths via the black dots}
+\item{satPercent}{This is the saturation of the coloured nodes.}
+
+\item{score}{This is the series of connected paths via the black dots.}
+
+\item{nodePosition}{You need to calculate the nodePosition.}
+}
+\description{
+The ability function returns the weighted score of the individual given his raw score (i.e. the number of black dotes collected).
 }
 \details{
-The ability function returns the weighted score of the individual given his raw score (i.e. the number of black dotes collected).
+The ability function is calculated following the paper in XXXX.
+}
+\examples{
+ rank <-10
+ satPercent <- 0.5
+ seed<- 4
+ score<- 8
+ nodePosition <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+ ability(rank,satPercent,score,nodePosition)
+
 }
 \author{
 Aiden Loe and Maria Sanchez

@@ -1,6 +1,9 @@
 #' @export
 #' @import igraph
-#' @param R This is the Rank of the maze.
+#' @param rank This is the Rank of the maze.
+#' @param satPercent Percentage of saturation.
+#' @param seed Returns a unique node distribution specific to the local computer.
+#' @description The unique solution function returns the number of unique series of black dots for a given rank, saturation and seed.
 #' @details The unique solution function returns the number of unique series of black dots for a given rank, saturation and seed.
 #' @author Aiden Loe and Maria Sanchez
 #' @title lookUniqueSolution

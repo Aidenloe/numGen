@@ -1,7 +1,10 @@
 #' @export
 #' @import igraph
-#' @param Seed Returns a unique node distribution specific to the local computer.
-#' @details The function returns a black nodes distribution with a single unique solution + seed number
+#' @param rank This is the Rank of the maze.
+#' @param satPercent Percentage of saturation.
+#' @param seed Returns a unique node distribution specific to the local computer.
+#' @description The function returns a black nodes distribution with a single unique solution and seed number
+#' @details The function returns a black nodes distribution with a single unique solution and seed number
 #' @author Aiden Loe and Maria Sanchez
 #' @title lookUniqueNodePositions
 #' @examples \dontrun{
@@ -18,12 +21,7 @@
 #' #Black nodes distribution for single unique solution + seed number
 #' lookUniqueNodePositions(justOne)
 #'
-#' #Black nodes distribution
-#' nodePosition <- colourNodePosition(rank,satPercent,justOne)
-#'
-#' #Compare to the Solution function
-#' solution(rank,satPercent, nodePosition)
-#' }
+
 
 lookUniqueNodePositions <- function(rank,satPercent, seed){
   num<-lookUniqueSolution(rank,satPercent,seed)
@@ -38,6 +36,8 @@ lookUniqueNodePositions <- function(rank,satPercent, seed){
   return(listObject)
 }
 
+satPercent <- 0.5
 
+lookUniqueNodePositions(rank,satPercent=satPercent)
 
-
+ genUniqueSolution(rank,satPercent,11)

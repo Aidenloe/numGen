@@ -1,10 +1,14 @@
 #' @export
-#' @param R This is the Rank of the maze
-#' @param set.seed so that the same random selected black dots will ables be the same.
-#' @param nodePosition tells you all the position of the black dots
+#' @param rank This is the Rank of the maze
+#' @param nodePosition Tells you all the position of the black dots.
+#' @description This function tells us the solution for all series of routes including both black and non black dots.
 #' @details This function tells us the solution for all series of routes including both black and non black dots.
 #' @author Aiden Loe and Maria Sanchez
 #' @title solution
+#' @examples
+#' rank <- 3
+#' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+#' solution(rank,a)
 
 solution <- function(rank,nodePosition){
 
@@ -63,10 +67,11 @@ solution <- function(rank,nodePosition){
   print(allPaths[M[1,W]])
   print("the minimum number of steps for the optimal solution is: ")
   print(min(LL)-1)
-
   print(("the number of solutions is: "))
 
   return(length(W))
 }
 
-
+#' rank <- 3
+#' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+solution(rank,a)
