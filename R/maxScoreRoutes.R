@@ -1,12 +1,17 @@
-#' @export
-#' @import igraph
-#' @param rank This is the Rank of the maze.
-#' @param nodePosition tells you all the position of the black dots
-#' @description This tells you all the possible routes to achieve a maximum score based on the colourNode position and a given rank.
-#' @details The maxScoreRoutes function tells you the possible routes to achieve a maximum score.
-#' You need to use the nodePosition function first prior to using this.
-#' @author Aiden Loe and Maria
-#' @title maxScoreRoutes
+# ' @export
+# ' @import igraph
+# ' @param rank This is the Rank of the maze.
+# ' @param nodePosition tells you all the position of the black dots
+# ' @description This tells you all the possible routes to achieve a maximum score based on the colourNode position and a given rank.
+# ' @details The maxScoreRoutes function tells you the possible routes to achieve a maximum score.
+# ' You need to use the nodePosition function first prior to using this.
+# ' @author Aiden Loe and Maria
+# ' @title maxScoreRoutes
+# ' @examples
+# ' rank <- 3
+# ' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+# ' maxScoreRoutes(rank,a)
+
 
 maxScoreRoutes <- function(rank,nodePosition){
 
@@ -21,7 +26,6 @@ maxScoreRoutes <- function(rank,nodePosition){
   G <- graph(genMaze(rank), directed = TRUE )
   allPaths<-c()
   allPaths <- all_simple_paths(G,1,lowerGrid(rank))
-
 
   #### max colour gives you the points for every route on a black dot ####
   maxColour <- NULL
@@ -59,6 +63,7 @@ maxScoreRoutes <- function(rank,nodePosition){
   print("The optimal paths are: ")
   W<-which( LL == rank)
   print(allPaths[M[1,W]])
+
   #print("The minimum number of steps for the optimal solution is: ")
   #print(min(LL)-1)
 
@@ -68,6 +73,10 @@ maxScoreRoutes <- function(rank,nodePosition){
 }
 
 
-
-
-
+# rank <- 8
+# nodePosition <- colourNodePosition(rank=8,satPercent=0.5,seed=1)
+# maxScoreRoutes(rank,a)
+# solution(rank,a)
+#
+# a <- allPaths[M[1,W]]
+# do.call("rbind",a)

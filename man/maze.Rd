@@ -4,16 +4,16 @@
 \alias{maze}
 \title{maze}
 \usage{
-maze(rank = 3, seed = 1, saturation = 0.5, grid = NULL, wd = NULL,
+maze(rank = 3, saturation = 0.5, seed = 1, grid = NULL, wd = NULL,
   background = "#7abcff", boxBackground = "#66CDAA", fontColour = "white",
   Timer = TRUE)
 }
 \arguments{
 \item{rank}{This is the Rank of the maze.}
 
-\item{seed}{To make sure that the randomness of the created black dots is captured and not repeated.}
-
 \item{saturation}{The number of black dots created for a given grid.}
+
+\item{seed}{To make sure that the randomness of the created black dots is captured and not repeated.}
 
 \item{grid}{is the grid of the maze}
 

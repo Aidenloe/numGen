@@ -1,15 +1,15 @@
-#' @export
-#' @import igraph
-#' @param rank This is the Rank of the maze.
-#' @param nodePosition tells you all the position of the black dots
-#' @description This function returns the frequently of paths going through at least one black dots
-#' @details This function returns the frequently of paths going through at least one of black dots
-#' @author Aiden Loe and Maria
-#' @title blackNodeRoutes
-#' @examples
-#' rank <- 5
-#' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
-#' blackNodeRoutes(rank,a)
+# ' @export
+# ' @import igraph
+# ' @param rank This is the Rank of the maze.
+# ' @param nodePosition tells you all the position of the black dots
+# ' @description This function returns the frequently of paths going through at least one black dots
+# ' @details This function returns the frequently of paths going through at least one of black dots
+# ' @author Aiden Loe and Maria
+# ' @title blackNodeRoutes
+# ' @examples
+# ' rank <- 5
+# ' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+# ' blackNodeRoutes(rank,a)
 
 
 

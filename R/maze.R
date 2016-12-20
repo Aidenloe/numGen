@@ -6,8 +6,8 @@
 #' @importFrom graphics grconvertY
 #' @importFrom graphics plot
 #' @param rank This is the Rank of the maze.
-#' @param seed To make sure that the randomness of the created black dots is captured and not repeated.
 #' @param saturation The number of black dots created for a given grid.
+#' @param seed To make sure that the randomness of the created black dots is captured and not repeated.
 #' @param grid is the grid of the maze
 #' @param wd is the working directory to save the HTML source code in. If not given, the file will be saved in the default working directory.
 #' @param background The background colour of the page.
@@ -42,8 +42,8 @@
 #'
 
 maze <- function(rank = 3,
-                 seed = 1,
                  saturation = 0.5,
+                 seed = 1,
                  grid = NULL,
                  wd = NULL,
                  background="#7abcff",

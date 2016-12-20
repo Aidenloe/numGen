@@ -4,10 +4,10 @@
 \alias{lowerGrid}
 \title{lowerGrid}
 \usage{
-lowerGrid(R)
+lowerGrid(rank)
 }
 \arguments{
-\item{R}{This is the Rank of the maze.}
+\item{rank}{This is the Rank of the maze.}
 }
 \description{
 This tells you all the nodes position in the lower grid.

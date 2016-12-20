@@ -18,18 +18,8 @@ colourNodePosition<- function(rank, satPercent, seed){
 saturation<- ceiling(length(lowerGrid(rank))*satPercent)
 set.seed(seed)
 nodePosition <- sample(lowerGrid(rank)[-1], saturation, replace=FALSE)
-class(nodePosition) <- "colourNodePosition"
 return(nodePosition)
 }
 
-a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
-a
-methods('colourNodePosition')
-print(a)
-rm(print.colourNodePosition)
 
-x <- structure(1, class = letters)
-bar <- function(x) UseMethod("bar", x)
-bar.z <- function(x) "q"
-bar(x)
 

@@ -6,24 +6,24 @@
 #' @description The function returns a black nodes distribution with a single unique solution and seed number
 #' @details The function returns a black nodes distribution with a single unique solution and seed number
 #' @author Aiden Loe and Maria Sanchez
-#' @title lookUniqueNodePositions
-#' @examples \dontrun{
+#' @title Unique Node Positions
+#' @examples
 #'
 #' rank <- 5
 #' satPercent <- 0.5
-#'
-#' #Number of unique solutions
-#' lookUniqueSolution(rank,satPercent,11)
 #'
 #' #Searches for just one unique solution
 #' justOne <- genUniqueSolution(rank,satPercent,11)
 #'
 #' #Black nodes distribution for single unique solution + seed number
-#' lookUniqueNodePositions(justOne)
+#' uniqueNodePositions(rank,satPercent,justOne)
+#'
+#' colourNodePosition(rank,satPercent,seed=justOne)
 #'
 
 
-lookUniqueNodePositions <- function(rank,satPercent, seed){
+
+uniqueNodePositions <- function(rank,satPercent, seed){
   num<-lookUniqueSolution(rank,satPercent,seed)
   while (num>1){
     seed<-seed+1
@@ -36,8 +36,6 @@ lookUniqueNodePositions <- function(rank,satPercent, seed){
   return(listObject)
 }
 
-satPercent <- 0.5
 
-lookUniqueNodePositions(rank,satPercent=satPercent)
 
- genUniqueSolution(rank,satPercent,11)
+

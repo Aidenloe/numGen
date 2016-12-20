@@ -1,28 +1,28 @@
-#' @export
-#' @param rank This is the Rank of the maze.
-#' @param nodePosition  Tells you all the position of the black dots.
-#' @description This function tells us the minimum steps to achieve the maximums core given the colour node positions.
-#' @details This function tells us the minimum steps to achieve the maximums core given the colour node positions.
-#' @author Aiden Loe
-#' @title minStep
-#' @examples \dontrun{
-#'
-#' rank <- 5
-#' satPercent <- 0.5
-#'
-#' nodeLength(rank)# longest row
-#'
-#' nodePosition <- colourNodePosition(rank, satPercent, 2) ### always set seed.
-#'
-#' #Get Max Score
-#' maxScore(rank, nodePosition)
-#'
-#' maxRoutes <- maxScoreRoutes(rank, nodePosition)
-#'
-#' # Get minimum steps required to get maximum score
-#' minStep(rank, nodePosition)
+# ' @export
+# ' @param rank This is the Rank of the maze.
+# ' @param nodePosition  Tells you all the position of the black dots.
+# ' @description This function tells us the minimum steps to achieve the maximums core given the colour node positions.
+# ' @details This function tells us the minimum steps to achieve the maximums core given the colour node positions.
+# ' @author Aiden Loe
+# ' @title minStep
+# ' @examples \dontrun{
+# '
+# ' rank <- 5
+# ' satPercent <- 0.5
+# '
+# ' nodeLength(rank)# longest row
+# '
+# ' nodePosition <- colourNodePosition(rank, satPercent, 2) ### always set seed.
+# '
+# ' #Get Max Score
+# ' maxScore(rank, nodePosition)
+# '
+# ' maxRoutes <- maxScoreRoutes(rank, nodePosition)
+# '
+# ' # Get minimum steps required to get maximum score
+# ' minStep(rank, nodePosition)
 #
-#' }
+# ' }
 
 #number of steps
 minStep <- function(rank, nodePosition){

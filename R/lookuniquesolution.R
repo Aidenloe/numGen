@@ -1,22 +1,21 @@
-#' @export
-#' @import igraph
-#' @param rank This is the Rank of the maze.
-#' @param satPercent Percentage of saturation.
-#' @param seed Returns a unique node distribution specific to the local computer.
-#' @description The unique solution function returns the number of unique series of black dots for a given rank, saturation and seed.
-#' @details The unique solution function returns the number of unique series of black dots for a given rank, saturation and seed.
-#' @author Aiden Loe and Maria Sanchez
-#' @title lookUniqueSolution
-#' @examples \dontrun{
-#'
-#' rank <- 5
-#' satPercent <- 0.5
-#'
-#' #Number of unique solutions
-#' lookUniqueSolution(rank,satPercent,1)
-#'
-
-#' }
+# ' @export
+# ' @import igraph
+# ' @param rank This is the Rank of the maze.
+# ' @param satPercent Percentage of saturation.
+# ' @param seed Returns a unique node distribution specific to the local computer.
+# ' @description The unique solution function returns the number of unique series of black dots for a given rank, saturation and seed.
+# ' @details The unique solution function returns the number of unique series of black dots for a given rank, saturation and seed. This does not return the correct number of possible routes if there is more than one possible route.
+# ' @author Aiden Loe and Maria Sanchez
+# ' @title lookUniqueSolution
+# ' @examples \dontrun{
+# '
+# ' rank <- 5
+# ' satPercent <- 0.5
+# '
+# ' #Number of unique solutions
+# ' lookUniqueSolution(rank,satPercent,1)
+# '
+# ' }
 
 
 lookUniqueSolution <- function(rank,satPercent,seed){
@@ -68,7 +67,7 @@ lookUniqueSolution <- function(rank,satPercent,seed){
 
 allPaths
   P<-matrix(unlist(allPaths[M[1,W]]), nrow = rank) # Different series of connected path
-nodePosition
+P
 # collapsing the black node positions together
   YY<- NULL
    for (k in 1:length(W)){
@@ -79,10 +78,9 @@ nodePosition
 
  noptimalsolutions<-length(YY)
 #  noptimalsolutions<-length(W)
+  noptimalsolutions
   return(noptimalsolutions)
 }
-
-
 
 
 

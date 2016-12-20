@@ -1,7 +1,16 @@
+#' @export
+#' @param rank This is the Rank of the maze.
+#' @param nodePosition Tells you all the position of the black dots.
+#' @description This returns several results.
+#' @details This function calculates the count of all the possible black node routes, the maximum score one can achieve for a given rank of a colour node position, all the minimum routes possible, and all the possible routes.
+#' @author Aiden Loe
+#' @title Calculate
+#' @examples
+#' rank <- 10
+#' nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
+#' c <- cal(rank,nodePosition)
 
-
-estimate <- function(rank, nodePosition){
-
+cal <- function(rank, nodePosition){
 
   #### Lower Grid Maze Nodes ####
   G <- graph(genMaze(rank), directed = TRUE )
@@ -9,9 +18,6 @@ estimate <- function(rank, nodePosition){
 
   #### Calculate all Path ####
   allPaths <- all_simple_paths(G, 1,lowerGrid(rank))
-
-
-
 
 #### max colour gives you the points for every route on a black dot ####
 maxColour <- NULL
@@ -49,9 +55,14 @@ possibleBlackNodeRoutes<- table(endScore$totalScore)
 # totalScore.df <- as.data.frame(totalScore)
 # index <- 1:nrow(totalScore.df)
 # totalScore.df.1<- cbind.data.frame(index,totalScore.df)
-maxScore <- totalScore.df.1[which(totalScore.df.1$totalScore == max(totalScore.df.1$totalScore, na.rm = TRUE)), ]
 
+#### MAXIMUM SCORE ####
+maxScore <- totalScore.df.1[which(totalScore.df.1$totalScore == max(totalScore.df.1$totalScore, na.rm = TRUE)), ]
 n<-nrow(maxScore)
+M<-matrix(unlist(maxScore),ncol=n,byrow=TRUE)
+maxnu<-M[2,1]
+
+#### MIN STEP ####
 LL<-c()
 for (j in 1:n){
   M<-matrix(unlist(maxScore),ncol=n,byrow=TRUE)
@@ -67,6 +78,9 @@ minStep <- (min(LL)-1)
 W<-which( LL == min(LL))
 
 allminPath <- allPaths[M[1,W]]
+allminPath<- do.call("rbind",allminPath)
+m2 <- 1:nrow(allminPath)
+rownames(allminPath) <- rownames(m2, do.NULL = FALSE, prefix = "min.Route.")
 
 #print("the minimum number of steps for the optimal solution is: ")
 #print(min(LL)-1)
@@ -78,25 +92,30 @@ minLegRoutes <- length(W)
 #print("The optimal paths are: ")
 allPossiblePaths <-which( LL == rank) #only select those that reaches to the top
 allPath <- allPaths[M[1,allPossiblePaths]]
+allPath<- do.call("rbind",allPath)
+m2 <- 1:nrow(allPath)
+rownames(allPath) <- rownames(m2, do.NULL = FALSE, prefix = "pos.Route.")
 #print(("the number of solutions is: "))
-legRoutes <- length(allPath)
+maxScoreRoutes <- nrow(allPath)
 
 
-
-
-
-
-est <- list(maxScore=maxScore,
+est <- list(maxScore=maxnu,
             possibleBlackNodeRoutes=possibleBlackNodeRoutes,
             minStep=minStep,
             minPath = list(allminPath = allminPath,
-                           minLegRoutes=minLegRoutes),
+                           minRoutes=minLegRoutes),
             allPP = list(allPath = allPath,
-                           legRoutes=legRoutes)
+                         maxScoreRoutes=maxScoreRoutes)
      )
 return(est)
+
 }
 
-
-c <- estimate(rank,a)
-
+#
+#
+# rank <- 10
+# satPercent <- 0.5
+# genUniqueSolution(rank,satPercent,15)
+# nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
+# c <- cal(rank,nodePosition)
+# c

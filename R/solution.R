@@ -64,14 +64,19 @@ solution <- function(rank,nodePosition){
 
   print("The optimal paths are: ")
   W<-which( LL == rank) #only select those that reaches to the top
-  print(allPaths[M[1,W]])
-  print("the minimum number of steps for the optimal solution is: ")
+  minPath <- allPaths[M[1,W]]
+  minPath<- do.call("rbind",minPath)
+  m2<- 1:nrow(minPath)
+  rownames(minPath) <- rownames(m2, do.NULL=FALSE, prefix="min.Routes.")
+  print(minPath)
+  print("The minimum number of steps for the optimal solution is: ")
   print(min(LL)-1)
-  print(("the number of solutions is: "))
+  print(("The number of solutions is: "))
 
   return(length(W))
 }
 
 #' rank <- 3
 #' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
-solution(rank,a)
+#solution(rank,nodePosition)
+

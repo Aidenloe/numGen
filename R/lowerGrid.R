@@ -1,4 +1,3 @@
-
 #' @export
 #' @param rank This is the Rank of the maze.
 #' @description This tells you all the nodes position in the lower grid.

@@ -17,6 +17,11 @@ This function tells us the solution for all series of routes including both blac
 \details{
 This function tells us the solution for all series of routes including both black and non black dots.
 }
+\examples{
+rank <- 3
+a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+solution(rank,a)
+}
 \author{
 Aiden Loe and Maria Sanchez
 }

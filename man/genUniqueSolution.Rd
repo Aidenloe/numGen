@@ -17,7 +17,7 @@ genUniqueSolution(rank, satPercent, seed)
 The generate unique solution function searches for the SEED that returns only one unique solution for a given rank and saturation.
 }
 \details{
-The generate unique solution function searches for the SEED that returns only one unique solution for a given rank and saturation. This might be computationally intensive as the maze size increases.
+The generate unique solution function searches for the SEED that returns only one unique solution for a given rank and saturation. This might be computationally intensive as the maze size increases. The seed is necessary so that the algorithm does not always begin from the smallest value. Based on the seed value, it will search for the next biggest that returns 1 unique solution.
 }
 \examples{
 \dontrun{
