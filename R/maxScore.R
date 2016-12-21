@@ -17,7 +17,7 @@
 
 
 maxScore <- function(rank,nodePosition){
-rank<- 4
+
 #### Lower Grid Maze Nodes ####
 G <- graph(genMaze(rank), directed = TRUE )
 lowerGridCombind<- lowerGrid(rank) # lower grid nodes
