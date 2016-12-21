@@ -6,7 +6,7 @@
 #' @importFrom graphics grconvertY
 #' @importFrom graphics plot
 #' @param rank This is the Rank of the maze.
-#' @param saturation The number of black dots created for a given grid.
+#' @param satPercent The saturation of the number of black dots created for a given grid. Range betwee 0-1.
 #' @param seed To make sure that the randomness of the created black dots is captured and not repeated.
 #' @param grid is the grid of the maze
 #' @param wd is the working directory to save the HTML source code in. If not given, the file will be saved in the default working directory.
@@ -24,7 +24,7 @@
 #'
 #' rank <- 3
 #' i <- 2
-#' saturation <- 0.5
+#' satPercent <- 0.5
 #'
 #' #Grid must be same as rank
 #' grid <- gridThreeUp
@@ -34,7 +34,7 @@
 #' filePath<- getwd()
 #'
 #' #Generate item
-#' maze(rank= 3,seed=5,saturation,grid = gridThreeUp,wd=filePath,
+#' maze(rank= 3,seed=5,satPercent,grid = gridThreeUp,wd=filePath,
 #' background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
 #' Timer=TRUE)
 #'
@@ -42,7 +42,7 @@
 #'
 
 maze <- function(rank = 3,
-                 saturation = 0.5,
+                 satPercent = 0.5,
                  seed = 1,
                  grid = NULL,
                  wd = NULL,
@@ -69,7 +69,6 @@ maze <- function(rank = 3,
 
   #lowerGrid
   lowerGridCombind<- lowerGrid(rank)
-
 
   #### Calculate Path to node length ####
   allPaths <- all_simple_paths(G, 1,topNodes)
