@@ -20,15 +20,18 @@
 #'
 #' }
 
-
-
 genUniqueSolution<-function(rank,satPercent,seed){
   num<-lookUniqueSolution(rank,satPercent,seed)
+  count <- 1
   while (num>1){
     seed<-seed+1
     num<-lookUniqueSolution(rank,satPercent,seed)
+    count <- count + 1
+    if(count > 300){
+      num <- 1
+      stop("No unique solution can be found. Please reduce saturation percentage.")
+    }
   }
   return(seed)
 }
-
 
