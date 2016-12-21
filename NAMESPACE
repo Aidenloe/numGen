@@ -2,7 +2,6 @@
 
 export(ability)
 export(cal)
-export(colleage)
 export(colourNodePosition)
 export(genMaze)
 export(genUniqueSolution)

@@ -61,7 +61,7 @@ maze <- function(rank = 3,
   G <- graph(genMaze(rank), directed = TRUE )
 
   set.seed<- seed
-  saturation <- saturation
+  satPercent <- satPercent
 
   #Node length
   topNodes <- topNodes(rank)
@@ -75,7 +75,7 @@ maze <- function(rank = 3,
   allPaths
 
   #saturation and node Position
-  nodePosition <- colourNodePosition(rank, saturation,set.seed)
+  nodePosition <- colourNodePosition(rank, satPercent,set.seed)
   nodePosition
 
   # max score
@@ -90,7 +90,7 @@ maze <- function(rank = 3,
   #maxScoreRoutes(rank, nodePosition)
 
   #Complete solution
-  #solution(rank, saturation,set.seed)
+  #solution(rank, satPercent,set.seed)
 
   ##### From Here (HTML) ####
   if(is.null(wd)){

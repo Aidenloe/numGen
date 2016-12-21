@@ -4,14 +4,14 @@
 \alias{maze}
 \title{maze}
 \usage{
-maze(rank = 3, saturation = 0.5, seed = 1, grid = NULL, wd = NULL,
+maze(rank = 3, satPercent = 0.5, seed = 1, grid = NULL, wd = NULL,
   background = "#7abcff", boxBackground = "#66CDAA", fontColour = "white",
   Timer = TRUE)
 }
 \arguments{
 \item{rank}{This is the Rank of the maze.}
 
-\item{saturation}{The number of black dots created for a given grid.}
+\item{satPercent}{The saturation of the number of black dots created for a given grid. Range betwee 0-1.}
 
 \item{seed}{To make sure that the randomness of the created black dots is captured and not repeated.}
 
@@ -39,7 +39,7 @@ The grid object needs to be the same as the rank given.
 
 rank <- 3
 i <- 2
-saturation <- 0.5
+satPercent <- 0.5
 
 #Grid must be same as rank
 grid <- gridThreeUp
@@ -49,7 +49,7 @@ setwd("~/desktop")
 filePath<- getwd()
 
 #Generate item
-maze(rank= 3,seed=5,saturation,grid = gridThreeUp,wd=filePath,
+maze(rank= 3,seed=5,satPercent,grid = gridThreeUp,wd=filePath,
 background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
 Timer=TRUE)
 

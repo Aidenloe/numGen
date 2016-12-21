@@ -1,10 +1,10 @@
-#' @export
-#' @param n This is the node number.
-#' @param rank This is the Rank of the maze.
-#' @description This function tells us which nodes are connected to the nodes.
-#' @details This function tells us which nodes are connected to the node you are interested in based on a given Grid.
-#' @author Aiden Loe
-#' @title colleage
+# ' @export
+# ' @param n This is the node number.
+# ' @param rank This is the Rank of the maze.
+# ' @description This function tells us which nodes are connected to the nodes.
+# ' @details This function tells us which nodes are connected to the node you are interested in based on a given Grid.
+# ' @author Aiden Loe
+# ' @title colleage
 
 colleage <- function(n,rank){
   a<-n+1
