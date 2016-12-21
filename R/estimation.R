@@ -12,6 +12,9 @@
 
 cal <- function(rank, nodePosition){
 
+  #rank <- 5
+  #nodePosition <- colourNodePosition(rank=5,satPercent=0.5,seed=16)
+
   #### Lower Grid Maze Nodes ####
   G <- graph(genMaze(rank), directed = TRUE )
   lowerGridCombind<- lowerGrid(rank) # lower grid nodes
@@ -49,7 +52,21 @@ for (j in 1:length(totalScore)){
 W<-which( LL == rank)
 endScore <- totalScore.df.1[which(totalScore.df.1$index %in% W),]
 possibleBlackNodeRoutes<- table(endScore$totalScore)
-
+# pbnr<- t(as.matrix(possibleBlackNodeRoutes))
+# pbnr <- as.data.frame(pbnr)
+# require(stringr)
+# names(pbnr)
+#
+# pbnr$`1`
+#
+# for(i in names(pbnr)){
+#   pbnr[[paste(i, 'length', sep="_")]] <- str_length(pbnr[[i]])
+# }
+# pbnr[,paste(i, 'length', sep="_")]
+# str_length(pbnr[[2]])
+#
+# colnames(pbnr) <- c("")
+# t(as.data.frame(pbnr[2,]))
 
 #number of steps & optimal paths
 # totalScore.df <- as.data.frame(totalScore)
@@ -98,24 +115,34 @@ rownames(allPath) <- rownames(m2, do.NULL = FALSE, prefix = "pos.Route.")
 #print(("the number of solutions is: "))
 maxScoreRoutes <- nrow(allPath)
 
+is.null(maxScore)
 
-est <- list(maxScore=maxnu,
-            possibleBlackNodeRoutes=possibleBlackNodeRoutes,
-            minStep=minStep,
-            minPath = list(allminPath = allminPath,
-                           minRoutes=minLegRoutes),
-            allPP = list(allPath = allPath,
-                         maxScoreRoutes=maxScoreRoutes)
-     )
+
+maxnu<- paste0("The Maximum Score is ",maxnu)
+#maxnu <- print.data.frame(maxnu,quote=TRUE,row.names = FALSE)
+(maxnu <- as.data.frame(maxnu,quote=TRUE))
+row.names(maxnu) <- NULL
+
+cl = match.call()
+  est <- list(maxScore=maxnu,
+              possibleBlackNodeRoutes=possibleBlackNodeRoutes,
+              minStep=minStep,
+              minPath = list(allminPath = allminPath,
+                             minRoutes=minLegRoutes),
+              allPP = list(allPath = allPath,
+                           maxScoreRoutes=maxScoreRoutes))
+
+  class(est) <- c("aig", "est")
+
 return(est)
 
 }
 
 #
-#
-# rank <- 10
-# satPercent <- 0.5
-# genUniqueSolution(rank,satPercent,15)
-# nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
-# c <- cal(rank,nodePosition)
-# c
+
+rank <- 10
+satPercent <- 0.5
+genUniqueSolution(rank,satPercent,15)
+nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
+c <- cal(rank,nodePosition)
+c
