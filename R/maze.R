@@ -20,7 +20,7 @@
 #' The grid object needs to be the same as the rank given.
 #' @author Aiden Loe
 #' @title maze
-#' @examples
+#' @examples \dontrun{
 #'
 #' rank <- 3
 #' i <- 2
@@ -34,11 +34,11 @@
 #' filePath<- getwd()
 #'
 #' #Generate item
-#' maze(rank= 3,seed=5,satPercent,grid = gridThreeUp,wd=filePath,
+#' maze(rank,satPercent,seed=5,grid = grid,wd=filePath,
 #' background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
 #' Timer=TRUE)
 #'
-#'
+#'}
 #'
 
 maze <- function(rank = 3,
@@ -58,6 +58,8 @@ maze <- function(rank = 3,
   if(is.null(wd)){
     warning("HTML file is saved in default working directory.")
   }
+
+
   G <- graph(genMaze(rank), directed = TRUE )
 
   set.seed<- seed
@@ -71,23 +73,24 @@ maze <- function(rank = 3,
   lowerGridCombind<- lowerGrid(rank)
 
   #### Calculate Path to node length ####
-  allPaths <- all_simple_paths(G, 1,topNodes)
-  allPaths
+  #allPaths <- all_simple_paths(G, 1,topNodes)
+  #allPaths
 
   #saturation and node Position
+  rank <- 17
   nodePosition <- colourNodePosition(rank, satPercent,set.seed)
   nodePosition
 
   # max score
-  maxscore <- maxScore(rank, nodePosition)
-  maxScore <- max(maxscore$totalScore)
+ maxscore <- mazeGen:::maxScore(rank, nodePosition)
+  maxScore <- mazeGen:::max(maxscore$totalScore)
   maxscore
 
   #minimum steps to achieve maximum score
-  #minStep(rank, topNodes)
+  mazeGen:::minStep(rank, nodePosition)
 
   # number of optimised Routes
-  #maxScoreRoutes(rank, nodePosition)
+  #mazeGen:::maxScoreRoutes(rank, nodePosition)
 
   #Complete solution
   #solution(rank, satPercent,set.seed)

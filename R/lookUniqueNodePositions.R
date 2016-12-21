@@ -7,7 +7,7 @@
 #' @details The function returns a black nodes distribution with a single unique solution and seed number
 #' @author Aiden Loe and Maria Sanchez
 #' @title Unique Node Positions
-#' @examples
+#' @examples \dontrun{
 #'
 #' rank <- 5
 #' satPercent <- 0.5
@@ -19,7 +19,7 @@
 #' uniqueNodePositions(rank,satPercent,justOne)
 #'
 #' colourNodePosition(rank,satPercent,seed=justOne)
-#'
+#'}
 
 
 

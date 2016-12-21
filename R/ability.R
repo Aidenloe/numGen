@@ -9,14 +9,14 @@
 #' @author Aiden Loe and Maria Sanchez
 #' @title ability
 #'
-#' @examples
+#' @examples \dontrun{
 #'  rank <-10
 #'  satPercent <- 0.5
 #'  seed<- 4
 #'  score<- 8
 #'  nodePosition <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
 #'  ability(rank,satPercent,score,nodePosition)
-#'
+#'}
 
 
 ability <- function(rank,satPercent,score,nodePosition){
@@ -92,13 +92,6 @@ ability <- function(rank,satPercent,score,nodePosition){
   }
 }
 
-#  rank <-10
-#  satPercent <- 0.5
-#  seed<- 4
-#  score<- 8
-# #
-#  nodePosition <- colourNodePosition(rank,satPercent,4)
-#  blackNodeRoutes(rank,satPercent,nodePosition)
-#  ability(rank,satPercent,score,nodePosition)
+
 
 

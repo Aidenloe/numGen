@@ -22,13 +22,14 @@ The ability function returns the weighted score of the individual given his raw 
 The ability function is calculated following the paper in XXXX.
 }
 \examples{
+\dontrun{
  rank <-10
  satPercent <- 0.5
  seed<- 4
  score<- 8
  nodePosition <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
  ability(rank,satPercent,score,nodePosition)
-
+}
 }
 \author{
 Aiden Loe and Maria Sanchez

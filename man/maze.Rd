@@ -36,6 +36,7 @@ A grid object needs to be called out first before runing the maze function.
 The grid object needs to be the same as the rank given.
 }
 \examples{
+\dontrun{
 
 rank <- 3
 i <- 2
@@ -49,11 +50,11 @@ setwd("~/desktop")
 filePath<- getwd()
 
 #Generate item
-maze(rank= 3,seed=5,satPercent,grid = gridThreeUp,wd=filePath,
+maze(rank,satPercent,seed=5,grid = grid,wd=filePath,
 background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
 Timer=TRUE)
 
-
+}
 
 }
 \author{

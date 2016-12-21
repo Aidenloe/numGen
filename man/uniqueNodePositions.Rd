@@ -20,6 +20,7 @@ The function returns a black nodes distribution with a single unique solution an
 The function returns a black nodes distribution with a single unique solution and seed number
 }
 \examples{
+\dontrun{
 
 rank <- 5
 satPercent <- 0.5
@@ -31,7 +32,7 @@ justOne <- genUniqueSolution(rank,satPercent,11)
 uniqueNodePositions(rank,satPercent,justOne)
 
 colourNodePosition(rank,satPercent,seed=justOne)
-
+}
 }
 \author{
 Aiden Loe and Maria Sanchez
