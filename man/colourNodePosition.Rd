@@ -20,11 +20,10 @@ This function will not sample from the first node position. If you consider samp
 Returns the colour node position. You need to use the node position function first.
 }
 \examples{
-\dontrun{
 
 colourNodePosition(rank=3,satPercent=0.5,seed=1)
 
-}
+
 }
 \author{
 Aiden Loe

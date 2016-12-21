@@ -15,16 +15,17 @@
 #' nodePosition <- colourNodePosition(rank,satPercent,1)
 #'
 #' #calculate difficulty
-#' diff(rank,satPercent ,nodePosition)
+#' mazeDiff(rank,satPercent ,nodePosition)
 #' }
 
 
 mazeDiff <- function(rank, satPercent, nodePosition){#
-  u_Mhat <-nrow(maxScore(rank,nodePosition)) # number of optimised routes
-  legs <- minStep(rank,nodePosition)
+  u_Mhat <-nrow(mazeGen:::maxScore(rank,nodePosition)) # number of optimised routes
+  legs <- mazeGen:::minStep(rank,nodePosition)
   diff<- log((2^rank * satPercent^4 * legs^4)/u_Mhat)
   return(diff)
 }
+
 
 
 

@@ -77,12 +77,12 @@ maze <- function(rank = 3,
   #allPaths
 
   #saturation and node Position
-  rank <- 17
+
   nodePosition <- colourNodePosition(rank, satPercent,set.seed)
   nodePosition
 
   # max score
- maxscore <- mazeGen:::maxScore(rank, nodePosition)
+  maxscore <- mazeGen:::maxScore(rank, nodePosition)
   maxScore <- mazeGen:::max(maxscore$totalScore)
   maxscore
 

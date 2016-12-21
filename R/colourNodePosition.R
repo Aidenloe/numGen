@@ -7,11 +7,11 @@
 #' @description This function will not sample from the first node position. If you consider sampling from the first node, then in javascript, the summing of the black dotes need to begin from 1 rather than 0. To keep it simple, always ensure that the first node is not sampled as a black dot.
 #' @author Aiden Loe
 #' @title colourNodePosition
-#' @examples \dontrun{
+#' @examples
 #'
 #' colourNodePosition(rank=3,satPercent=0.5,seed=1)
 #'
-#' }
+#'
 
 #### Colour Node Position #####
 colourNodePosition<- function(rank, satPercent, seed){

@@ -29,7 +29,7 @@ satPercent <- 0.5
 nodePosition <- colourNodePosition(rank,satPercent,1)
 
 #calculate difficulty
-diff(rank,satPercent ,nodePosition)
+mazeDiff(rank,satPercent ,nodePosition)
 }
 }
 \author{

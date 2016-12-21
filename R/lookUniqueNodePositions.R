@@ -32,7 +32,7 @@ uniqueNodePositions <- function(rank,satPercent, seed){
 
   nodePosition <-  colourNodePosition(rank, satPercent,seed)
   listObject <- list(nodePosition,seed)
-  names(listObject) <- c("nodePositions","seed")
+  names(listObject) <- c("colourNodePosition","seed")
   return(listObject)
 }
 

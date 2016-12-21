@@ -7,18 +7,15 @@
 #' @details The generate unique solution function searches for the SEED that returns only one unique solution for a given rank and saturation. This might be computationally intensive as the maze size increases. The seed is necessary so that the algorithm does not always begin from the smallest value. Based on the seed value, it will search for the next biggest that returns 1 unique solution.
 #' @author Aiden Loe and Maria Sanchez
 #' @title genUniqueSolution
-#' @examples \dontrun{
+#' @examples
 #'
 #' rank <- 5
 #' satPercent <- 0.5
-#'
-#' #Number of unique solutions
-#' lookUniqueSolution(rank,satPercent,11)
-#'
+#' seed <- 1
 #' #Searches for just one unique solution
-#' justOne <- genUniqueSolution(rank,satPercent,11)
+#' justOne <- genUniqueSolution(rank=rank,satPercent=satPercent,seed=seed)
 #'
-#' }
+#'
 
 genUniqueSolution<-function(rank,satPercent,seed){
   num<-lookUniqueSolution(rank,satPercent,seed)
