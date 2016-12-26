@@ -95,7 +95,7 @@ maze <- function(rank = 3,
   nodePosition
 
   # max score
-  maxscore <- mazeGen:::maxScore(rank, nodePosition)
+  maxscore <- maxScore(rank, nodePosition)
   maxscore
   maxScore <- max(maxscore$totalScore)
   maxScore

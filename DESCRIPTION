@@ -11,8 +11,6 @@ LazyData: TRUE
 Imports:
     igraph,
     grDevices,
-    stats,
-    utils
 LazyData: TRUE
 RoxygenNote: 5.0.1
 

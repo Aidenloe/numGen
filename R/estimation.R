@@ -9,11 +9,12 @@
 #' rank <- 10
 #' nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
 #' c <- cal(rank,nodePosition)
+
 # require(AIG)
 # require(igraph)
 cal <- function(rank, nodePosition){
-
-  nodePosition <- colourNodePosition(rank=5,satPercent=0.5,seed=11)
+ #rank<- 5
+#  nodePosition <- colourNodePosition(rank=5,satPercent=0.5,seed=11)
 
   #### Lower Grid Maze Nodes ####
   G <- graph(genMaze(rank), directed = TRUE )
@@ -113,7 +114,7 @@ maxScoreRoutes <- nrow(allPath)
                              minRoutes=minLegRoutes),
               allPP = list(allPath = allPath,
                            maxScoreRoutes=maxScoreRoutes))
-
+est
   class(est) <- c("est","aig")
 
 return(est)
