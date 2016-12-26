@@ -14,7 +14,7 @@
 cal <- function(rank, nodePosition){
 
   rank <- 5
-  nodePosition <- colourNodePosition(rank=5,satPercent=0.5,seed=16)
+  nodePosition <- colourNodePosition(rank=5,satPercent=0.5,seed=11)
 
   #### Lower Grid Maze Nodes ####
   G <- graph(genMaze(rank), directed = TRUE )
@@ -53,21 +53,9 @@ for (j in 1:length(totalScore)){
 W<-which( LL == rank)
 endScore <- totalScore.df.1[which(totalScore.df.1$index %in% W),]
 possibleBlackNodeRoutes<- table(endScore$totalScore)
-# pbnr<- t(as.matrix(possibleBlackNodeRoutes))
-# pbnr <- as.data.frame(pbnr)
-# require(stringr)
-# names(pbnr)
-#
-# pbnr$`1`
-#
-# for(i in names(pbnr)){
-#   pbnr[[paste(i, 'length', sep="_")]] <- str_length(pbnr[[i]])
-# }
-# pbnr[,paste(i, 'length', sep="_")]
-# str_length(pbnr[[2]])
-#
-# colnames(pbnr) <- c("")
-# t(as.data.frame(pbnr[2,]))
+pbnr <- t(as.matrix(possibleBlackNodeRoutes))
+colnames(pbnr) <- paste(1:ncol(pbnr),"_dot(s)", sep = "")
+rownames(pbnr) <- c('Path')
 
 #number of steps & optimal paths
 # totalScore.df <- as.data.frame(totalScore)
@@ -99,6 +87,7 @@ allminPath <- allPaths[M[1,W]]
 allminPath<- do.call("rbind",allminPath)
 m2 <- 1:nrow(allminPath)
 rownames(allminPath) <- rownames(m2, do.NULL = FALSE, prefix = "min.Route.")
+colnames(allminPath) <- paste("Step_",1:ncol(allminPath), sep = "")
 
 #print("the minimum number of steps for the optimal solution is: ")
 #print(min(LL)-1)
@@ -113,30 +102,35 @@ allPath <- allPaths[M[1,allPossiblePaths]]
 allPath<- do.call("rbind",allPath)
 m2 <- 1:nrow(allPath)
 rownames(allPath) <- rownames(m2, do.NULL = FALSE, prefix = "pos.Route.")
+colnames(allPath) <- paste("Step_",1:ncol(allPath), sep = "")
 #print(("the number of solutions is: "))
 maxScoreRoutes <- nrow(allPath)
 
-is.null(maxScore)
-
-maxnu
-maxnu<- paste0("The Maximum Score is ",maxnu)
-#maxnu <- print.data.frame(maxnu,quote=TRUE,row.names = FALSE)
-(maxnu <- as.data.frame(maxnu,quote=TRUE))
-row.names(maxnu) <- NULL
-
-cat(paste0("The Maximum Score is ",maxnu))
 
   est <- list(maxScore=maxnu,
-              possibleBlackNodeRoutes=possibleBlackNodeRoutes,
+              possibleBlackNodeRoutes=pbnr,
               minStep=minStep,
               minPath = list(allminPath = allminPath,
                              minRoutes=minLegRoutes),
               allPP = list(allPath = allPath,
                            maxScoreRoutes=maxScoreRoutes))
 
+  class(est) <- c("est","aig")
+
+  print.est <-function(x,...){
+    estimate <- x
+    cat("Summary:")
+    cat(paste0("\n The Maximum Score(dots) that can be achieved in this maze is ",maxnu, ".\n"))
+    cat("\n The number of separate paths across the different number of dots is: \n")
+    cat('\n')
+    print(pbnr)
+    #print(allPath)
+    cat(paste0("\n The minimum number of steps to achieve maximum score is ", minStep, ".\n"))
+    cat(paste0("\n The maximum number of solution for this maze is ", maxScoreRoutes, ".\n"))
+  }
+
   print(est)
-  print(est)
-  class(est) <- c("aig", "est")
+  cat(pbnr)
 
 return(est)
 
