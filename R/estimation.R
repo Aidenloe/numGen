@@ -4,17 +4,17 @@
 #' @description This returns several results.
 #' @details This function calculates the count of all the possible black node routes, the maximum score one can achieve for a given rank of a colour node position, all the minimum routes possible, and all the possible routes.
 #' @author Aiden Loe
-#' @title Calculate
+#' @title Calculate Item Parameters
 #' @examples
 #' rank <- 10
 #' nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
 #' c <- cal(rank,nodePosition)
 
-# require(AIG)
+
 # require(igraph)
 cal <- function(rank, nodePosition){
- #rank<- 5
-#  nodePosition <- colourNodePosition(rank=5,satPercent=0.5,seed=11)
+ rank<- 10
+  nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
 
   #### Lower Grid Maze Nodes ####
   G <- graph(genMaze(rank), directed = TRUE )
@@ -54,7 +54,7 @@ W<-which( LL == rank)
 endScore <- totalScore.df.1[which(totalScore.df.1$index %in% W),]
 possibleBlackNodeRoutes<- table(endScore$totalScore)
 pbnr <- t(as.matrix(possibleBlackNodeRoutes))
-colnames(pbnr) <- paste(1:ncol(pbnr),"_dot(s)", sep = "")
+colnames(pbnr) <- paste(colnames(pbnr),"dot(s)" , sep = "_")
 rownames(pbnr) <- c('Path')
 
 #number of steps & optimal paths
@@ -64,6 +64,7 @@ rownames(pbnr) <- c('Path')
 
 #### MAXIMUM SCORE ####
 maxScore <- totalScore.df.1[which(totalScore.df.1$totalScore == max(totalScore.df.1$totalScore, na.rm = TRUE)), ]
+totalScore.df.1
 n<-nrow(maxScore)
 M<-matrix(unlist(maxScore),ncol=n,byrow=TRUE)
 maxnu<-M[2,1]
@@ -105,7 +106,7 @@ rownames(allPath) <- rownames(m2, do.NULL = FALSE, prefix = "pos.Route.")
 colnames(allPath) <- paste("Step_",1:ncol(allPath), sep = "")
 #print(("the number of solutions is: "))
 maxScoreRoutes <- nrow(allPath)
-
+allPath
 
   est <- list(maxScore=maxnu,
               possibleBlackNodeRoutes=pbnr,

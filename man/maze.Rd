@@ -2,7 +2,7 @@
 % Please edit documentation in R/maze.R
 \name{maze}
 \alias{maze}
-\title{maze}
+\title{Generate Elithorn Maze}
 \usage{
 maze(rank = 3, satPercent = 0.5, seed = 1, grid = NULL, wd = NULL,
   background = "#7abcff", boxBackground = "#66CDAA", fontColour = "white",

@@ -2,7 +2,7 @@
 % Please edit documentation in R/estimation.R
 \name{cal}
 \alias{cal}
-\title{Calculate}
+\title{Calculate Item Parameters}
 \usage{
 cal(rank, nodePosition)
 }

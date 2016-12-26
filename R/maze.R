@@ -19,7 +19,7 @@
 #' A grid object needs to be called out first before runing the maze function.
 #' The grid object needs to be the same as the rank given.
 #' @author Aiden Loe
-#' @title maze
+#' @title Generate Elithorn Maze
 #' @examples \dontrun{
 #'
 #' rank <- 3
