@@ -10,7 +10,7 @@ License: GPL-3
 LazyData: TRUE
 Imports:
     igraph,
-    grDevices,
+    grDevices
 LazyData: TRUE
 RoxygenNote: 5.0.1
 
