@@ -7,7 +7,6 @@ Author: Aiden Loe
 Maintainer: Aiden Loe <bsl29@cam.ac.uk>
 Description: This package creates a html file for the Elithorn Maze. It also includes the functions in the 1951 paper that was used to calculate the difficulty of each maze. This package includes the maze generation and the functions to calculate maze. 
 License: GPL-3
-LazyData: TRUE
 Imports:
     igraph,
     grDevices
