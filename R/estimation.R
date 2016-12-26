@@ -9,11 +9,12 @@
 #' rank <- 10
 #' nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
 #' c <- cal(rank,nodePosition)
-
+# require(AIG)
+# require(igraph)
 cal <- function(rank, nodePosition){
 
-  #rank <- 5
-  #nodePosition <- colourNodePosition(rank=5,satPercent=0.5,seed=16)
+  rank <- 5
+  nodePosition <- colourNodePosition(rank=5,satPercent=0.5,seed=16)
 
   #### Lower Grid Maze Nodes ####
   G <- graph(genMaze(rank), directed = TRUE )
@@ -117,13 +118,14 @@ maxScoreRoutes <- nrow(allPath)
 
 is.null(maxScore)
 
-
+maxnu
 maxnu<- paste0("The Maximum Score is ",maxnu)
 #maxnu <- print.data.frame(maxnu,quote=TRUE,row.names = FALSE)
 (maxnu <- as.data.frame(maxnu,quote=TRUE))
 row.names(maxnu) <- NULL
 
-cl = match.call()
+cat(paste0("The Maximum Score is ",maxnu))
+
   est <- list(maxScore=maxnu,
               possibleBlackNodeRoutes=possibleBlackNodeRoutes,
               minStep=minStep,
@@ -132,6 +134,8 @@ cl = match.call()
               allPP = list(allPath = allPath,
                            maxScoreRoutes=maxScoreRoutes))
 
+  print(est)
+  print(est)
   class(est) <- c("aig", "est")
 
 return(est)
@@ -139,10 +143,10 @@ return(est)
 }
 
 #
-
-rank <- 10
-satPercent <- 0.5
-genUniqueSolution(rank,satPercent,15)
-nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
-c <- cal(rank,nodePosition)
-c
+#
+# rank <- 10
+# satPercent <- 0.5
+# genUniqueSolution(rank,satPercent,15)
+# nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
+# c <- cal(rank,nodePosition)
+# c
