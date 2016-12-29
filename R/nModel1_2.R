@@ -48,7 +48,7 @@ colnames(bank_11b)[c(length+1, length+2)] <- "A"
   return(bank_11b)
 }
 
-nmTwo(3,6, random=FALSE)
+
 
 # bank of items of 6, 7, 8 characters
 
