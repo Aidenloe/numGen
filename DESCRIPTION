@@ -8,5 +8,4 @@ Maintainer: Aiden <bsl28@cam.ac.uk>
 Description: A intelligent generator that creates number series items based on cognitive models.
 License: GPL-3
 LazyData: TRUE
-RoxygenNote: 5.0.1
-
+RoxygenNote: 6.0.1
