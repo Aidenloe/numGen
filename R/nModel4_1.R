@@ -1,7 +1,7 @@
 #' @export
 #' @importFrom stats na.omit
 #' @param items Generate a random mix of items.
-#' @param logic The combination of sequences follow two logic.
+#' @param logic The combination of sequences follow two logic ("one" or "two").
 #' @param n The value that the arithmetic operator uses to calculate the next value
 #' @param arith The arithmetic operator of your choice ("add","substr","multi","div").
 #' @description This uses item model 11 to create number series items - Combined identification of parallel sub-sequences and progressively evolving coefficients of change.
