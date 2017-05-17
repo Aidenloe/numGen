@@ -27,12 +27,11 @@ Logic analogous to the Item Model 5, but at least one sub-sequence involves a pr
 When using the first logic, n corresponds to the change in the progressive pattern. However, the simple pattern is fixed and hence drawn randomly.
 }
 \examples{
-\dontrun{
 
 #Draws 10 items randomly.
 imTen(10,logic="one", n=2,arith="add")
 
-}
+
 }
 \author{
 Aiden Loe and Filip Simonfy

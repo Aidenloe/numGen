@@ -5,12 +5,11 @@
 #' @details Non-linear progressive sequences which require a higher level of abstraction; the coefficient of change between two neighbouring elements is not invariable and its elements form a sequence. The coefficient sequences correspond to items from Item Families 1 and 3. Example: The coefficient of change between each pair of neighbouring elements in the sequence increases by 1. (2 4 7 11 16 (22))
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 6
-#' @examples \dontrun{
+#' @examples
 #'
 #' imSix(items=3)
 #'
-#' }
-#
+
 #Arithmetic + Linear + Progressive coefficient (i.e. coefficient = sequence)
 # Define starting point - e.g. each number 1:100
 # define coefficient sequence - first element and progression

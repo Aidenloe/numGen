@@ -5,12 +5,12 @@
 #' @details This function creates number series creates a combination of sequences and ratios. TLogic analogous to the Item Model 13, but the second sequence belongs to the Item Model 9. As a result, pairs of elements following certain rule are embedded into a progressive sequence. Example: Sequence with coefficient of (+ 1) is interposed with pairs of elements which differ by 3. 1 5 8 2 209 212 3 41 (44) (4). Only the addition and substraction arimethic operators are used to generate the number series items.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 13
-#' @examples \dontrun{
+#' @examples
 #'
 #' #Draws 10 items randomly.
 #' imThirteen(10)
 #'
-#' }
+#'
 
 # a : b = c : d = e : f
 # a + b = x, c + d = x ?

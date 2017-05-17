@@ -4,11 +4,11 @@
 #' @description  This uses item model 10 to create number series items - Identification of relationships within a chain of elements.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 9
-#' @examples \dontrun{
+#' @examples
 #'
 #' imNine(items=3)
 #'
-#' }
+#'
 
 # generates first 20 numbers of the sequence
 

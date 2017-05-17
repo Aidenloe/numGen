@@ -6,11 +6,11 @@
 #' @details Simple linear sequences which do not require use of advanced arithmetic operations, such as ordered multiples of 1, 10, or 100. Example: A sequence of ordered multiples of 10. (10 20 30 40 (50)).
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 1
-#' @examples \dontrun{
+#' @examples
 #'
 #' imOne(items=5, seed=5)
 #'
-#' }
+#'
 
 # same letter sequence bank = bank_1
 imOne<- function(items=5,seed=1){

@@ -14,7 +14,7 @@
 #' Example: Each element in the sequence is derived from the preceding by adding two and multiplying the result by two. (2 8 20 44 92 (188)).
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 7
-#' @examples \dontrun{
+#' @examples
 #'
 #' #Draws 5 items randomly.
 #' imSeven(vOne=1,vTwo=3,items=5,seed=2,logic="one",random=TRUE)
@@ -23,7 +23,7 @@
 #' # Items and seed arg is ignored.
 #' imSeven(vOne=1:2,vTwo=1:3,items=5,seed=2,logic="one",random=FALSE)
 #'
-#' }
+#'
 
 # Arithmetic + Linear + Complex coefficient
 # 2 5 11 23 ?

@@ -5,12 +5,12 @@
 #' @details This function creates number series that is a irregular combination of sequences a b b a b b a ... Only the addition and substraction arithmetic operators are used to create the number series items.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 12
-#' @examples \dontrun{
+#' @examples
 #'
-#' #Draws 5 items randomly.
-#'imTwelve(100)
+#' #Draws 10 items randomly.
+#'imTwelve(10)
 #'
-#' }
+#'
 
 ## Irregular combination of sequences a b b a b b a ...
 # + - x / 2

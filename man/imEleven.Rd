@@ -20,12 +20,11 @@ This uses item model 11 to create number series items - Identification of altern
 This function creates number series that is a combination of Neighbouring objects and 2-sequence coefficient. Multiplication and Division are removed since the calculated value is too big. Example: A sequence whose coefficient of change alternates between (add 6) and (multiply by 2). 1 7 14 20 40 46 (92) (98).
 }
 \examples{
-\dontrun{
 
 #Draws 5 items randomly.
 imEleven(items=5, fun1 = "add", fun2= "add")
 
-}
+
 }
 \author{
 Aiden Loe and Filip Simonfy

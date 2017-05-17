@@ -16,12 +16,11 @@ This uses item model 12 to create number series items - Identification of uneven
 This function creates number series that is a irregular combination of sequences a b b a b b a ... Only the addition and substraction arithmetic operators are used to create the number series items.
 }
 \examples{
-\dontrun{
 
-#Draws 5 items randomly.
-imTwelve(100)
+#Draws 10 items randomly.
+imTwelve(10)
 
-}
+
 }
 \author{
 Aiden Loe and Filip Simonfy

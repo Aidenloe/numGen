@@ -9,12 +9,11 @@
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 5
 #'
-#' @examples \dontrun{
+#' @examples
 #'
-#' set.seed(1)
 #' imFive(arithOne="add",arithTwo="add",n=2,items=5)
 #'
-#' }
+#'
 
 
 imFive<- function(arithOne="add",arithTwo="substr",n=2,items=4){

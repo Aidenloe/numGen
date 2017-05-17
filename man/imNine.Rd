@@ -16,11 +16,10 @@ This uses item model 10 to create number series items - Identification of relati
 Progressive sequences which involve relationships between multiple preceding objects (e.g. Fibonacci sequence). Example: Each element of the sequence is a result of addition of its two preceding elements (1 1 2 3 5 8 (13)). The maximum number to be generated is 15 items.
 }
 \examples{
-\dontrun{
 
 imNine(items=3)
 
-}
+
 }
 \author{
 Aiden Loe and Filip Simonfy

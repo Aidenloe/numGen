@@ -16,11 +16,9 @@ This uses item model 6 to create number series items - Identification of progres
 Non-linear progressive sequences which require a higher level of abstraction; the coefficient of change between two neighbouring elements is not invariable and its elements form a sequence. The coefficient sequences correspond to items from Item Families 1 and 3. Example: The coefficient of change between each pair of neighbouring elements in the sequence increases by 1. (2 4 7 11 16 (22))
 }
 \examples{
-\dontrun{
 
 imSix(items=3)
 
-}
 }
 \author{
 Aiden Loe and Filip Simonfy

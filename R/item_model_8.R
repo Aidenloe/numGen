@@ -8,11 +8,11 @@
 #' @details This is based on the categorical / pattern recognition rule. Neighbouring pairs or triads of objects are related, includes arithmetic operations.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 8
-#' @examples \dontrun{
+#' @examples
 #'
-#' imEight(2,4,2, "add")
+#' imEight(cat=2,n=4,items=2, arith="add")
 #'
-#' }
+#'
 
 imEight <- function(cat ,n, items, arith){
 if(cat==1) stop("Please select at least 2 items")

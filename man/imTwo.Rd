@@ -20,11 +20,10 @@ This uses item model 2 to create number series items - Understanding of object c
 Sequences consist of elements belonging to two homogeneous groups with equal number of elements. Missing element belongs to the group with fewer elements present in the sequence. For example, 1 1 1 5 5 (5).
 }
 \examples{
-\dontrun{
 
 imTwo(cat=2,items=4,random=FALSE)
 
-}
+
 }
 \author{
 Aiden Loe and Filip Simonfy

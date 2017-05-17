@@ -22,11 +22,10 @@ This uses item model 8 to create number series items.
 This is based on the categorical / pattern recognition rule. Neighbouring pairs or triads of objects are related, includes arithmetic operations.
 }
 \examples{
-\dontrun{
 
-imEight(2,4,2, "add")
+imEight(cat=2,n=4,items=2, arith="add")
 
-}
+
 }
 \author{
 Aiden Loe and Filip Simonfy

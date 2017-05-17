@@ -11,7 +11,7 @@
 #'
 #' imFour(items=5, seed=5)
 #'
-#' }
+#'}
 
 # same letter sequence bank = bank_1
 imFour<- function(items=5,seed=1){

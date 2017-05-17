@@ -22,12 +22,10 @@ This uses item model 5 to create number series items - Identification of co-occu
 Logic analogous to the Item Model 4, but at least one sub-sequence involves the basic arithmetic operations. Sequences combine items from Item Families 1 and 3. The arithmetic operations change but the differences in value remains the name. Example: Odd elements of the sequence increase by 2 and even elements of the sequence are multiplied by 2. (2 12 4 24 6 48 8 (96) (10))
 }
 \examples{
-\dontrun{
 
-set.seed(1)
 imFive(arithOne="add",arithTwo="add",n=2,items=5)
 
-}
+
 }
 \author{
 Aiden Loe and Filip Simonfy

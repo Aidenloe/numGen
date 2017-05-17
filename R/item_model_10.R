@@ -13,12 +13,12 @@
 #' When using the first logic, n corresponds to the change in the progressive pattern. However, the simple pattern is fixed and hence drawn randomly.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 10
-#' @examples \dontrun{
+#' @examples
 #'
 #' #Draws 10 items randomly.
 #' imTen(10,logic="one", n=2,arith="add")
 #'
-#' }
+#'
 
 #####
 # Arithmetic + Linear + Progressive coefficient
