@@ -4,43 +4,43 @@
 #' @param arithTwo Select the arithmetric operator of choice ("add","multi", "sub", "div").
 #' @param n Value you want use the arithmetic operator on.
 #' @param items Generate a random mix of items.
-#' @description This uses item model 6 to create number series items - Identification of co-occurring relationships between elements (with use of arithmetic skills)
-#' @details Logic analogous to the Item Model 5, but at least one sub-sequence involves the basic arithmetic operations. Sequences combine items from Item Families 1 and 3. The arithmetic operations change but the differences in value remains the name. Example: Odd elements of the sequence increase by 2 and even elements of the sequence are multiplied by 2. (2 12 4 24 6 48 8 (96) (10))
+#' @description This uses item model 5 to create number series items - Identification of co-occurring relationships between elements (with use of arithmetic skills)
+#' @details Logic analogous to the Item Model 4, but at least one sub-sequence involves the basic arithmetic operations. Sequences combine items from Item Families 1 and 3. The arithmetic operations change but the differences in value remains the name. Example: Odd elements of the sequence increase by 2 and even elements of the sequence are multiplied by 2. (2 12 4 24 6 48 8 (96) (10))
 #' @author Aiden Loe and Filip Simonfy
-#' @title Item Model 6
+#' @title Item Model 5
 #'
 #' @examples \dontrun{
 #'
 #' set.seed(1)
-#' nmSix(arithOne="add",arithTwo="add",n=2,items=5)
+#' imFive(arithOne="add",arithTwo="add",n=2,items=5)
 #'
 #' }
 
 
-nmSix<- function(arithOne="add",arithTwo="substr",n=2,items=4){
+imFive<- function(arithOne="add",arithTwo="substr",n=2,items=4){
 
   stopifnot(arithOne =="add" || arithOne =="multi" || arithOne =="substr"  || arithOne =="div")
   stopifnot(arithTwo =="add" || arithTwo =="multi" || arithTwo =="substr"  || arithTwo =="div")
 
   if(arithOne == "add"){
-    bank_listA <- nmThree(items,n,arith="add")
+    bank_listA <- imThree(items,n,arith="add")
   }else if(arithOne == "substr"){
-    bank_listA <- nmThree(items,n,arith="substr")
+    bank_listA <- imThree(items,n,arith="substr")
   }else if(arithOne == "multi"){
-    bank_listA <- nmThree(items,n,arith="multi")
+    bank_listA <- imThree(items,n,arith="multi")
   }else {
-    bank_listA <- nmThree(items,n,arith="div")
+    bank_listA <- imThree(items,n,arith="div")
   }
 
 
   if(arithTwo == "add"){
-    bank_listB <- nmThree(items,n,arith="add")
+    bank_listB <- imThree(items,n,arith="add")
   }else if(arithTwo == "substr"){
-    bank_listB <- nmThree(items,n,arith="substr")
+    bank_listB <- imThree(items,n,arith="substr")
   }else if(arithTwo == "multi"){
-    bank_listB <- nmThree(items,n,arith="multi")
+    bank_listB <- imThree(items,n,arith="multi")
   }else {
-    bank_listB <- nmThree(items,n,arith="div")
+    bank_listB <- imThree(items,n,arith="div")
   }
 
 

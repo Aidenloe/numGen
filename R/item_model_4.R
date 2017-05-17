@@ -2,19 +2,19 @@
 #' @importFrom stats na.omit
 #' @param items Number of items to generate.
 #' @param seed This gives you the same result again.
-#' @description This uses item model 5 to create number series items - Identification of co-occurring relationships between elements (without use of arithmetic skills)
+#' @description This uses item model 4 to create number series items - Identification of co-occurring relationships between elements (without use of arithmetic skills)
 #' @details Sequences which consist of regularly alternating parallel sub-sequences. Understanding of succession does not require use of algebraic skill. Sub-sequences involve items from Item Model 1. Example: Odd elements of the sequence are multiples of 1 and even elements of the sequence are multiples of 10. (1 10 2 20 3 30 (4) (40))
 #' 2 simple linear (without arithmetic) 1 2 3 / 10 20 30 combine to form a number series item.
 #' @author Aiden Loe and Filip Simonfy
-#' @title Item Model 5
+#' @title Item Model 4
 #' @examples \dontrun{
 #'
-#' nmFive(items=5, seed=5)
+#' imFour(items=5, seed=5)
 #'
 #' }
 
 # same letter sequence bank = bank_1
-nmFive<- function(items=5,seed=1){
+imFour<- function(items=5,seed=1){
   if(missing(items)){
     stop("Please include x number of items to generate")
   }

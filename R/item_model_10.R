@@ -4,7 +4,7 @@
 #' @param logic The combination of sequences follow two logic ("one" or "two").
 #' @param n The value that the arithmetic operator uses to calculate the next value
 #' @param arith The arithmetic operator of your choice ("add","substr","multi","div").
-#' @description This uses item model 11 to create number series items - Combined identification of parallel sub-sequences and progressively evolving coefficients of change.
+#' @description This uses item model 10 to create number series items - Combined identification of parallel sub-sequences and progressively evolving coefficients of change.
 #' @details The number series items are a combination of Arithmetic, linear sequence and progressive coefficient. \cr
 #' First logic is combining sequences x y x y x y x y = one simple (cannot be controlled), one progressive . \cr
 #' Second logic is combining sequences x y x y x y x y = two progressive. The minimum number of items that will be generated is 2. \cr
@@ -12,11 +12,11 @@
 #'
 #' When using the first logic, n corresponds to the change in the progressive pattern. However, the simple pattern is fixed and hence drawn randomly.
 #' @author Aiden Loe and Filip Simonfy
-#' @title Item Model 11
+#' @title Item Model 10
 #' @examples \dontrun{
 #'
 #' #Draws 10 items randomly.
-#' nmEleven(10,logic="one", n=2,arith="add")
+#' imTen(10,logic="one", n=2,arith="add")
 #'
 #' }
 
@@ -32,7 +32,7 @@
 
 
 # RUN MODEL 2_1 FIRST + linear (below)
-nmEleven <- function(items, logic="one" , n=2,arith = "add" ){
+imTen <- function(items, logic="one" , n=2,arith = "add" ){
   if(missing(items)){
     stop("Please include x number of items to generate")
   }
@@ -45,16 +45,16 @@ colnames(bank_lin)[9] <- "A"
 
 # Decides on the arithmetic value of the progressive matrix
 if(arith == "add"){
-  bank_seq <- nmThree(items=items,n,arith="add")
+  bank_seq <- imThree(items=items,n,arith="add")
 }
 if(arith == "substr"){
-  bank_seq <- nmThree(items=items,n,arith="substr")
+  bank_seq <- imThree(items=items,n,arith="substr")
 }
 if(arith == "multi"){
-  bank_seq <- nmThree(items=items,n,arith="multi")
+  bank_seq <- imThree(items=items,n,arith="multi")
 }
 if(arith=="div"){
-  bank_seq <- nmThree(items=items,n,arith="div")
+  bank_seq <- imThree(items=items,n,arith="div")
 }
 
 bank_list <- rbind(bank_lin, bank_seq)
@@ -80,7 +80,7 @@ for (k in 1:20) {
 bank_arith<- NULL
 
 for(i in 1:10){
-  bank_arith  <- rbind(bank_arith,nmEight(vOne=1,vTwo=i,items=ceiling(items/10),seed=NULL,logic="one",random=FALSE))
+  bank_arith  <- rbind(bank_arith,imSeven(vOne=1,vTwo=i,items=ceiling(items/10),seed=NULL,logic="one",random=FALSE))
 }
 
 

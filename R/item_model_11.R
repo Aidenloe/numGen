@@ -3,14 +3,14 @@
 #' @param items Generate a random mix of items.
 #' @param fun1 The argument decides the arithmetic to be employed for Neighbouring objects. There are only two arithmetic: add, substr.
 #' @param fun2 The argument decides the arithmetic to be employed for the two values between the grouped objects.  There are two arithmetic: add, substr.
-#' @description  This uses item model 12 to create number series items - Identification of alternating coefficients of change.
+#' @description  This uses item model 11 to create number series items - Identification of alternating coefficients of change.
 #' @details This function creates number series that is a combination of Neighbouring objects and 2-sequence coefficient. Multiplication and Division are removed since the calculated value is too big. Example: A sequence whose coefficient of change alternates between (add 6) and (multiply by 2). 1 7 14 20 40 46 (92) (98).
 #' @author Aiden Loe and Filip Simonfy
-#' @title Item Model 12
+#' @title Item Model 11
 #' @examples \dontrun{
 #'
 #' #Draws 5 items randomly.
-#' nmTwelve(items=5, fun1 = "add", fun2= "add")
+#' imEleven(items=5, fun1 = "add", fun2= "add")
 #'
 #' }
 
@@ -18,7 +18,7 @@
 
 # 1	7	14 20	40 46 ? ?
 # (92, 98)
-nmTwelve <- function(items=1, fun1 = "add", fun2="add"){
+imEleven <- function(items=1, fun1 = "add", fun2="add"){
   if(missing(items)){
     stop("Please include x number of items to generate")
   }

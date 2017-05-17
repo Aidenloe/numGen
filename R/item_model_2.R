@@ -9,12 +9,12 @@
 #' @title Item Model 2
 #' @examples \dontrun{
 #'
-#' nmTwo(cat=2,items=4,random=FALSE)
+#' imTwo(cat=2,items=4,random=FALSE)
 #'
 #' }
 
 # categorization (1	1	1	5	5	?)
-nmTwo <- function(cat=2, items=4 ,random=FALSE ){
+imTwo <- function(cat=2, items=4 ,random=FALSE ){
   if(cat==1)
   stop("Please choose a 'cat' value greater than 1")
 

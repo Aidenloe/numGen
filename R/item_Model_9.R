@@ -1,56 +1,44 @@
-
 #' @export
-#' @param cat Number of categorical groups per question.
-#' @param n The differences between the pair of objects
-#' @param items The number of items you want to generate.
-#' @param arith The arithmetic operator of your choice ("add","substr","multi","div").
-#' @description This uses item model 9 to create number series items.
-#' @details This is based on the categorical / pattern recognition rule. Neighbouring pairs or triads of objects are related, includes arithmetic operations.
+#' @param items Number of items to generate.
+#' @details Progressive sequences which involve relationships between multiple preceding objects (e.g. Fibonacci sequence). Example: Each element of the sequence is a result of addition of its two preceding elements (1 1 2 3 5 8 (13)). The maximum number to be generated is 15 items.
+#' @description  This uses item model 10 to create number series items - Identification of relationships within a chain of elements.
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 9
 #' @examples \dontrun{
 #'
-#' nmNine(2,4,2, "add")
+#' imNine(items=3)
 #'
 #' }
 
-nmNine <- function(cat ,n, items, arith){
-if(cat==1) stop("Please select at least 2 items")
+# generates first 20 numbers of the sequence
 
-  #create columns
-  bank_cat_6 <- matrix(ncol=cat*2)
-  colnames(bank_cat_6) <- colnames(bank_cat_6, do.NULL = FALSE, prefix = "Q")
-  colnames(bank_cat_6)[cat*2] <- "A"
+imNine <- function(items){
+  if(missing(items)){
+    stop("Please include x number of items to generate")
+  }
+  if(items > 15){
+    stop("Please select less than 16 items.")
+  }
 
-  #create items
-  for (i in 1:items) {
-    item <- NULL
-    objects <- sample(seq(1:99), cat, replace = FALSE) #random sample
-    #generate number of category
-  if(arith=="substr"){
-    for(i in 1:length(objects)){
-      item <-   c(item,objects[i],objects[i]- n)
-    }
-  }
-    if(arith=="add"){
-    for(i in 1:length(objects)){
-      item <-   c(item,objects[i],objects[i] + n)
-    }
-}
-    if(arith=="multi"){
-  for(i in 1:length(objects)){
-    item <-   c(item,objects[i],objects[i] * n)
-  }
-    }
-    if(arith=="div"){
-    for(i in 1:length(objects)){
-    item <-   c(item,objects[i],objects[i] / n)
-    }
-  }
-    bank_cat_6 <- rbind(bank_cat_6, item)
-    bank_cat_6 <- na.omit(bank_cat_6)
-  }
-   return(bank_cat_6)
+fib <- matrix(c(1,1), ncol=1)
+x <- NULL
+
+for (i in 1:18) {
+  x[i] <- c(fib[i,1] + fib[(i+1),1])
+  fib <- rbind(fib, x[i])
 }
 
+vector.fib <- fib[ ,1]
+bank_fib <- matrix(ncol=6)
+colnames(bank_fib) <- colnames(bank_fib, do.NULL = FALSE, prefix = "Q")
+colnames(bank_fib)[6] <- "A"
+
+for (i in 1:items) {
+  item <- c(vector.fib[i:(i+5)])
+  bank_fib <- rbind(bank_fib, item)
+  bank_fib <- na.omit(bank_fib)
+}
+
+return(bank_fib)
+}
 

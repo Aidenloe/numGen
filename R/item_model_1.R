@@ -8,12 +8,12 @@
 #' @title Item Model 1
 #' @examples \dontrun{
 #'
-#' nmOne(items=5, seed=5)
+#' imOne(items=5, seed=5)
 #'
 #' }
 
 # same letter sequence bank = bank_1
-nmOne<- function(items=5,seed=1){
+imOne<- function(items=5,seed=1){
 
     if(missing(items)){
     stop("Please include x number of items to generate")

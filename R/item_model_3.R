@@ -12,7 +12,7 @@
 # ' }
 
 
-nmAdd <- function(length=4, items=5){
+imAdd <- function(length=4, items=5){
   bank_lin <- matrix(ncol=length)
   colnames(bank_lin) <- colnames(bank_lin, do.NULL = FALSE, prefix = "Q")
   colnames(bank_lin)[length] <- "A"
@@ -56,7 +56,7 @@ for (i in 1:items) {
 
 
 #linearity using alphabet
-nmAlpha <- function(items, reverse=FALSE){
+imAlpha <- function(items, reverse=FALSE){
   #   if(length > 26){
   #     print("please choose a smaller length value")
   #   }
@@ -100,12 +100,12 @@ nmAlpha <- function(items, reverse=FALSE){
 #' @title Item Model 3
 #' @examples
 #'
-#' nmThree(items=4,n=2,arith="add")
+#' imThree(items=4,n=2,arith="add")
 #'
 #'
 
 
-nmThree <- function(items,n, arith="add"){
+imThree <- function(items,n, arith="add"){
   stopifnot(arith =="add" || arith =="multi" || arith =="substr"  || arith =="div")
 
   bank <- matrix(ncol=9)

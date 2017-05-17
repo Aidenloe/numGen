@@ -1,105 +1,97 @@
 #' @export
 #' @importFrom stats na.omit
-#' @param items Number of items to generate.
-#' @description This uses item model 7 to create number series items - Identification of progressively evolving coefficients of change.
-#' @details Non-linear progressive sequences which require a higher level of abstraction; the coefficient of change between two neighbouring elements is not invariable and its elements form a sequence. The coefficient sequences correspond to items from Item Families 1 and 3. Example: The coefficient of change between each pair of neighbouring elements in the sequence increases by 1. (2 4 7 11 16 (22))
+#' @param vOne The first value in the complex coefficient (x). Can be a sequence of values or a specific value.
+#' @param vTwo The second value in the complex coefficient (y). Can be a sequence of values or a specific value.
+#' @param items Generate a random mix of items.
+#' @param seed To get the same random sampling of items
+#' @param logic "one" or "two"
+#' @param random If random=FALSE, the items will follow in sequential order.
+#' @description This uses item model 7 to create number series items - Identification of complex coefficients of change
+#' @details  This function creates number series that is a combination of Arithmetic, Linear and Complex coefficient. Ability to identify complex coefficients; the coefficient of change involves a combination of arithmetic operations (e.g. addition and multiplication) applied serially.\cr
+#' There are two logic to calculate the number series.
+#' First logic of complex coefficient = i*x+y.\cr
+#' Second logic of complex coefficient = (i+x)*y. \cr.
+#' Example: Each element in the sequence is derived from the preceding by adding two and multiplying the result by two. (2 8 20 44 92 (188)).
 #' @author Aiden Loe and Filip Simonfy
 #' @title Item Model 7
 #' @examples \dontrun{
 #'
-#' nmSeven(items=3)
+#' #Draws 5 items randomly.
+#' imSeven(vOne=1,vTwo=3,items=5,seed=2,logic="one",random=TRUE)
+#'
+#' # Calculates all combinations
+#' # Items and seed arg is ignored.
+#' imSeven(vOne=1:2,vTwo=1:3,items=5,seed=2,logic="one",random=FALSE)
 #'
 #' }
-#
-#Arithmetic + Linear + Progressive coefficient (i.e. coefficient = sequence)
-# Define starting point - e.g. each number 1:100
-# define coefficient sequence - first element and progression
-# element = first element + sum of the sequence at the position of the element
-nmSeven <- function(items){
-bank_lin <- matrix(ncol=6)
-colnames(bank_lin) <- colnames(bank_lin, do.NULL = FALSE, prefix = "Q")
-colnames(bank_lin)[6] <- "A"
 
-for (i in 1:95) {
-  item <- c(i, i+1, i+2, i+3, i+4, i+6)
-  bank_lin <- rbind(bank_lin, item)
-  bank_lin <- na.omit(bank_lin)
-}
-
-#Model 2_1
-model2_1 <- function(value){
-  bank_lin <- nmAdd(9,95)
-  bank_lin <- as.matrix(bank_lin)
-
-
-  #add
-  add<- NULL
-  for(i in 1:50){
-    add[[i]] <- nmThree(items=10,n=i,arith="add")
-  }
-  add <- do.call("rbind", add)
-
-  #substruct
-  sub<- NULL
-  for(i in 1:25){
-    sub[[i]] <- nmThree(items=10,n=i,arith="substr")
-  }
-  sub <- do.call("rbind", sub)
-
-
-#multi
-#   multi<- NULL
-#   for(i in 2:50){
-#     multi[[i]] <- nmThree(items=10,n=i,arith="multi")
-#   }
-#   multi <- do.call("rbind", multi)
-#   multi <- subset(multi, multi[,6] < 200)
-
-  #division
-#   div<- NULL
-#   for(i in 2:50){
-#     div[[i]] <- nmThree(items=10,n=i,arith="div")
-#   }
-#   div <- do.call("rbind", div)
-#   div <- subset(div, div[,1] < 500)
-
-
-#combind all together
-  bank_list <- rbind(bank_lin, add, sub)
-  bank_seq <- na.omit(bank_list)
-  return(bank_seq)
-  #return(add)
-}
-
-bank_list <- model2_1(100) # always 100
-bank_list
-
-
-bank_32 <- matrix(ncol=6)
-colnames(bank_32) <- colnames(bank_32, do.NULL = FALSE, prefix = "Q")
-colnames(bank_32)[6] <- "A"
-
-# all combinations would be too lenghty >> random selection
-# generate random 1000 items
-for (i in 1:items) {
-  # random item = coefficient sequence
-  a <- sample(nrow(bank_list), 1)
-  b <- bank_list[a,]
-  b
-  # d = progressive coefficient addition
-  d <- c(0, b[1], sum(b[1:2]), sum(b[1:3]), sum(b[1:4]), sum(b[1:5]))
-
-  # sequence with a random starting point
-  item <- c(sample(1:30, 1) + d)
-
-  bank_32 <- rbind(bank_32, item)
- # bank_32 <- subset(bank_32, bank_32[,6]<200)
-  bank_32 <- na.omit(bank_32)
-  nrow(bank_32)
+# Arithmetic + Linear + Complex coefficient
+# 2 5 11 23 ?
+# complex coefficient = i*x+y
+# complex coefficient = (i+x)*y
+imSeven<- function(vOne=1, vTwo=3, items ,seed=1, logic = "one", random = FALSE){
+  if(missing(items)){
+    stop("Please include x number of items to generate")
   }
 
- return(bank_32)
+  stopifnot(logic=="one" || logic=="two")
+
+if(logic == "one"){
+generate_sequence <- function(i,x,y) {
+  a <- NULL
+  a[1] <- i
+  b <- matrix(a[1], ncol=1)
+  for (l in 2:9) {
+    a[l] <- a[l-1]*x + y
+    b <- cbind(b, a[l])
+  }
+  return(b)
 }
+}
+
+if(logic == "two"){
+generate_sequence <- function(i,x,y) {
+  a <- NULL
+  a[1] <- i
+  b <- matrix(a[1], ncol=1)
+  for (l in 2:9) {
+    a[l] <- (a[l-1]+x) * y
+    b <- cbind(b, a[l])
+  }
+  return(b)
+  }
+}
+
+
+# generate i,x,y; i[1] = 1:10, x = 2:10, y = 1:99
+# all items < 2000
+bank_33 <- matrix(ncol=9)
+colnames(bank_33) <- colnames(bank_33, do.NULL = FALSE, prefix = "Q")
+colnames(bank_33)[9] <- "A"
+
+# this decides how many items are to be generated
+combinations <- expand.grid(i = c(1:items), y = c(vOne), z = c(vTwo))
+if(random == TRUE){
+set.seed(seed)
+s.combinations<- combinations[sample(nrow(combinations), items,replace=FALSE), ]
+    for (m in 1:nrow(s.combinations)) {
+      item <- generate_sequence(s.combinations[m,1], s.combinations[m,2], s.combinations[m,3])
+      bank_33 <- rbind(bank_33, item)
+      bank_33 <- na.omit(bank_33)
+      #bank_33 <- subset(bank_33, bank_33[,6] < 1999)
+    }
+}else{
+  for (m in 1:nrow(combinations)) {
+    item <- generate_sequence(combinations[m,1], combinations[m,2], combinations[m,3])
+    bank_33 <- rbind(bank_33, item)
+    bank_33 <- na.omit(bank_33)
+    #bank_33 <- subset(bank_33, bank_33[,6] < 1999)
+  }
+}
+rownames(bank_33) <- rep("item", times=nrow(bank_33))
+return(bank_33)
+}
+
 
 
 
