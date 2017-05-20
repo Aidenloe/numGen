@@ -65,6 +65,14 @@
 #' @section Item model 13:
 #' Combination of sequences and ratios. \cr
 #' \code{\link{imThirteen}}
+#'
+#' @references
+#'
+#'LeFevre, J. A., & Bisanz, J. (1986). A cognitive analysis of number-series problems: Sources of individual differences in performance. \emph{Memory & Cognition}, 14(4), 287-298.
+#'
+#'Holzman, T. G., Pellegrino, J. W., & Glaser, R. (1983). Cognitive variables in series completion. \emph{Journal of Educational Psychology}, 75(4), 603.
+#'
+#' Simon, H. A., & Kotovsky, K. (1963). Human acquisition of concepts for sequential patterns. \emph{Psychological Review}, 70(6), 534.
 #' @docType package
 #' @name numGen
 NULL
