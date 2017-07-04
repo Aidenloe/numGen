@@ -5,12 +5,16 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 note
 
-* This is a new release.
+* This is a updated release of the numGen package.
 
 ## Reverse dependencies
 
-* This is a new release, so there are no reverse dependencies.
+* This is an updated version, so there are no reverse dependencies.
 
 * All revdep maintainers were notified of the release on RELEASE DATE.
+
+* I have run R CMD check on the downstream dependencies of numGen.
+
+* There were no problems found.
