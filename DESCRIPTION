@@ -1,9 +1,11 @@
 Package: numGen
 Type: Package
 Title: Number Series Generator
-Version: 0.1.0
-Author: Aiden Loe [aut,cre,cph]
-Maintainer: Aiden <bsl28@cam.ac.uk>
+Version: 0.1.1
+Date: 2017-07-04
+Authors@R: c(person("Bao Sheng", family="Loe (Aiden)", email =
+    "bsl28@cam.ac.uk", role = c("aut", "cre", "cph")))
+Maintainer: Bao Sheng Loe (Aiden) <bsl28@cam.ac.uk>
 Description: A number series generator that creates number series items based on cognitive models.
 License: GPL-3
 LazyData: TRUE
